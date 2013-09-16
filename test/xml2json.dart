@@ -141,10 +141,10 @@ main(){
       
     });
     
-    test("Transform Complex test string", () {  
+    test("Transform Simple test string", () {  
       
       String json = myTransformer.toBadgerfish();
-      expect(json, equals(goodXmlStringJson));
+      expect(json.replaceAll(' ',''), equals(badgerfishSimpleJsonCheckString.replaceAll(' ','')));
       
     });
     
