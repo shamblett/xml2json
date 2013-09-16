@@ -128,7 +128,7 @@ main(){
   });
   
   /* Group 3 - Badgerfish*/
-  group("3. Badgerfish - ", () {
+  solo_group("3. Badgerfish - ", () {
     
     /* Initialise */
     Xml2Json myTransformer = new Xml2Json();
@@ -148,9 +148,9 @@ main(){
       
     });
     
-    /*test("Parse Complex test string", () {  
+    test("Parse Complex test string", () {  
       
-      myTransformer.parse(transformerXmlTestString );
+      myTransformer.parse(complexXmlTestString);
       bool result = myTransformer.xmlParserResult.isSuccess;
       expect(result, isTrue);
       
@@ -159,9 +159,10 @@ main(){
     test("Transform Complex test string", () {  
       
       String json = myTransformer.toBadgerfish();
-      expect(json, equals(badgerfishJsonCheckString));
-      
-    });*/
+      print(json);
+      expect(json.replaceAll(' ',''), equals(badgerfishComplexJsonCheckString.replaceAll(' ','')));
+     
+    });
     
   });
   

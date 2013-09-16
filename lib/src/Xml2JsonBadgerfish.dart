@@ -45,18 +45,17 @@ class _Xml2JsonBadgerfish {
     var cloneNS = (ns){
         var nns = {};
         if ( ns.isNotEmpty ) {
-          for (var n in ns) {
-            if (ns.hasOwnProperty(n)) {
-                nns[n] = ns[n];
+          for (var n in ns.values) {
+                nns[n] = n;
             }
           }
-        }
         return nns;
     };
     
     process(var node, var obj, var ns) {
       
       String marker = '"\$"';
+      String xmlnsPrefix = '"@xmlns"';
       
       if (node.runtimeType.toString() == "XmlText") {
         
@@ -77,12 +76,14 @@ class _Xml2JsonBadgerfish {
         for (var i = 0; i < node.attributes.length; i++) {
                 
           var attr = node.attributes[i];
-          var name = attr.name.local;
+          var name = attr.name.qualified;
           var value = attr.value;
           if (name == "xmlns") {
             ns["$marker"] = '"'+value+'"';
           } else if (name.indexOf("xmlns:") == 0) {
-            ns[name.substr(name.indexOf(":") + 1)] = '"'+value+'"';
+            String namePrefix = name.substring(name.indexOf(":") + 1);
+            namePrefix = '"'+namePrefix+'"';
+            ns[namePrefix] = '"'+value+'"';
           } else {
             String indexName = '"@$name"';
             p[indexName] = '"'+value+'"';
@@ -90,13 +91,17 @@ class _Xml2JsonBadgerfish {
          }
         
          if ( ns.isNotEmpty ) {
-          for (var prefix in ns) {
-            if (ns.hasOwnProperty(prefix)) {
-              p["@xmlns"] = p["@xmlns"] || {};
-              p["@xmlns"][prefix] = ns[prefix];
+          for (var prefix in ns.keys) {
+            if ( !p.containsKey(xmlnsPrefix))  {
+              List pList = new List<Map>();
+              p[xmlnsPrefix] = pList;
             }
+            Map nameMap = new Map<String,String>();
+            nameMap[prefix] = ns[prefix];
+            p[xmlnsPrefix].add(nameMap);
            }
          }
+         ns = {};
          
          if (obj[nodeName].runtimeType == "List") {
           obj[nodeName].add(p);
