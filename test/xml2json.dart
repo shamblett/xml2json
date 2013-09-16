@@ -14,16 +14,15 @@ main(){
    
   useHtmlConfiguration();
    
-  /* Tests */
   
   /* Group 1 - XML parse tests */
-  group("1. XML string not parsed  - ", () {
+  group("1. Parse not performed  - ", () {
     
     
     /* Initialise */
     Xml2Json myTransformer = new Xml2Json();
     
-    test("Not Parsed Badgerfish", () {  
+    test("Badgerfish", () {  
          
       expect(()=> myTransformer.toBadgerfish(),
           throwsA(new isInstanceOf<Xml2JsonException>('toBadgerfish - no parse result')));
@@ -32,7 +31,7 @@ main(){
       
     }); 
 
-    test("Not Parsed Parker", () {  
+    test("Parker", () {  
       
       expect(()=> myTransformer.toParker(),
           throwsA(new isInstanceOf<Xml2JsonException>('toParker - no parse result')));
@@ -40,7 +39,7 @@ main(){
       
     }); 
 
-    test("Not Parsed Spark", () {  
+    test("Spark", () {  
       
       expect(()=> myTransformer.toSpark(),
           throwsA(new isInstanceOf<Xml2JsonException>('toSpark - no parse result')));
@@ -48,7 +47,7 @@ main(){
       
     }); 
     
-    test("Not Parsed GData", () {  
+    test("GData", () {  
       
       expect(()=> myTransformer.toGData(),
           throwsA(new isInstanceOf<Xml2JsonException>('toGData - no parse result')));
@@ -60,19 +59,80 @@ main(){
 
   });  
  
-  /* Group 2 - Badgerfish */
+  /* Group 2 - XML Parsing */
+  group("2. XML Parse - ", () {
+    
+    /* Initialise */
+    Xml2Json myTransformer = new Xml2Json();
+    
+    test("Invalid XML", () {  
+        
+      expect(()=> myTransformer.parse(rubbishXmlString),
+          throwsA(new isInstanceOf<Xml2JsonException>()));
+      
+      
+    }); 
+    
+    test("Invalid XML Badgerfish", () {  
+      
+      expect(()=> myTransformer.toBadgerfish(),
+          throwsA(new isInstanceOf<Xml2JsonException>('toBadgerfish - parse has failed')));
+
+      
+      
+    }); 
+
+    test("Invalid XML Parker", () {  
+      
+      expect(()=> myTransformer.toParker(),
+          throwsA(new isInstanceOf<Xml2JsonException>('toParker - parse has failed')));
+      
+      
+    }); 
+
+    test("Invalid XML Spark", () {  
+      
+      expect(()=> myTransformer.toSpark(),
+          throwsA(new isInstanceOf<Xml2JsonException>('toSpark - parse has failed')));
+      
+      
+    }); 
+    
+    test("Invalid XML GData", () {  
+      
+      expect(()=> myTransformer.toGData(),
+          throwsA(new isInstanceOf<Xml2JsonException>('toGData - parse has failed')));
+      
+      
+    }); 
+    
+    test("Valid XML", () {  
+      
+      myTransformer.parse(goodXmlString);
+      var result = myTransformer.xmlParserResult;
+      bool success = result.isSuccess;
+      expect(success, isTrue);
+      
+    }); 
+    
+    test("Valid CMIS ATOM Feed", () {  
+      
+      myTransformer.parse(cmisAtomXmlString);
+      var result = myTransformer.xmlParserResult;
+      bool success = result.isSuccess;
+      expect(success, isTrue);
+      
+    }); 
+    
+    
+  });
+  
+  /* Group 3 - Badgerfish*/
   group("2. XML Parse tests - ", () {
     
-    
-    
-    //test("Transform", () {  
-        
-      
-      //expect(wrapper,throwsA(new isInstanceOf<WiltException>()));
-      
-      
-    //}); 
-    
+    /* Initialise */
+    Xml2Json myTransformer = new Xml2Json();
+     
     
   });
   

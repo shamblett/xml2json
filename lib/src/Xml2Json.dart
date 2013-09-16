@@ -60,6 +60,11 @@ class Xml2Json {
     try {
       
       _result = _xmlParser.parse(xmlString);
+      if ( _result.isFailure ) {
+        
+        throw new Xml2JsonException("parse error - invalid XML");
+        
+      }
       
     } catch(e) {
       
@@ -81,6 +86,11 @@ class Xml2Json {
     if ( _result == null ) {
       
       throw new Xml2JsonException("toBadgerfish - no parse result");
+    }
+    
+    if ( _result.isFailure ) {
+      
+      throw new Xml2JsonException("toBadgerfish - no parse has failed");
     }
     
     String json = null;
@@ -108,6 +118,11 @@ class Xml2Json {
       throw new Xml2JsonException("toParker - no parse result");
     }
     
+    if ( _result.isFailure) {
+      
+      throw new Xml2JsonException("toParker - parse has failed");
+    }
+    
   }
   
   /**
@@ -119,6 +134,12 @@ class Xml2Json {
       
       throw new Xml2JsonException("toSpark- no parse result");
     }
+    
+    if ( _result.isFailure) {
+      
+      throw new Xml2JsonException("toSpark- parse has failed");
+    }
+
   }
   
   /**
@@ -129,6 +150,11 @@ class Xml2Json {
     if ( _result == null ) {
       
       throw new Xml2JsonException("toGData - no parse result");
+    }
+    
+    if ( _result.isFailure ) {
+      
+      throw new Xml2JsonException("toGData - parse has failed");
     }
 
   }
