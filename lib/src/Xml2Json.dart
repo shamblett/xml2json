@@ -11,7 +11,6 @@
  * Spark
  * Badgerfish
  * GData
- * JsonMl
  * 
  * The XML parser used is the one supplied by the petitparser package.
  * 
@@ -33,6 +32,8 @@
  * jsonTransform.parse(xmlString);
  * String jsonString = jsonTransform.toXxxxxxx();
  *  
+ *  Any exceptions thrown by the parser/transformers are re-thrown as instances of
+ *  Xml2JsonException. 
  */
 
 part of xml2json;
@@ -77,6 +78,11 @@ class Xml2Json {
    */
   String toBadgerfish() {
     
+    if ( _result == null ) {
+      
+      throw new Xml2JsonException("toBadgerfish - no parse result");
+    }
+    
     String json = null;
     _Xml2JsonBadgerfish badgerFishTransformer = new _Xml2JsonBadgerfish();
     try {
@@ -97,6 +103,10 @@ class Xml2Json {
    */
   String toParker() {
     
+    if ( _result == null ) {
+      
+      throw new Xml2JsonException("toParker - no parse result");
+    }
     
   }
   
@@ -105,7 +115,10 @@ class Xml2Json {
    */
   String toSpark() {
     
-    
+    if ( _result == null ) {
+      
+      throw new Xml2JsonException("toSpark- no parse result");
+    }
   }
   
   /**
@@ -113,7 +126,11 @@ class Xml2Json {
    */
   String toGData() {
     
-    
+    if ( _result == null ) {
+      
+      throw new Xml2JsonException("toGData - no parse result");
+    }
+
   }
   
   
