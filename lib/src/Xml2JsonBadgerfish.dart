@@ -60,9 +60,9 @@ class _Xml2JsonBadgerfish {
       if (node.runtimeType.toString() == "XmlText") {
         
         /* Text node processing */
-        if (obj["$marker"].runtimeType == "List") {
+        if (obj["$marker"].runtimeType.toString() == "List") {
           obj["$marker"].add(node.nodeValue);
-        } else if (obj["$marker"].runtimeType == "LinkedHashMap") {
+        } else if (obj["$marker"].runtimeType.toString() == "LinkedHashMap") {
           obj["$marker"] = [obj["$marker"], node.nodeValue];
         } else {
           obj["$marker"] = '"'+node.data+'"';
@@ -103,7 +103,7 @@ class _Xml2JsonBadgerfish {
          }
          ns = {};
          
-         if (obj[nodeName].runtimeType == "List") {
+         if (obj[nodeName].runtimeType.toString() == "List") {
           obj[nodeName].add(p);
          } else if (obj[nodeName].runtimeType.toString() == "LinkedHashMap" ) {
           obj[nodeName] = [obj[nodeName], p];

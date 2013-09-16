@@ -159,7 +159,6 @@ main(){
     test("Transform Complex test string", () {  
       
       String json = myTransformer.toBadgerfish();
-      print(json);
       expect(json.replaceAll(' ',''), equals(badgerfishComplexJsonCheckString.replaceAll(' ','')));
      
     });
