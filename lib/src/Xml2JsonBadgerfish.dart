@@ -130,17 +130,17 @@ class _Xml2JsonBadgerfish {
    */
   String transform(var xmlNode) {
     
-    String json = null;
+    Map json = null;
     try {
       
-      _transform(xmlNode);
+      json = _transform(xmlNode);
       
     } catch(e) {
       
       throw new Xml2JsonException("Badgerfish internal transform error => ${e.toString()}");
     }
     
-    return json;
+    return json.toString();
     
   }
   

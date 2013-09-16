@@ -128,11 +128,40 @@ main(){
   });
   
   /* Group 3 - Badgerfish*/
-  group("2. XML Parse tests - ", () {
+  group("3. Badgerfish - ", () {
     
     /* Initialise */
     Xml2Json myTransformer = new Xml2Json();
-     
+    
+    test("Parse Simple test string", () {  
+      
+      myTransformer.parse(goodXmlString );
+      bool result = myTransformer.xmlParserResult.isSuccess;
+      expect(result, isTrue);
+      
+    });
+    
+    test("Transform Complex test string", () {  
+      
+      String json = myTransformer.toBadgerfish();
+      expect(json, equals(goodXmlStringJson));
+      
+    });
+    
+    /*test("Parse Complex test string", () {  
+      
+      myTransformer.parse(transformerXmlTestString );
+      bool result = myTransformer.xmlParserResult.isSuccess;
+      expect(result, isTrue);
+      
+    });
+    
+    test("Transform Complex test string", () {  
+      
+      String json = myTransformer.toBadgerfish();
+      expect(json, equals(badgerfishJsonCheckString));
+      
+    });*/
     
   });
   

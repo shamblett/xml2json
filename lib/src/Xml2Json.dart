@@ -97,7 +97,7 @@ class Xml2Json {
     _Xml2JsonBadgerfish badgerFishTransformer = new _Xml2JsonBadgerfish();
     try {
       
-      json = badgerFishTransformer.transform(_result);
+      json = badgerFishTransformer.transform(_result.value);
       
     } catch(e) {
       
