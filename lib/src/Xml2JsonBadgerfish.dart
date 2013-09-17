@@ -17,7 +17,7 @@
  * The default namespace URI goes in @xmlns.$.
  * Other namespaces go in other properties of @xmlns.
  * Elements with namespace prefixes become object properties, too.
- * The @xmlns property goes only in object relative to the element where namespace was declared.
+ * The @xmlns property goes only in the object relative to the element where namespace was declared.
  * 
  */
 
@@ -34,9 +34,7 @@ class _Xml2JsonBadgerfish {
    * 
    * Its been 'Dartified' only enough to make it functional which means its a bit ugly
    * and a bit fragile, I don't for instance like the 'runtimeType == "LinkedHashMap" 
-   * constructs, however, I don't see any advantage in spending time making it better,
-   * its tested, it works and its close enough to the original for any afficionados in
-   * this area to spot flaws in it and improve it.
+   * constructs, however, its tested and works OK.
    */
   Map _transform(var node) {
     

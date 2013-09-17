@@ -7,6 +7,7 @@
 
 import '../lib/xml2json.dart';
 
+import 'package:json/json.dart';
 import 'package:unittest/unittest.dart';  
 import 'package:unittest/html_config.dart';
 import 'xml2json_test_strings.dart';
@@ -145,9 +146,12 @@ main(){
       
       String json = myTransformer.toBadgerfish();
       expect(json.replaceAll(' ',''), equals(badgerfishSimpleJsonCheckString.replaceAll(' ','')));
+      /* Re parse just to check */
+      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
       
     });
     
+
     test("Parse Complex test string", () {  
       
       myTransformer.parse(complexXmlTestString);
@@ -160,6 +164,8 @@ main(){
       
       String json = myTransformer.toBadgerfish();
       expect(json.replaceAll(' ',''), equals(badgerfishComplexJsonCheckString.replaceAll(' ','')));
+      /* Re parse just to check */
+      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
      
     });
     
