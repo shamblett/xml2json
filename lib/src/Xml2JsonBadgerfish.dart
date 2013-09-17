@@ -40,16 +40,6 @@ class _Xml2JsonBadgerfish {
     
     var json = {};
     
-    var cloneNS = (ns){
-        var nns = {};
-        if ( ns.isNotEmpty ) {
-          for (var n in ns.values) {
-                nns[n] = n;
-            }
-          }
-        return nns;
-    };
-    
     process(var node, var obj, var ns) {
       
       String marker = '"\$"';
@@ -99,7 +89,6 @@ class _Xml2JsonBadgerfish {
             p[xmlnsPrefix].add(nameMap);
            }
          }
-         ns = {};
          
          if (obj[nodeName].runtimeType.toString() == "List") {
           obj[nodeName].add(p);
@@ -109,14 +98,14 @@ class _Xml2JsonBadgerfish {
           obj[nodeName] = p;
          }
          for (var j = 0; j < node.children.length; j++) {
-          process(node.children[j], p, cloneNS(ns));
+          process(node.children[j], p, {});
          }
          
       } else if (node.runtimeType.toString() == "XmlDocument") {
         
           /* Document node processing */
           for (var k = 0; k < node.children.length; k++) {
-            process(node.children[k], obj, cloneNS(ns));
+            process(node.children[k], obj, {});
           }
       }
       

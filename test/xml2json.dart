@@ -129,7 +129,7 @@ main(){
   });
   
   /* Group 3 - Badgerfish*/
-  solo_group("3. Badgerfish - ", () {
+  group("3. Badgerfish - ", () {
     
     /* Initialise */
     Xml2Json myTransformer = new Xml2Json();
