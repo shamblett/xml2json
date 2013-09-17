@@ -48,12 +48,13 @@ class _Xml2JsonBadgerfish {
       if (node.runtimeType.toString() == "XmlText") {
         
         /* Text node processing */
+        String nodeData = '"'+node.data+'"';
         if (obj["$marker"].runtimeType.toString() == "List") {
-          obj["$marker"].add(node.nodeValue);
+          obj["$marker"].add(nodeData);
         } else if (obj["$marker"].runtimeType.toString() == "LinkedHashMap") {
-          obj["$marker"] = [obj["$marker"], node.nodeValue];
+          obj["$marker"] = [obj["$marker"], nodeData];
         } else {
-          obj["$marker"] = '"'+node.data+'"';
+          obj["$marker"] = nodeData;
         }
       
       } else if (node.runtimeType.toString() == "XmlElement") {
