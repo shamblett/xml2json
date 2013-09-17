@@ -128,7 +128,7 @@ main(){
     
   });
   
-  /* Group 3 - Badgerfish*/
+  /* Group 3 - Badgerfish */
   group("3. Badgerfish - ", () {
     
     /* Initialise */
@@ -164,6 +164,50 @@ main(){
       
       String json = myTransformer.toBadgerfish();
       expect(json.replaceAll(' ',''), equals(badgerfishComplexJsonCheckString.replaceAll(' ','')));
+      /* Re parse just to check */
+      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+     
+    });
+    
+  });
+  
+  /* Group 4 - Parker */
+  group("4. Parker - ", () {
+    
+    /* Initialise */
+    Xml2Json myTransformer = new Xml2Json();
+    
+    test("Parse Simple test string", () {  
+      
+      myTransformer.parse(goodXmlString );
+      bool result = myTransformer.xmlParserResult.isSuccess;
+      expect(result, isTrue);
+      
+    });
+    
+    test("Transform Simple test string", () {  
+      
+      String json = myTransformer.toParker();
+      expect(json.replaceAll(' ',''), equals(parkerSimpleJsonCheckString.replaceAll(' ','')));
+      /* Re parse just to check */
+      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      
+    });
+    
+
+    test("Parse Complex test string", () {  
+      
+      myTransformer.parse(complexXmlTestString);
+      bool result = myTransformer.xmlParserResult.isSuccess;
+      expect(result, isTrue);
+      
+    });
+    
+    test("Transform Complex test string", () {  
+      
+      String json = myTransformer.toParker();
+      print(json);
+      expect(json.replaceAll(' ',''), equals(parkerComplexJsonCheckString.replaceAll(' ','')));      
       /* Re parse just to check */
       expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
      

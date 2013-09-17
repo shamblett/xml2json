@@ -96,10 +96,10 @@ class Xml2Json {
     }
     
     String json = null;
-    _Xml2JsonBadgerfish badgerFishTransformer = new _Xml2JsonBadgerfish();
+    _Xml2JsonBadgerfish badgerfishTransformer = new _Xml2JsonBadgerfish();
     try {
       
-      json = badgerFishTransformer.transform(_result.value);
+      json = badgerfishTransformer.transform(_result.value);
       
     } catch(e) {
       
@@ -124,6 +124,20 @@ class Xml2Json {
       
       throw new Xml2JsonException("toParker - parse has failed");
     }
+    
+    String json = null;
+    _Xml2JsonParker parkerTransformer = new _Xml2JsonParker();
+    try {
+      
+      json = parkerTransformer.transform(_result.value);
+      
+    } catch(e) {
+      
+      throw new Xml2JsonException("toParker error => ${e.toString()}");
+    }
+    
+    return json;
+    
     
   }
   
