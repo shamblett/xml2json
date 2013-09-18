@@ -206,7 +206,6 @@ main(){
     test("Transform Complex test string", () {  
       
       String json = myTransformer.toParker();
-      print(json);
       expect(json.replaceAll(' ',''), equals(parkerComplexJsonCheckString.replaceAll(' ','')));      
       /* Re parse just to check */
       expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));

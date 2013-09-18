@@ -5,10 +5,9 @@
  * Copyright :  S.Hamblett@OSCF
  * 
  * The Xml2Json class provids a means of parsing XML data and transforming the
- * resultant element tree into a number of popular JSON XML formats :-
+ * resultant element tree into the following popular JSON XML formats :-
  * 
- * Parker
- * Spark
+ * Parker(plus)
  * Badgerfish
  * GData
  * 
@@ -139,23 +138,6 @@ class Xml2Json {
     return json;
     
     
-  }
-  
-  /**
-   * Spark
-   */
-  String toSpark() {
-    
-    if ( _result == null ) {
-      
-      throw new Xml2JsonException("toSpark- no parse result");
-    }
-    
-    if ( _result.isFailure) {
-      
-      throw new Xml2JsonException("toSpark- parse has failed");
-    }
-
   }
   
   /**

@@ -4,10 +4,29 @@
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
  *
- * Badgerfish conversion class.
+ * Parker conversion class.
  * 
  * The Parker convention is lossy, it simply ignores XML attributes. 
- * The advantage is that it generates much leaner and cleaner JSON.
+ * The advantage is that it generates much leaner and cleaner JSON closer
+ * to javascript Json than Badgerfish or GData which attempt to preserve
+ * the XML structure.
+ * 
+ * Good for arrays of books, people etc that just happen to be in XML format
+ * but are basically simple collections.
+ * 
+ * This transform conforms to the Parker convention here 
+ * https://code.google.com/p/xml2json-xslt/wiki/TransformingRules except
+ * for item 7, the name elements are still grouped as an array but under a 
+ * property named after the elements, so 
+ * 
+ * <root><item>1</item><item>2</item><item>three</item></root>
+ * 
+ * becomes :-
+ * 
+ * {"item":["1","2","three"]} NOT ["1","2","three"]
+ * 
+ * This allows all 'items' to be pulled out of the data in one go and is felt to be
+ * more useful than the conventional Parker transform.
  * 
  */
 
@@ -17,9 +36,6 @@ class _Xml2JsonParker{
   
   /**
    * Parker transformer function.
-   * 
-   * This is basically Badgerfish without attributes, which means it may not be suitable
-   * for heavy lifting or ATOM parsing.
    */
   Map _transform(var node, var obj) {
     
