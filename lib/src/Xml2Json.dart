@@ -62,7 +62,11 @@ class Xml2Json {
     _result = _xmlParser.parse(xmlString);
       if ( _result.isFailure ) {
         
-        throw new Xml2JsonException("parse error - invalid XML");
+        String errorString = "parse error - invalid XML, " +
+                             "position is [${_result.position.toString()}], " +
+                             "error is [${_result.message}]";
+        throw new Xml2JsonException(errorString);
+            
         
       }
       

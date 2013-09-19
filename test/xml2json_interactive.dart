@@ -18,6 +18,13 @@ ButtonElement transformIt = query('#transformIt');
 ButtonElement clearIt = query('#clearIt');
 DivElement errorArea = query('#errorArea');
 
+void reportError(String error ) {
+  
+  PreElement theError = new PreElement();
+  theError.text = error;
+  errorArea.children.add(theError);
+  
+}
 void doTransform(e) {
   
   Xml2Json xmlTransformer = new Xml2Json();
@@ -25,7 +32,7 @@ void doTransform(e) {
   try {
     xmlTransformer.parse(theXml);
   } catch(e) {
-    errorArea.innerHtml = e.toString();
+    reportError(e.toString());
     return;
   }
   
@@ -45,7 +52,7 @@ void doTransform(e) {
         try {
           jsonElement.value = xmlTransformer.toParker();
         } catch (e) {  
-          errorArea.innerHtml = e.toString();
+          reportError(e.toString());
         }
         break;
       
@@ -54,7 +61,7 @@ void doTransform(e) {
         try {
         jsonElement.value = xmlTransformer.toBadgerfish();
         } catch (e) {  
-          errorArea.innerHtml = e.toString();
+          reportError(e.toString());
         }
         break; 
       
@@ -63,7 +70,7 @@ void doTransform(e) {
         try {
           jsonElement.value = xmlTransformer.toGData();
         } catch (e) {  
-          errorArea.innerHtml = e.toString();
+          reportError(e.toString());
         }
         break;
         
@@ -78,7 +85,7 @@ main() {
   clearIt.onClick.listen((e){
     
     jsonElement.value = "";
-    errorArea.innerHtml = "";
+    errorArea.children.clear();
     
   });
   
