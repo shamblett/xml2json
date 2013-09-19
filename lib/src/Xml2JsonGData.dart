@@ -93,6 +93,19 @@ class _Xml2JsonGData {
           for (var k = 0; k < node.children.length; k++) {
             process(node.children[k], obj, {});
           }
+      }  else if (node.runtimeType.toString() == "XmlProcessing") {
+        
+          /* Processing node, only text in this node */
+          String processingString = node.data;
+          Map nodeMap = mapProcessingNode(processingString);
+          for ( String i in nodeMap.keys ) {
+            
+            String index = '"'+i+'"';
+            String sanitisedNodeData = escapeTextForJson(nodeMap[i]);
+            String nodeData = '"'+sanitisedNodeData+'"';   
+            obj[index] = nodeData;
+            
+          }
       }
       
     };

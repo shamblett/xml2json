@@ -27,3 +27,24 @@ String escapeTextForJson(String text) {
   return text;
   
 }
+
+/**
+ * Turn the processing node into a map of values.
+ */
+Map mapProcessingNode(String text) {
+  
+  Map nodeMap = new Map<String,String>();
+  text = text.trim();
+  text = text.replaceAll('"', '');
+  List properties = text.split(' ');
+  properties.forEach((var element){
+    
+    List elementList  = element.split('=');
+    if ( elementList.length == 2 ) nodeMap[elementList[0]] = elementList[1];
+ 
+  });
+  
+  return nodeMap;
+  
+}
+

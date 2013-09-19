@@ -322,7 +322,7 @@ String parkerComplexJsonCheckString = '{'
 '}';
 
 /* GData simple test check string from */
-String GDataSimpleJsonCheckString = '{ "contacts": { "contact": { "id": "1", "name": { "\$t": "John Doe" }, "phone": { "\$t": "123-\\"456\\"-7890" }, "address": { "street": { "\$t": "123 JFKStreet" }, "city": { "\$t": "Any Town" }, "state": { "\$t": "Any State" }, "zipCode": { "\$t": "12345" } } } } }';
+String GDataSimpleJsonCheckString = '{"version": "1.0", "encoding": "UTF-8", "contacts": { "contact": { "id": "1", "name": { "\$t": "John Doe" }, "phone": { "\$t": "123-\\"456\\"-7890" }, "address": { "street": { "\$t": "123 JFKStreet" }, "city": { "\$t": "Any Town" }, "state": { "\$t": "Any State" }, "zipCode": { "\$t": "12345" } } } } }';
 
 /* GData complex XML test string from https://developers.google.com/gdata/docs/json?csw=1 */
 String GDatacomplexXmlTestString = '<?xml version="1.0" encoding="UTF-8" ?>'
@@ -385,8 +385,8 @@ String GDatacomplexXmlTestString = '<?xml version="1.0" encoding="UTF-8" ?>'
 
 /* GData complex test check string from */
 String GDataComplexJsonCheckString = '{'
-  //'"version": "1.0",'
-  //'"encoding": "UTF-8",'
+  '"version": "1.0",'
+  '"encoding": "UTF-8",'
   '"feed": {'
     '"xmlns": "http://www.w3.org/2005/Atom",'
     '"xmlns\$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",'
