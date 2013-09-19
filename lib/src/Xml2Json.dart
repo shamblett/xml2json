@@ -57,21 +57,14 @@ class Xml2Json {
    * Parse an XML string
    */
   void parse(String xmlString) {
-    
-    try {
-      
-      _result = _xmlParser.parse(xmlString);
+ 
+    _result = _xmlParser.parse(xmlString);
       if ( _result.isFailure ) {
         
         throw new Xml2JsonException("parse error - invalid XML");
         
       }
       
-    } catch(e) {
-      
-      throw new Xml2JsonException("parse error => ${e.toString()}");
-    }
-    
   }
   
   /**

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Xml2json</title>
+    <link rel="stylesheet" href="xml2json.css">
+  </head>
+  <body>
+    <h1>Interactive Xml2Json test page.</h1>
+    <h2>Please enter your XML into the top text area, select your transform and see your output
+        in the bottom one.</h2>
+     <div>
+       <form>
+         <div>
+         <label for="xmlinput">XML&nbsp;</label>
+         <textarea id="xmlinput" rows="10"></textarea>
+         </div>
+         <div>
+           <br>
+           <input type="radio" id="transformParker" name="transformer" value="parker" checked >Parker
+           <input type="radio" id="transformBadgerfish" name="transformer" value="badgerfish">Badgerfish
+           <input type="radio" id="transformGData" name="transformer" value="gdata">GData
+         <div>
+         <label for="jsonoutput">JSON</label>
+         <textarea id="jsonoutput" rows="10"></textarea>
+         </div>
+       </form> 
+       <br><br>
+       <button type="button" id="transformIt">Transform</button>  
+       <button type="button" id="clearIt">Clear JSON</button>   
+     </div><br><br>
+     <div id="errorArea" style="color:red;" ></div>
+       
+    <script type="application/dart" src="xml2json_interactive.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
