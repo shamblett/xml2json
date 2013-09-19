@@ -40,13 +40,6 @@ main(){
       
     }); 
 
-    test("Spark", () {  
-      
-      expect(()=> myTransformer.toSpark(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toSpark - no parse result')));
-      
-      
-    }); 
     
     test("GData", () {  
       
@@ -91,14 +84,6 @@ main(){
       
     }); 
 
-    test("Invalid XML Spark", () {  
-      
-      expect(()=> myTransformer.toSpark(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toSpark - parse has failed')));
-      
-      
-    }); 
-    
     test("Invalid XML GData", () {  
       
       expect(()=> myTransformer.toGData(),
@@ -213,5 +198,49 @@ main(){
     });
     
   });
+  
+  /* Group 5 - GData */
+  group("5. GData - ", () {
+    
+    /* Initialise */
+    Xml2Json myTransformer = new Xml2Json();
+    
+    test("Parse Simple test string", () {  
+      
+      myTransformer.parse(goodXmlString );
+      bool result = myTransformer.xmlParserResult.isSuccess;
+      expect(result, isTrue);
+      
+    });
+    
+    test("Transform Simple test string", () {  
+      
+      String json = myTransformer.toGData();
+      expect(json.replaceAll(' ',''), equals(GDataSimpleJsonCheckString.replaceAll(' ','')));
+      /* Re parse just to check */
+      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      
+    });
+    
+
+    test("Parse Complex test string", () {  
+      
+      myTransformer.parse(GDatacomplexXmlTestString);
+      bool result = myTransformer.xmlParserResult.isSuccess;
+      expect(result, isTrue);
+      
+    });
+    
+    test("Transform Complex test string", () {  
+      
+      String json = myTransformer.toGData();
+      expect(json.replaceAll(' ',''), equals(GDataComplexJsonCheckString.replaceAll(' ','')));
+      /* Re parse just to check */
+      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+     
+    });
+    
+  });
+  
   
 }

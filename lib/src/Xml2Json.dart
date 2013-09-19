@@ -154,6 +154,19 @@ class Xml2Json {
       
       throw new Xml2JsonException("toGData - parse has failed");
     }
+    
+    String json = null;
+    _Xml2JsonGData GDataTransformer = new _Xml2JsonGData();
+    try {
+      
+      json = GDataTransformer.transform(_result.value);
+      
+    } catch(e) {
+      
+      throw new Xml2JsonException("toGData error => ${e.toString()}");
+    }
+    
+    return json;
 
   }
   

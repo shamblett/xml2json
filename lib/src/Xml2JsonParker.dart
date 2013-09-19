@@ -51,7 +51,8 @@ class _Xml2JsonParker{
             } else { 
               if ( node.children.length >=1 ) {
                 if (node.children[0].runtimeType.toString() == "XmlText" ) {
-                  String nodeData = '"'+node.children[0].data+'"';
+                  String sanitisedNodeData = escapeTextForJson(node.children[0].data);
+                  String nodeData = '"'+sanitisedNodeData+'"';
                   if ( nodeData.isEmpty) nodeData = null;
                   obj[nodeName] = nodeData; 
                 } else  {
