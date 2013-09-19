@@ -21,7 +21,7 @@ DivElement errorArea = query('#errorArea');
 void doTransform(e) {
   
   Xml2Json xmlTransformer = new Xml2Json();
-  String theXml = xmlElement.value.trim();
+  String theXml = xmlElement.value;
   try {
     xmlTransformer.parse(theXml);
   } catch(e) {
@@ -33,7 +33,7 @@ void doTransform(e) {
   
   queryAll('[name="transformer"]').forEach((InputElement radioButton) {
     
-    if ( radioButton.attributes.containsKey('checked') ) selection = radioButton.value;
+    if ( radioButton.checked ) selection = radioButton.value;
     
   });
 

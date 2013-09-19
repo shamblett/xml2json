@@ -48,3 +48,17 @@ Map mapProcessingNode(String text) {
   
 }
 
+/**
+ * Prepare the input XML string, close up tags, strip newlines between tags etc.
+ * 
+ */
+String prepareXmlString(String xmlString) {
+  
+  xmlString = xmlString.trim();
+  xmlString = xmlString.replaceAll('>\n','>');
+  RegExp regex = new RegExp(r'>\s*<');  
+  xmlString = xmlString.replaceAll(regex, "><");    
+
+  return xmlString;
+}
+
