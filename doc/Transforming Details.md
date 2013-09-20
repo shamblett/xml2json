@@ -10,7 +10,7 @@ with the following caveats :-
 1. Similar named consecutive elements are grouped under the name of the element, not
    anonymously in an array as in the rules above, so :-
    
-   <root><item>1</item><item>2</item><item>three</item></root>
+   '<root><item>1</item><item>2</item><item>three</item></root>'
    
    becomes 
    
