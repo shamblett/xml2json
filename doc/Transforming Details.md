@@ -26,8 +26,8 @@ The Parker transformer follows the rules documented [here](https://code.google.c
    is suited to, the parsing of simple list like structures of books, records etc that just happen to
    be in XML.
 
-   ## Badgerfish
-   The Badgerfish transformer follows the rules documented [here](http://www.sklar.com/badgerfish/), to summarise :-
+## Badgerfish
+The Badgerfish transformer follows the rules documented [here](http://www.sklar.com/badgerfish/), to summarise :-
    
    1.  Element names become object properties
    2.  Text content of elements goes in the $ property of an object.
@@ -41,21 +41,21 @@ The Parker transformer follows the rules documented [here](https://code.google.c
    10. Elements with namespace prefixes become object properties, too.
    11. The @xmlns property goes only in the object relative to the element where namespace was declared.
    
- ## GData
- This is the Google Data(GData) format specified [here](https://developers.google.com/gdata/docs/json?csw=1)
+## GData
+This is the Google Data(GData) format specified [here](https://developers.google.com/gdata/docs/json?csw=1)
  
- This is basically the same as Badgerfish except that it drops the @ symbol for attributes and 
- uses $t instead of just $ for values, also the XML Processing element is included at the top of the
- transform.
+This is basically the same as Badgerfish except that it drops the @ symbol for attributes and 
+uses $t instead of just $ for values, also the XML Processing element is included at the top of the
+transform.
  
- ## Global Rules
- Each transformer implements the following rules :-
+## Global Rules
+Each transformer implements the following rules :-
  
- 1. All JSONoutput is in the form of strings, numeric literals, true and false become strings.
+1. All JSON output is in the form of strings, numeric literals, true and false become strings.
     This allows the output to be 'transmission ready' if needed for RESTful interfaces.
  
- 2. XML Comments are ignored.
+2. XML Comments are ignored.
  
- 3. CDATA sections are ignored.
+3. CDATA sections are ignored.
  
  
