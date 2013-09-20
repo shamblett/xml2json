@@ -52,7 +52,7 @@ class _Xml2JsonBadgerfish {
       if (node.runtimeType.toString() == "XmlText") {
         
         /* Text node processing */
-        String sanitisedNodeData = escapeTextForJson(node.data);
+        String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.data);
         String nodeData = '"'+sanitisedNodeData+'"';
         if (obj["$marker"].runtimeType.toString() == "List") {
           obj["$marker"].add(nodeData);

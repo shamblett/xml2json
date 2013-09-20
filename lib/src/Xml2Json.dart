@@ -58,7 +58,7 @@ class Xml2Json {
    */
   void parse(String xmlString) {
  
-    xmlString = prepareXmlString(xmlString);
+    xmlString = _Xml2JsonUtils.prepareXmlString(xmlString);
     _result = _xmlParser.parse(xmlString);
       if ( _result.isFailure ) {
         

@@ -31,7 +31,7 @@ class _Xml2JsonGData {
       if (node.runtimeType.toString() == "XmlText") {
         
         /* Text node processing */
-        String sanitisedNodeData = escapeTextForJson(node.data);
+        String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.data);
         String nodeData = '"'+sanitisedNodeData+'"';   
         if (obj["$marker"].runtimeType.toString() == "List") {
             obj["$marker"].add(nodeData);
@@ -97,11 +97,11 @@ class _Xml2JsonGData {
         
           /* Processing node, only text in this node */
           String processingString = node.data;
-          Map nodeMap = mapProcessingNode(processingString);
+          Map nodeMap = _Xml2JsonUtils.mapProcessingNode(processingString);
           for ( String i in nodeMap.keys ) {
             
             String index = '"'+i+'"';
-            String sanitisedNodeData = escapeTextForJson(nodeMap[i]);
+            String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(nodeMap[i]);
             String nodeData = '"'+sanitisedNodeData+'"';   
             obj[index] = nodeData;
             
