@@ -1,13 +1,14 @@
 /*
- * Packge : Xml2Json
+ * Packge : xml2json
  * Author : S. Hamblett <steve.hamblett@linux.com>
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
  *
  * GData conversion class.
  * 
- * This is Badgerfish except that  it drops the @ symbol for attributes 
- * and uses $t instead of just $ for values.
+ * This is Badgerfish except that it drops the @ symbol for attributes 
+ * and uses $t instead of just $ for values, also the XML Processing element is
+ * added at the top of the JSON output.
  * 
  */
 

@@ -1,5 +1,5 @@
 /*
- * Packge : Xml2Json
+ * Packge : xml2json
  * Author : S. Hamblett <steve.hamblett@linux.com>
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
@@ -11,7 +11,7 @@
 part of xml2json;
 
 /**
- * Escape any control characters and quotes for Json encoding 
+ * Escape any control characters and quotes for JSONencoding 
  */
 
 class _Xml2JsonUtils {

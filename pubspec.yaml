@@ -2,9 +2,8 @@ name: xml2json
 description: A sample web application
 dependencies:
   browser: any
-  json: any
-  json_object: any
-  meta: any
   petitparser: any
 dev_dependencies:
+  json: any
+  meta: any
   unittest: any

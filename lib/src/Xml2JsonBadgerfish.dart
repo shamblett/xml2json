@@ -1,5 +1,5 @@
 /*
- * Packge : Xml2Json
+ * Packge : xml2json
  * Author : S. Hamblett <steve.hamblett@linux.com>
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
@@ -15,8 +15,9 @@
  * Element names become object properties
  * Text content of elements goes in the $ property of an object.
  * Nested elements become nested properties
- * Multiple elements at the same level become array elements.
+ * Multiple elements at the same level become named array elements.
  * Attributes go in properties whose names begin with @.
+ * Multiple attributes at the same level become array elements.
  * Active namespaces for an element go in the element's @xmlns property.
  * The default namespace URI goes in @xmlns.$.
  * Other namespaces go in other properties of @xmlns.

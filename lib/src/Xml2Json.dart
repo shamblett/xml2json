@@ -1,5 +1,5 @@
 /*
- * Packge : Xml2json
+ * Packge : xml2json
  * Author : S. Hamblett <steve.hamblett@linux.com>
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
@@ -7,7 +7,7 @@
  * The Xml2Json class provids a means of parsing XML data and transforming the
  * resultant element tree into the following popular JSON XML formats :-
  * 
- * Parker(plus)
+ * Parker
  * Badgerfish
  * GData
  * 
@@ -18,7 +18,7 @@
  * one JSON XML format without re-parsing.
  * 
  * Note this package is intended for use as a one way transform only, it does not
- * guarantee the resulting Json string can be parsed back into valid XML.
+ * guarantee the resulting JSON string can be parsed back into valid XML.
  * 
  * See the individual transform classes for further documentation, however, all
  * the transform functions convert XML data into JSON strings, so numbers such as
