@@ -21,4 +21,5 @@ is not needed.
 Badgerfish and GData both preserve XML information such as attributes and namespaces. These are more
 suited to heavyweight XML parsing of say ATOM feeds where this information may be needed.
 
+See the main Xml2Json class for usage.
 
