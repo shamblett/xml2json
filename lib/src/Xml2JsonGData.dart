@@ -36,7 +36,7 @@ class _Xml2JsonGData {
         String nodeData = '"'+sanitisedNodeData+'"';   
         if (obj["$marker"].runtimeType.toString() == "List") {
             obj["$marker"].add(nodeData);
-        } else if (obj["$marker"].runtimeType.toString() == "LinkedHashMap") {
+        } else if (obj["$marker"].runtimeType.toString() == "_LinkedHashMap") {
             obj["$marker"] = [obj["$marker"], nodeData];
         } else { 
           obj["$marker"] = nodeData;
@@ -78,7 +78,7 @@ class _Xml2JsonGData {
          
          if (obj[nodeName].runtimeType.toString() == "List") {
            obj[nodeName].add(p);
-         } else if (obj[nodeName].runtimeType.toString() == "LinkedHashMap" ) {
+         } else if (obj[nodeName].runtimeType.toString() == "_LinkedHashMap" ) {
           obj[nodeName] = [obj[nodeName], p];
          } else {
           obj[nodeName] = p;

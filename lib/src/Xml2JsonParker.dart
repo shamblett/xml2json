@@ -45,7 +45,7 @@ class _Xml2JsonParker{
             if (obj[nodeName].runtimeType.toString() == "List") {
               obj[nodeName].add({});
               obj = obj[nodeName].last;
-            } else if (obj[nodeName].runtimeType.toString() == "LinkedHashMap" ) {
+            } else if (obj[nodeName].runtimeType.toString() == "_LinkedHashMap" ) {
               obj[nodeName] = [obj[nodeName], {}];
               obj = obj[nodeName].last;
             } else { 
