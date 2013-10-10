@@ -1,5 +1,5 @@
 /*
- * Packge : xml2json
+ * Package : xml2json
  * Author : S. Hamblett <steve.hamblett@linux.com>
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
@@ -10,12 +10,12 @@
 
 part of xml2json;
 
-/**
- * Escape any control characters and quotes for JSONencoding 
- */
 
 class _Xml2JsonUtils {
   
+  /**
+   * Escape any control characters and quotes for JSONencoding 
+   */
   static String escapeTextForJson(String text) {
   
     text = text.replaceAll("\n", "\\\\n");

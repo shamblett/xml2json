@@ -1,5 +1,5 @@
 /*
- * Packge : xml2json
+ * Package : xml2json
  * Author : S. Hamblett <steve.hamblett@linux.com>
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
@@ -41,16 +41,18 @@ part of xml2json;
 
 class Xml2Json {
 
-  /**
-   * XML parser
-   */
+  
   XmlParser _xmlParser = new XmlParser();
+  /**
+   * The XML parser
+   */
   get xmlParser => _xmlParser;
   
-  /**
-   * Parser result
-   */
+  
   Result _result = null;
+  /**
+   * The parser result
+   */
   get xmlParserResult => _result;
   
   /**
@@ -72,13 +74,9 @@ class Xml2Json {
       
   }
   
-  /**
-   * JSON transformers 
-   * 
-   */
   
   /**
-   * Badgerfish
+   * Badgerfish transformer
    */
   String toBadgerfish() {
     
@@ -108,7 +106,7 @@ class Xml2Json {
   }
   
   /**
-   * Parker
+   * Parker transformer
    */
   String toParker() {
     
@@ -139,7 +137,7 @@ class Xml2Json {
   }
   
   /**
-   * GData
+   * GData transformer
    */
   String toGData() {
     

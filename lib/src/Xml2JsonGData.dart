@@ -1,5 +1,5 @@
 /*
- * Packge : xml2json
+ * Package : xml2json
  * Author : S. Hamblett <steve.hamblett@linux.com>
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
