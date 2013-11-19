@@ -9,14 +9,14 @@ import '../lib/xml2json.dart';
 
 import 'dart:html';
 
-TextAreaElement xmlElement = query('#xmlinput');
-TextAreaElement jsonElement = query('#jsonoutput');
-RadioButtonInputElement transformerParker = query('#transformerParker');
-RadioButtonInputElement transformerBadgerfish = query('#transformerBadgerfish');
-RadioButtonInputElement transformerGData = query('#transformerGData');
-ButtonElement transformIt = query('#transformIt');
-ButtonElement clearIt = query('#clearIt');
-DivElement errorArea = query('#errorArea');
+TextAreaElement xmlElement = querySelector('#xmlinput');
+TextAreaElement jsonElement = querySelector('#jsonoutput');
+RadioButtonInputElement transformerParker = querySelector('#transformerParker');
+RadioButtonInputElement transformerBadgerfish = querySelector('#transformerBadgerfish');
+RadioButtonInputElement transformerGData = querySelector('#transformerGData');
+ButtonElement transformIt = querySelector('#transformIt');
+ButtonElement clearIt = querySelector('#clearIt');
+DivElement errorArea = querySelector('#errorArea');
 
 void reportError(String error ) {
   
@@ -38,7 +38,7 @@ void doTransform(e) {
   
   String selection = null;
   
-  queryAll('[name="transformer"]').forEach((InputElement radioButton) {
+  querySelectorAll('[name="transformer"]').forEach((InputElement radioButton) {
     
     if ( radioButton.checked ) selection = radioButton.value;
     

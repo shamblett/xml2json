@@ -7,7 +7,7 @@
 
 import '../lib/xml2json.dart';
 
-import 'package:json/json.dart';
+import 'dart:convert';
 import 'package:unittest/unittest.dart';  
 import 'package:unittest/html_config.dart';
 import 'xml2json_test_strings.dart';
@@ -132,7 +132,7 @@ main(){
       String json = myTransformer.toBadgerfish();
       expect(json.replaceAll(' ',''), equals(badgerfishSimpleJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
-      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
       
     });
     
@@ -150,7 +150,7 @@ main(){
       String json = myTransformer.toBadgerfish();
       expect(json.replaceAll(' ',''), equals(badgerfishComplexJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
-      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
      
     });
     
@@ -175,7 +175,7 @@ main(){
       String json = myTransformer.toParker();
       expect(json.replaceAll(' ',''), equals(parkerSimpleJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
-      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
       
     });
     
@@ -193,7 +193,7 @@ main(){
       String json = myTransformer.toParker();
       expect(json.replaceAll(' ',''), equals(parkerComplexJsonCheckString.replaceAll(' ','')));      
       /* Re parse just to check */
-      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
      
     });
     
@@ -218,7 +218,7 @@ main(){
       String json = myTransformer.toGData();
       expect(json.replaceAll(' ',''), equals(GDataSimpleJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
-      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
       
     });
     
@@ -236,7 +236,7 @@ main(){
       String json = myTransformer.toGData();
       expect(json.replaceAll(' ',''), equals(GDataComplexJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
-      expect(parse(json), isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
      
     });
     
