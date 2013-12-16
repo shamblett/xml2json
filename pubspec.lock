@@ -4,11 +4,7 @@ packages:
   browser:
     description: browser
     source: hosted
-    version: "0.7.2+1"
-  json_object:
-    description: json_object
-    source: hosted
-    version: "1.0.16"
+    version: "0.9.0"
   meta:
     description: meta
     source: hosted
