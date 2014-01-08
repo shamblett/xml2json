@@ -6,7 +6,7 @@ homepage: https://github.com/shamblett/xml2json
 documentation: http://oscf.org.uk/dart/api/xml2json/xml2json/Xml2Json.html
 dependencies:
   browser: '>=0.9.0 <0.10.0'
-  petitparser: '>=0.5.3 <0.5.4'
+  petitparser: '>=1.0.1'
 dev_dependencies:
   meta: any
   unittest: any
