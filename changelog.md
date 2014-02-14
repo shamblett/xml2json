@@ -1,4 +1,8 @@
 
+## 2.0.1
+
+Update dependencies to latest
+
 ## 2.0.0
 
 Updates for Dart 1.0 release

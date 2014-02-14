@@ -1,11 +1,11 @@
 name: xml2json
-version: 2.0.0
 author: S. Hamblett <steve.hamblett@linux.com>
-description: An XML to JSON conversion package.
+version: 2.0.1
 homepage: https://github.com/shamblett/xml2json
+description: An XML to JSON conversion package.
 documentation: http://oscf.org.uk/dart/api/xml2json/xml2json/Xml2Json.html
 dependencies:
-  browser: '>=0.9.0 <0.10.0'
+  browser: any
   petitparser: '>=1.0.1'
 dev_dependencies:
   meta: any
