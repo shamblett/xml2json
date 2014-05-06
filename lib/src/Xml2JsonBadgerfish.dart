@@ -50,20 +50,20 @@ class _Xml2JsonBadgerfish {
       String marker = '"\$"';
       String xmlnsPrefix = '"@xmlns"';
       
-      if (node.runtimeType.toString() == "XmlText") {
+      if (node is XmlText) {
         
         /* Text node processing */
         String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.data);
         String nodeData = '"'+sanitisedNodeData+'"';
-        if (obj["$marker"].runtimeType.toString() == "List") {
+        if (obj["$marker"] is List) {
           obj["$marker"].add(nodeData);
-        } else if (obj["$marker"].runtimeType.toString() == "_LinkedHashMap") {
+        } else if (obj["$marker"] is Map) {
           obj["$marker"] = [obj["$marker"], nodeData];
         } else {
           obj["$marker"] = nodeData;
         }
       
-      } else if (node.runtimeType.toString() == "XmlElement") {
+      } else if (node is XmlElement) {
         
         /* Element node processing */ 
         var p = {};
@@ -97,9 +97,9 @@ class _Xml2JsonBadgerfish {
            }
          }
         
-         if (obj[nodeName].runtimeType.toString() == "List") {
+         if (obj[nodeName] is List) {
           obj[nodeName].add(p);
-         } else if (obj[nodeName].runtimeType.toString() == "_LinkedHashMap" ) {
+         } else if (obj[nodeName] is Map) {
           obj[nodeName] = [obj[nodeName], p];
          } else {
           obj[nodeName] = p;
@@ -108,7 +108,7 @@ class _Xml2JsonBadgerfish {
           process(node.children[j], p, {});
          }
          
-      } else if (node.runtimeType.toString() == "XmlDocument") {
+      } else if (node is XmlDocument) {
         
           /* Document node processing */
           for (var k = 0; k < node.children.length; k++) {
