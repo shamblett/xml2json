@@ -39,18 +39,18 @@ class _Xml2JsonParker{
    */
   Map _transform(var node, var obj) {
     
-      if (node.runtimeType.toString() == "XmlElement") {
+      if (node is XmlElement) {
           
             var nodeName = "\"${node.name.qualified}\"";
-            if (obj[nodeName].runtimeType.toString() == "List") {
+            if (obj[nodeName] is List) {
               obj[nodeName].add({});
               obj = obj[nodeName].last;
-            } else if (obj[nodeName].runtimeType.toString() == "_LinkedHashMap" ) {
+            } else if (obj[nodeName] is Map) {
               obj[nodeName] = [obj[nodeName], {}];
               obj = obj[nodeName].last;
             } else { 
               if ( node.children.length >=1 ) {
-                if (node.children[0].runtimeType.toString() == "XmlText" ) {
+                if (node.children[0] is XmlText) {
                   String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.children[0].data);
                   String nodeData = '"'+sanitisedNodeData+'"';
                   if ( nodeData.isEmpty) nodeData = null;
@@ -71,7 +71,7 @@ class _Xml2JsonParker{
           
         
       
-      } else if (node.runtimeType.toString() == "XmlDocument") {
+      } else if (node is XmlDocument) {
         
         for (var j = 0; j < node.children.length; j++) { 
           _transform(node.children[j], obj);
