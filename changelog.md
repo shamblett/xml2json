@@ -1,4 +1,8 @@
 
+## 2.0.2
+
+Remove references to runtime type
+
 ## 2.0.1
 
 Update dependencies to latest
