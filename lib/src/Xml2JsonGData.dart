@@ -76,9 +76,9 @@ class _Xml2JsonGData {
            }
          }
          
-         if (obj[nodeName].runtimeType is List) {
+         if (obj[nodeName] is List) {
            obj[nodeName].add(p);
-         } else if (obj[nodeName].runtimeType is Map) {
+         } else if (obj[nodeName] is Map) {
           obj[nodeName] = [obj[nodeName], p];
          } else {
           obj[nodeName] = p;
