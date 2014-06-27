@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett@OSCF
  */
 
-import '../lib/xml2json.dart';
+import 'package:xml2json/xml2json.dart';
 
 import 'dart:convert';
 import 'package:unittest/unittest.dart';  
@@ -238,7 +238,7 @@ main(){
       /* Re parse just to check */
       expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
      
-    });
+    }); 
     
   });
   

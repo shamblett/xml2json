@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett@OSCF
  */
 
-import '../lib/xml2json.dart';
+import '../../lib/xml2json.dart';
 
 import 'dart:html';
 

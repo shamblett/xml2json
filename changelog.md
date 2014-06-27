@@ -1,4 +1,8 @@
 
+## 2.0.3
+
+Fixes for Dart V1.5 usage
+
 ## 2.0.2
 
 Remove references to runtime type
