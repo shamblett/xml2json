@@ -1,4 +1,8 @@
 
+## 2.0.4
+
+Browser is now a dev dependancy
+
 ## 2.0.3
 
 Fixes for Dart V1.5 usage

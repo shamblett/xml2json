@@ -5,8 +5,8 @@ description: An XML to JSON conversion package.
 homepage: https://github.com/shamblett/xml2json
 documentation: http://oscf.org.uk/dart/api/xml2json/xml2json/Xml2Json.html
 dependencies:
-  browser: '>=0.9.1 <0.10.0'
   petitparser: '>=1.0.1 <=1.1.1'
 dev_dependencies:
+  browser: '>=0.9.1 <0.10.0'
   meta: any
   unittest: any
