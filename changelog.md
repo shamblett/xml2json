@@ -1,3 +1,6 @@
+## 2.0.5
+
+Integrate with Dart's Drone IO testing
 
 ## 2.0.4
 
