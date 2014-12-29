@@ -96,8 +96,7 @@ main(){
       
       myTransformer.parse(goodXmlString);
       var result = myTransformer.xmlParserResult;
-      bool success = result.isSuccess;
-      expect(success, isTrue);
+      expect(result, isNot(isNull));
       
     }); 
     
@@ -105,8 +104,7 @@ main(){
       
       myTransformer.parse(cmisAtomXmlString);
       var result = myTransformer.xmlParserResult;
-      bool success = result.isSuccess;
-      expect(success, isTrue);
+      expect(result, isNot(isNull));
       
     }); 
     
@@ -122,8 +120,8 @@ main(){
     test("Parse Simple test string", () {  
       
       myTransformer.parse(goodXmlString );
-      bool result = myTransformer.xmlParserResult.isSuccess;
-      expect(result, isTrue);
+      var result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
       
     });
     
@@ -140,8 +138,8 @@ main(){
     test("Parse Complex test string", () {  
       
       myTransformer.parse(complexXmlTestString);
-      bool result = myTransformer.xmlParserResult.isSuccess;
-      expect(result, isTrue);
+      var result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
       
     });
     
@@ -165,8 +163,8 @@ main(){
     test("Parse Simple test string", () {  
       
       myTransformer.parse(goodXmlString );
-      bool result = myTransformer.xmlParserResult.isSuccess;
-      expect(result, isTrue);
+      var result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
       
     });
     
@@ -183,8 +181,8 @@ main(){
     test("Parse Complex test string", () {  
       
       myTransformer.parse(complexXmlTestString);
-      bool result = myTransformer.xmlParserResult.isSuccess;
-      expect(result, isTrue);
+      var result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
       
     });
     
@@ -208,8 +206,8 @@ main(){
     test("Parse Simple test string", () {  
       
       myTransformer.parse(goodXmlString );
-      bool result = myTransformer.xmlParserResult.isSuccess;
-      expect(result, isTrue);
+      var result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
       
     });
     
@@ -226,8 +224,8 @@ main(){
     test("Parse Complex test string", () {  
       
       myTransformer.parse(GDatacomplexXmlTestString);
-      bool result = myTransformer.xmlParserResult.isSuccess;
-      expect(result, isTrue);
+      var result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
       
     });
     

@@ -40,16 +40,8 @@
 part of xml2json;
 
 class Xml2Json {
-
   
-  XmlParser _xmlParser = new XmlParser();
-  /**
-   * The XML parser
-   */
-  get xmlParser => _xmlParser;
-  
-  
-  Result _result = null;
+  XmlDocument _result = null;
   /**
    * The parser result
    */
@@ -59,18 +51,15 @@ class Xml2Json {
    * Parse an XML string
    */
   void parse(String xmlString) {
- 
+    
+    _result = null;
     xmlString = _Xml2JsonUtils.prepareXmlString(xmlString);
-    _result = _xmlParser.parse(xmlString);
-      if ( _result.isFailure ) {
-        
-        String errorString = "parse error - invalid XML, " +
-                             "position is [${_result.position.toString()}], " +
-                             "error is [${_result.message}]";
-        throw new Xml2JsonException(errorString);
-            
-        
-      }
+    try {
+      _result = xml.parse(xmlString);
+    } catch(e) {
+      String errorString = "parse error - invalid XML, ${e.message}";
+      throw new Xml2JsonException(errorString);
+    }
       
   }
   
@@ -85,16 +74,11 @@ class Xml2Json {
       throw new Xml2JsonException("toBadgerfish - no parse result");
     }
     
-    if ( _result.isFailure ) {
-      
-      throw new Xml2JsonException("toBadgerfish - no parse has failed");
-    }
-    
     String json = null;
     _Xml2JsonBadgerfish badgerfishTransformer = new _Xml2JsonBadgerfish();
     try {
       
-      json = badgerfishTransformer.transform(_result.value);
+      json = badgerfishTransformer.transform(_result);
       
     } catch(e) {
       
@@ -114,17 +98,12 @@ class Xml2Json {
       
       throw new Xml2JsonException("toParker - no parse result");
     }
-    
-    if ( _result.isFailure) {
-      
-      throw new Xml2JsonException("toParker - parse has failed");
-    }
-    
+        
     String json = null;
     _Xml2JsonParker parkerTransformer = new _Xml2JsonParker();
     try {
       
-      json = parkerTransformer.transform(_result.value);
+      json = parkerTransformer.transform(_result);
       
     } catch(e) {
       
@@ -146,16 +125,11 @@ class Xml2Json {
       throw new Xml2JsonException("toGData - no parse result");
     }
     
-    if ( _result.isFailure ) {
-      
-      throw new Xml2JsonException("toGData - parse has failed");
-    }
-    
     String json = null;
     _Xml2JsonGData GDataTransformer = new _Xml2JsonGData();
     try {
       
-      json = GDataTransformer.transform(_result.value);
+      json = GDataTransformer.transform(_result);
       
     } catch(e) {
       

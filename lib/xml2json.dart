@@ -7,8 +7,8 @@
 
 library xml2json;
 
-import 'package:petitparser/petitparser.dart';
-import 'package:petitparser/xml.dart';
+import 'package:xml/xml.dart';
+import 'package:xml/xml.dart' as xml;
 
 part 'src/Xml2Json.dart';
 part 'src/Xml2JsonException.dart';
