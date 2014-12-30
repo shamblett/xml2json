@@ -53,7 +53,7 @@ class _Xml2JsonBadgerfish {
       if (node is XmlText) {
         
         /* Text node processing */
-        String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.data);
+        String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
         String nodeData = '"'+sanitisedNodeData+'"';
         if (obj["$marker"] is List) {
           obj["$marker"].add(nodeData);
