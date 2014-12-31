@@ -1,3 +1,10 @@
+## 2.0.6
+
+Use the new XML Package, update to latest Petit Parser
+see issue 5 in github.
+
+Remove Drone IO integration, now done by pub.
+
 ## 2.0.5
 
 Integrate with Dart's Drone IO testing

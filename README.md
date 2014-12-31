@@ -1,7 +1,7 @@
 
 # xml2json
 
-An XML to JSON conversion package. [![Build Status](https://drone.io/github.com/shamblett/xml2json/status.png)](https://drone.io/github.com/shamblett/xml2json/latest)
+An XML to JSON conversion package.
 
 This package allows the parsing of XML strings and the transformation of the resulting parse 
 tree into the following XML JSON conventions :-
