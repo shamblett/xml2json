@@ -8,6 +8,9 @@ test page allowing arbitrary chunks of XML to be transformed using one of the tr
 Just run xml2json_test.html in Dartium, the test page should show all the test as passing.
 The test strings for the tests are in the file `xml2json_test_strings.dart` for the curious.
 
+The server side tests are in xml2json_server_test.dart, straight copy of the 
+client side tests.
+
 ## Interactive tests
 
 Run xml2json_interactive.html in Dartium, paste your XML into the top text area, select

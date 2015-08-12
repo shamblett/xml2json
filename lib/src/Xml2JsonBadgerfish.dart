@@ -29,119 +29,110 @@
 part of xml2json;
 
 class _Xml2JsonBadgerfish {
-  
-  
+
   /**
    * Badgerfish transformer function.
    * 
    * This is ported from an original javascript implementation here :-
    * http://ruchirawageesha.blogspot.co.uk/2011/01/xml-to-badgerfish-converter-in.html
    * 
-   * Its been 'Dartified' only enough to make it functional which means its a bit ugly
-   * and a bit fragile, I don't for instance like the 'runtimeType == "LinkedHashMap" 
-   * constructs, however, its tested and works OK.
    */
+
+  final String _marker = '"\$"';
+  final String _xmlnsPrefix = '"@xmlns"';
+  final String _cdata = '"__cdata"';
+
   Map _transform(var node) {
-    
     var json = {};
-    
+
     process(var node, var obj, var ns) {
-      
-      String marker = '"\$"';
-      String xmlnsPrefix = '"@xmlns"';
-      
       if (node is XmlText) {
-        
+
         /* Text node processing */
         String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
-        String nodeData = '"'+sanitisedNodeData+'"';
-        if (obj["$marker"] is List) {
-          obj["$marker"].add(nodeData);
-        } else if (obj["$marker"] is Map) {
-          obj["$marker"] = [obj["$marker"], nodeData];
+        String nodeData = '"' + sanitisedNodeData + '"';
+        if (obj["$_marker"] is List) {
+          obj["$_marker"].add(nodeData);
+        } else if (obj["$_marker"] is Map) {
+          obj["$_marker"] = [obj["$_marker"], nodeData];
         } else {
-          obj["$marker"] = nodeData;
+          obj["$_marker"] = nodeData;
         }
-      
       } else if (node is XmlElement) {
-        
-        /* Element node processing */ 
+
+        /* Element node processing */
         var p = {};
         var nodeName = "\"${node.name}\"";
         for (var i = 0; i < node.attributes.length; i++) {
-                
           var attr = node.attributes[i];
           var name = attr.name.qualified;
           var value = attr.value;
           if (name == "xmlns") {
-            ns["$marker"] = '"'+value+'"';
+            ns["$_marker"] = '"' + value + '"';
           } else if (name.indexOf("xmlns:") == 0) {
             String namePrefix = name.substring(name.indexOf(":") + 1);
-            namePrefix = '"'+namePrefix+'"';
-            ns[namePrefix] = '"'+value+'"';
+            namePrefix = '"' + namePrefix + '"';
+            ns[namePrefix] = '"' + value + '"';
           } else {
             String indexName = '"@$name"';
-            p[indexName] = '"'+value+'"';
+            p[indexName] = '"' + value + '"';
           }
-         }
-        
-         if ( ns.isNotEmpty ) {
+        }
+
+        if (ns.isNotEmpty) {
           for (var prefix in ns.keys) {
-            if ( !p.containsKey(xmlnsPrefix))  {
+            if (!p.containsKey(_xmlnsPrefix)) {
               List pList = new List<Map>();
-              p[xmlnsPrefix] = pList;
+              p[_xmlnsPrefix] = pList;
             }
-            Map nameMap = new Map<String,String>();
+            Map nameMap = new Map<String, String>();
             nameMap[prefix] = ns[prefix];
-            p[xmlnsPrefix].add(nameMap);
-           }
-         }
-        
-         if (obj[nodeName] is List) {
-          obj[nodeName].add(p);
-         } else if (obj[nodeName] is Map) {
-          obj[nodeName] = [obj[nodeName], p];
-         } else {
-          obj[nodeName] = p;
-         }
-         for (var j = 0; j < node.children.length; j++) {
-          process(node.children[j], p, {});
-         }
-         
-      } else if (node is XmlDocument) {
-        
-          /* Document node processing */
-          for (var k = 0; k < node.children.length; k++) {
-            process(node.children[k], obj, {});
+            p[_xmlnsPrefix].add(nameMap);
           }
+        }
+
+        if (obj[nodeName] is List) {
+          obj[nodeName].add(p);
+        } else if (obj[nodeName] is Map) {
+          obj[nodeName] = [obj[nodeName], p];
+        } else {
+          obj[nodeName] = p;
+        }
+        for (var j = 0; j < node.children.length; j++) {
+          process(node.children[j], p, {});
+        }
+      } else if (node is XmlCDATA) {
+
+        /* CDATA node processing */
+        String sanitisedNodeData = node.text;
+        String nodeData = '"' + sanitisedNodeData + '"';
+        obj["$_cdata"] = nodeData;
+      } else if (node is XmlDocument) {
+
+        /* Document node processing */
+        for (var k = 0; k < node.children.length; k++) {
+          process(node.children[k], obj, {});
+        }
       }
-      
-    };
-    
+    }
+    ;
+
     process(node, json, {});
     return json;
-    
   }
-    
-  
+
   /**
    * Transformer function
    */
   String transform(var xmlNode) {
-    
     Map json = null;
     try {
-      
       json = _transform(xmlNode);
-      
-    } catch(e) {
-      
-      throw new Xml2JsonException("Badgerfish internal transform error => ${e.toString()}");
+    } catch (e) {
+      throw new Xml2JsonException(
+          "Badgerfish internal transform error => ${e.toString()}");
     }
-    
+
     return json.toString();
-    
   }
-  
-  
 }

@@ -56,6 +56,7 @@ Each transformer implements the following rules :-
  
 2. XML Comments are ignored.
  
-3. CDATA sections are ignored.
+3. CDATA sections are ignored for Parker but translated into '__cdata' properties
+   for Badgerfish and GData
  
  

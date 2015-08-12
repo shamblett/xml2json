@@ -1,3 +1,8 @@
+## 2.0.7
+
+Issue 7, CDATA nodes now translated for Badgerfish
+and GData.
+
 ## 2.0.6
 
 Use the new XML Package, update to latest Petit Parser
