@@ -1,3 +1,7 @@
+## 2.0.8
+
+Issue 8, correctly escape CDATA strings for JSON
+
 ## 2.0.7
 
 Issue 7, CDATA nodes now translated for Badgerfish

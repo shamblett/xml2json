@@ -92,7 +92,7 @@ class _Xml2JsonGData {
       } else if (node is XmlCDATA) {
 
         /* CDATA node processing */
-        String sanitisedNodeData = node.text;
+        String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
         String nodeData = '"' + sanitisedNodeData + '"';
         obj["$_cdata"] = nodeData;
       } else if (node is XmlProcessing) {
