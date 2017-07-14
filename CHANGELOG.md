@@ -1,6 +1,7 @@
 ## 2.0.9
 
-Issue 9, SDK version constraint update
+Issue 9, SDK version constraint update, general
+pre Dart 2.0 spruce up
 
 ## 2.0.8
 
