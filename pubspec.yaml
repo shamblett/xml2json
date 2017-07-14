@@ -13,4 +13,4 @@ dependencies:
 dev_dependencies:
   browser: '>=0.9.1 <0.10.0'
   meta: any
-  unittest: any
+  test: '^0.12.9'

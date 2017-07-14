@@ -8,11 +8,10 @@
 import 'package:xml2json/xml2json.dart';
 
 import 'dart:convert';
-import 'package:unittest/unittest.dart';  
+import 'package:test/test.dart';
 import 'xml2json_test_strings.dart';
 main(){
-   
-  
+
   /* Group 1 - XML parse tests */
   group("1. Parse not performed  - ", () {
     
@@ -22,8 +21,8 @@ main(){
     
     test("Badgerfish", () {  
          
-      expect(()=> myTransformer.toBadgerfish(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toBadgerfish - no parse result')));
+      expect(myTransformer.toBadgerfish(),
+          throwsA(new Xml2JsonException('toBadgerfish - no parse result')));
 
       
       
@@ -31,8 +30,8 @@ main(){
 
     test("Parker", () {  
       
-      expect(()=> myTransformer.toParker(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toParker - no parse result')));
+      expect(myTransformer.toParker(),
+          throwsA(new Xml2JsonException('toParker - no parse result')));
       
       
     }); 
@@ -40,8 +39,8 @@ main(){
     
     test("GData", () {  
       
-      expect(()=> myTransformer.toGData(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toGData - no parse result')));
+      expect(myTransformer.toGData(),
+          throwsA(new Xml2JsonException('toGData - no parse result')));
       
       
     }); 
@@ -66,8 +65,8 @@ main(){
     
     test("Invalid XML Badgerfish", () {  
       
-      expect(()=> myTransformer.toBadgerfish(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toBadgerfish - parse has failed')));
+      expect(myTransformer.toBadgerfish(),
+          throwsA(new Xml2JsonException('toBadgerfish - parse has failed')));
 
       
       
@@ -75,16 +74,16 @@ main(){
 
     test("Invalid XML Parker", () {  
       
-      expect(()=> myTransformer.toParker(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toParker - parse has failed')));
+      expect(myTransformer.toParker(),
+          throwsA(new Xml2JsonException('toParker - parse has failed')));
       
       
     }); 
 
     test("Invalid XML GData", () {  
       
-      expect(()=> myTransformer.toGData(),
-          throwsA(new isInstanceOf<Xml2JsonException>('toGData - parse has failed')));
+      expect(myTransformer.toGData(),
+          throwsA(new Xml2JsonException('toGData - parse has failed')));
       
       
     }); 
