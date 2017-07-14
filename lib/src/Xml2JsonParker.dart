@@ -32,74 +32,57 @@
 
 part of xml2json;
 
-class _Xml2JsonParker{
-  
-  /**
-   * Parker transformer function.
-   */
+class _Xml2JsonParker {
+  /// Parker transformer function.
   Map _transform(var node, var obj) {
-    
-      if (node is XmlElement) {
-          
-            var nodeName = "\"${node.name.qualified}\"";
-            if (obj[nodeName] is List) {
-              obj[nodeName].add({});
-              obj = obj[nodeName].last;
-            } else if (obj[nodeName] is Map) {
-              obj[nodeName] = [obj[nodeName], {}];
-              obj = obj[nodeName].last;
-            } else { 
-              if ( node.children.length >=1 ) {
-                if (node.children[0] is XmlText) {
-                  String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
-                  String nodeData = '"'+sanitisedNodeData+'"';
-                  if ( nodeData.isEmpty) nodeData = null;
-                  obj[nodeName] = nodeData; 
-                } else  {
-                  obj[nodeName] = {};
-                  obj = obj[nodeName];
-                } 
-              } else {
-                /* No children, empty element */
-                obj[nodeName] = null; 
-              }
-            }
-            
-            for (var j = 0; j < node.children.length; j++) { 
-              _transform(node.children[j], obj);
-            }
-          
-        
-      
-      } else if (node is XmlDocument) {
-        
-        for (var j = 0; j < node.children.length; j++) { 
-          _transform(node.children[j], obj);
+    if (node is XmlElement) {
+      final nodeName = "\"${node.name.qualified}\"";
+      if (obj[nodeName] is List) {
+        obj[nodeName].add({});
+        obj = obj[nodeName].last;
+      } else if (obj[nodeName] is Map) {
+        obj[nodeName] = [obj[nodeName], {}];
+        obj = obj[nodeName].last;
+      } else {
+        if (node.children.length >= 1) {
+          if (node.children[0] is XmlText) {
+            final String sanitisedNodeData =
+                _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
+            String nodeData = '"' + sanitisedNodeData + '"';
+            if (nodeData.isEmpty) nodeData = null;
+            obj[nodeName] = nodeData;
+          } else {
+            obj[nodeName] = {};
+            obj = obj[nodeName];
+          }
+        } else {
+          /* No children, empty element */
+          obj[nodeName] = null;
         }
-        
       }
-         
-     return obj;
-     
+
+      for (var j = 0; j < node.children.length; j++) {
+        _transform(node.children[j], obj);
+      }
+    } else if (node is XmlDocument) {
+      for (var j = 0; j < node.children.length; j++) {
+        _transform(node.children[j], obj);
+      }
+    }
+
+    return obj;
   }
-  
-  /**
-   * Transformer function
-   */
-  String transform(var xmlNode) {
-    
+
+  /// Transformer function
+  String transform(XmlDocument xmlNode) {
     Map json = null;
     try {
-      
       json = _transform(xmlNode, {});
-      
-    } catch(e) {
-      
-      throw new Xml2JsonException("Parker internal transform error => ${e.toString()}");
+    } catch (e) {
+      throw new Xml2JsonException(
+          "Parker internal transform error => ${e.toString()}");
     }
-    
+
     return json.toString();
-    
   }
-  
 }

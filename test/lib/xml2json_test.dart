@@ -59,33 +59,6 @@ void main() {
                   'Xml2JsonException: message = parse error - invalid XML, Expected name at 1:2')));
     });
 
-    test("Invalid XML Badgerfish", () {
-      expect(
-          () => myTransformer.toBadgerfish(),
-          throwsA(predicate((e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = toBadgerfish - parse has failed')));
-    });
-
-    test("Invalid XML Parker", () {
-      expect(
-          () => myTransformer.toParker(),
-          throwsA(predicate((e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = toParker - parse has failed')));
-    });
-
-    test("Invalid XML GData", () {
-      expect(
-          () => myTransformer.toGData(),
-          throwsA(predicate((e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = toGData - parse has failed')));
-    });
-
     test("Valid XML", () {
       myTransformer.parse(goodXmlString);
       final result = myTransformer.xmlParserResult;
@@ -185,14 +158,14 @@ void main() {
     test("Transform Simple test string", () {
       final String json = myTransformer.toGData();
       expect(json.replaceAll(' ', ''),
-          equals(GDataSimpleJsonCheckString.replaceAll(' ', '')));
+          equals(gDataSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
       expect(JSON.encode(json),
           isNot(throwsA(new isInstanceOf<FormatException>())));
     });
 
     test("Parse Complex test string", () {
-      myTransformer.parse(GDatacomplexXmlTestString);
+      myTransformer.parse(gDatacomplexXmlTestString);
       final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
@@ -200,7 +173,7 @@ void main() {
     test("Transform Complex test string", () {
       final String json = myTransformer.toGData();
       expect(json.replaceAll(' ', ''),
-          equals(GDataComplexJsonCheckString.replaceAll(' ', '')));
+          equals(gDataComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
       expect(JSON.encode(json),
           isNot(throwsA(new isInstanceOf<FormatException>())));

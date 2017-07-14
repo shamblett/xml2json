@@ -10,14 +10,14 @@ import 'package:xml2json/xml2json.dart';
 import 'dart:convert';
 import 'package:test/test.dart';
 import 'xml2json_test_strings.dart';
-main(){
+void main(){
 
   /* Group 1 - XML parse tests */
   group("1. Parse not performed  - ", () {
     
     
     /* Initialise */
-    Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = new Xml2Json();
     
     test("Badgerfish", () {  
          
@@ -53,7 +53,7 @@ main(){
   group("2. XML Parse - ", () {
     
     /* Initialise */
-    Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = new Xml2Json();
     
     test("Invalid XML", () {  
         
@@ -91,7 +91,7 @@ main(){
     test("Valid XML", () {  
       
       myTransformer.parse(goodXmlString);
-      var result = myTransformer.xmlParserResult;
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     }); 
@@ -99,7 +99,7 @@ main(){
     test("Valid CMIS ATOM Feed", () {  
       
       myTransformer.parse(cmisAtomXmlString);
-      var result = myTransformer.xmlParserResult;
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     }); 
@@ -111,19 +111,19 @@ main(){
   group("3. Badgerfish - ", () {
     
     /* Initialise */
-    Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = new Xml2Json();
     
     test("Parse Simple test string", () {  
       
       myTransformer.parse(goodXmlString );
-      var result = myTransformer.xmlParserResult;
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     });
     
     test("Transform Simple test string", () {  
       
-      String json = myTransformer.toBadgerfish();
+      final String json = myTransformer.toBadgerfish();
       expect(json.replaceAll(' ',''), equals(badgerfishSimpleJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
       expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
@@ -134,14 +134,14 @@ main(){
     test("Parse Complex test string", () {  
       
       myTransformer.parse(complexXmlTestString);
-      var result = myTransformer.xmlParserResult;
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     });
     
     test("Transform Complex test string", () {  
       
-      String json = myTransformer.toBadgerfish();
+      final String json = myTransformer.toBadgerfish();
       expect(json.replaceAll(' ',''), equals(badgerfishComplexJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
       expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
@@ -154,19 +154,19 @@ main(){
   group("4. Parker - ", () {
     
     /* Initialise */
-    Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = new Xml2Json();
     
     test("Parse Simple test string", () {  
       
       myTransformer.parse(goodXmlString );
-      var result = myTransformer.xmlParserResult;
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     });
     
     test("Transform Simple test string", () {  
       
-      String json = myTransformer.toParker();
+      final String json = myTransformer.toParker();
       expect(json.replaceAll(' ',''), equals(parkerSimpleJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
       expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
@@ -177,14 +177,14 @@ main(){
     test("Parse Complex test string", () {  
       
       myTransformer.parse(complexXmlTestString);
-      var result = myTransformer.xmlParserResult;
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     });
     
     test("Transform Complex test string", () {  
       
-      String json = myTransformer.toParker();
+      final String json = myTransformer.toParker();
       expect(json.replaceAll(' ',''), equals(parkerComplexJsonCheckString.replaceAll(' ','')));      
       /* Re parse just to check */
       expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
@@ -197,20 +197,20 @@ main(){
   group("5. GData - ", () {
     
     /* Initialise */
-    Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = new Xml2Json();
     
     test("Parse Simple test string", () {  
       
       myTransformer.parse(goodXmlString );
-      var result = myTransformer.xmlParserResult;
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     });
     
     test("Transform Simple test string", () {  
       
-      String json = myTransformer.toGData();
-      expect(json.replaceAll(' ',''), equals(GDataSimpleJsonCheckString.replaceAll(' ','')));
+      final String json = myTransformer.toGData();
+      expect(json.replaceAll(' ',''), equals(gDataSimpleJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
       expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
       
@@ -219,16 +219,16 @@ main(){
 
     test("Parse Complex test string", () {  
       
-      myTransformer.parse(GDatacomplexXmlTestString);
-      var result = myTransformer.xmlParserResult;
+      myTransformer.parse(gDatacomplexXmlTestString);
+      final result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       
     });
     
     test("Transform Complex test string", () {  
       
-      String json = myTransformer.toGData();
-      expect(json.replaceAll(' ',''), equals(GDataComplexJsonCheckString.replaceAll(' ','')));
+      final String json = myTransformer.toGData();
+      expect(json.replaceAll(' ',''), equals(gDataComplexJsonCheckString.replaceAll(' ','')));
       /* Re parse just to check */
       expect(JSON.encode(json), isNot(throwsA(new isInstanceOf<FormatException>())));
      

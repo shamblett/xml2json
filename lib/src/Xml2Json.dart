@@ -40,105 +40,71 @@
 part of xml2json;
 
 class Xml2Json {
-  
   XmlDocument _result = null;
-  /**
-   * The parser result
-   */
-  get xmlParserResult => _result;
-  
-  /**
-   * Parse an XML string
-   */
+
+  /// The parser result
+  XmlDocument get xmlParserResult => _result;
+
+  /// Parse an XML string
   void parse(String xmlString) {
-    
     _result = null;
-    xmlString = _Xml2JsonUtils.prepareXmlString(xmlString);
+    final String xmlStringPrep = _Xml2JsonUtils.prepareXmlString(xmlString);
     try {
-      _result = xml.parse(xmlString);
-    } catch(e) {
-      String errorString = "parse error - invalid XML, ${e.message}";
+      _result = xml.parse(xmlStringPrep);
+    } catch (e) {
+      final errorString = "parse error - invalid XML, ${e.message}";
       throw new Xml2JsonException(errorString);
     }
-      
   }
-  
-  
-  /**
-   * Badgerfish transformer
-   */
+
+  /// Badgerfish transformer
   String toBadgerfish() {
-    
-    if ( _result == null ) {
-      
+    if (_result == null) {
       throw new Xml2JsonException("toBadgerfish - no parse result");
     }
-    
+
     String json = null;
-    _Xml2JsonBadgerfish badgerfishTransformer = new _Xml2JsonBadgerfish();
+    final _Xml2JsonBadgerfish badgerfishTransformer = new _Xml2JsonBadgerfish();
     try {
-      
       json = badgerfishTransformer.transform(_result);
-      
-    } catch(e) {
-      
+    } catch (e) {
       throw new Xml2JsonException("toBadgerfish error => ${e.toString()}");
     }
-    
+
     return json;
-    
   }
-  
-  /**
-   * Parker transformer
-   */
+
+  /// Parker transformer
   String toParker() {
-    
-    if ( _result == null ) {
-      
+    if (_result == null) {
       throw new Xml2JsonException("toParker - no parse result");
     }
-        
+
     String json = null;
-    _Xml2JsonParker parkerTransformer = new _Xml2JsonParker();
+    final _Xml2JsonParker parkerTransformer = new _Xml2JsonParker();
     try {
-      
       json = parkerTransformer.transform(_result);
-      
-    } catch(e) {
-      
+    } catch (e) {
       throw new Xml2JsonException("toParker error => ${e.toString()}");
     }
-    
+
     return json;
-    
-    
   }
-  
-  /**
-   * GData transformer
-   */
+
+  /// GData transformer
   String toGData() {
-    
-    if ( _result == null ) {
-      
+    if (_result == null) {
       throw new Xml2JsonException("toGData - no parse result");
     }
-    
+
     String json = null;
-    _Xml2JsonGData GDataTransformer = new _Xml2JsonGData();
+    final _Xml2JsonGData gDataTransformer = new _Xml2JsonGData();
     try {
-      
-      json = GDataTransformer.transform(_result);
-      
-    } catch(e) {
-      
+      json = gDataTransformer.transform(_result);
+    } catch (e) {
       throw new Xml2JsonException("toGData error => ${e.toString()}");
     }
-    
-    return json;
 
+    return json;
   }
-  
-  
 }

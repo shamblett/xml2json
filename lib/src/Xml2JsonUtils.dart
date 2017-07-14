@@ -10,59 +10,41 @@
 
 part of xml2json;
 
-
 class _Xml2JsonUtils {
-  
-  /**
-   * Escape any control characters and quotes for JSONencoding 
-   */
+  /// Escape any control characters and quotes for JSONencoding
   static String escapeTextForJson(String text) {
-  
-    text = text.replaceAll("\n", "\\\\n");
-    text = text.replaceAll("\'", "\\\\'");
-    text = text.replaceAll('"',  '\\"');
-    text = text.replaceAll("\&", "\\\\&");
-    text = text.replaceAll("\r", "\\\\r");
-    text = text.replaceAll("\t", "\\\\t");
-    text = text.replaceAll("\b", "\\\\f");
-  
-    return text;
-  
+    String text1 = text.replaceAll("\n", "\\\\n");
+    text1 = text1.replaceAll("\'", "\\\\'");
+    text1 = text1.replaceAll('"', '\\"');
+    text1 = text1.replaceAll("\&", "\\\\&");
+    text1 = text1.replaceAll("\r", "\\\\r");
+    text1 = text1.replaceAll("\t", "\\\\t");
+    text1 = text1.replaceAll("\b", "\\\\f");
+
+    return text1;
   }
 
-  /**
-  * Turn the processing node into a map of values.
-  */
+  /// Turn the processing node into a map of values.
   static Map mapProcessingNode(String text) {
-  
-    Map nodeMap = new Map<String,String>();
-    text = text.trim();
-    text = text.replaceAll('"', '');
-    List properties = text.split(' ');
-    properties.forEach((var element){
-    
-      List elementList  = element.split('=');
-      if ( elementList.length == 2 ) nodeMap[elementList[0]] = elementList[1];
- 
+    final Map nodeMap = new Map<String, String>();
+    String text1 = text.trim();
+    text1 = text1.replaceAll('"', '');
+    final List properties = text1.split(' ');
+    properties.forEach((var element) {
+      final List elementList = element.split('=');
+      if (elementList.length == 2) nodeMap[elementList[0]] = elementList[1];
     });
-  
+
     return nodeMap;
-  
   }
 
-  /**
-  * Prepare the input XML string, close up tags, strip newlines between tags etc.
-  * 
-  */
+  /// Prepare the input XML string, close up tags, strip newlines between tags etc.
   static String prepareXmlString(String xmlString) {
-  
-    xmlString = xmlString.trim();
-    xmlString = xmlString.replaceAll('>\n','>');
-    RegExp regex = new RegExp(r'>\s*<');  
-    xmlString = xmlString.replaceAll(regex, "><");    
+    String xmlString1 = xmlString.trim();
+    xmlString1 = xmlString1.replaceAll('>\n', '>');
+    final RegExp regex = new RegExp(r'>\s*<');
+    xmlString1 = xmlString1.replaceAll(regex, "><");
 
-    return xmlString;
+    return xmlString1;
   }
-
 }
-

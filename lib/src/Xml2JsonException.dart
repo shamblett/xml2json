@@ -11,13 +11,10 @@
 part of xml2json;
 
 class Xml2JsonException implements Exception {
-  
   String _message = 'No Message Supplied';
-  
-  /**
-   * Xml2Json exception
-   */
+
+  /// Xml2Json exception
   Xml2JsonException([this._message]);
-  
+
   String toString() => "Xml2JsonException: message = ${_message}";
 }

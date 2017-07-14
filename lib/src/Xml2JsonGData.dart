@@ -19,19 +19,17 @@ class _Xml2JsonGData {
   final String _xmlnsPrefix = '"xmlns"';
   final String _cdata = '"__cdata"';
 
-  /**
-   * GData transformer function.
-   * 
-   */
-  Map _transform(var node) {
-    var json = {};
+  /// GData transformer function.
 
-    process(var node, var obj, var ns) {
+  Map _transform(XmlDocument node) {
+    final json = {};
+
+    void _process(var node, var obj, var ns) {
       if (node is XmlText) {
-
         /* Text node processing */
-        String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
-        String nodeData = '"' + sanitisedNodeData + '"';
+        final String sanitisedNodeData =
+            _Xml2JsonUtils.escapeTextForJson(node.text);
+        final String nodeData = '"' + sanitisedNodeData + '"';
         if (obj["$_marker"] is List) {
           obj["$_marker"].add(nodeData);
         } else if (obj["$_marker"] is Map) {
@@ -40,16 +38,15 @@ class _Xml2JsonGData {
           obj["$_marker"] = nodeData;
         }
       } else if (node is XmlElement) {
-
         /* Element node processing */
-        var p = {};
+        final p = {};
         String nodeName = "\"${node.name}\"";
         nodeName = nodeName.replaceAll(':', '\$');
 
         for (var i = 0; i < node.attributes.length; i++) {
-          var attr = node.attributes[i];
-          var name = attr.name.qualified;
-          var value = attr.value;
+          final attr = node.attributes[i];
+          final name = attr.name.qualified;
+          final value = attr.value;
           if (name == "xmlns") {
             ns["\"$name\""] = '"' + value + '"';
           } else if (name.indexOf("xmlns:") == 0) {
@@ -57,7 +54,7 @@ class _Xml2JsonGData {
             namePrefix = '"' + namePrefix + '"';
             ns[namePrefix] = '"' + value + '"';
           } else {
-            String indexName = '"$name"';
+            final String indexName = '"$name"';
             p[indexName] = '"' + value + '"';
           }
         }
@@ -65,7 +62,7 @@ class _Xml2JsonGData {
         if (ns.isNotEmpty) {
           for (var prefix in ns.keys) {
             if (!p.containsKey(_xmlnsPrefix)) {
-              List pList = new List<Map>();
+              final List pList = new List<Map>();
               p[_xmlnsPrefix] = pList;
             }
             p[prefix] = ns[prefix];
@@ -81,44 +78,39 @@ class _Xml2JsonGData {
         }
 
         for (var j = 0; j < node.children.length; j++) {
-          process(node.children[j], p, {});
+          _process(node.children[j], p, {});
         }
       } else if (node is XmlDocument) {
-
         /* Document node processing */
         for (var k = 0; k < node.children.length; k++) {
-          process(node.children[k], obj, {});
+          _process(node.children[k], obj, {});
         }
       } else if (node is XmlCDATA) {
-
         /* CDATA node processing */
-        String sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
-        String nodeData = '"' + sanitisedNodeData + '"';
+        final String sanitisedNodeData =
+            _Xml2JsonUtils.escapeTextForJson(node.text);
+        final String nodeData = '"' + sanitisedNodeData + '"';
         obj["$_cdata"] = nodeData;
       } else if (node is XmlProcessing) {
-
         /* Processing node, only text in this node */
-        String processingString = node.text;
-        Map nodeMap = _Xml2JsonUtils.mapProcessingNode(processingString);
+        final String processingString = node.text;
+        final Map nodeMap = _Xml2JsonUtils.mapProcessingNode(processingString);
         for (String i in nodeMap.keys) {
-          String index = '"' + i + '"';
-          String sanitisedNodeData =
+          final String index = '"' + i + '"';
+          final String sanitisedNodeData =
               _Xml2JsonUtils.escapeTextForJson(nodeMap[i]);
-          String nodeData = '"' + sanitisedNodeData + '"';
+          final String nodeData = '"' + sanitisedNodeData + '"';
           obj[index] = nodeData;
         }
       }
     }
-    ;
 
-    process(node, json, {});
+    _process(node, json, {});
     return json;
   }
 
-  /**
-   * Transformer function
-   */
-  String transform(var xmlNode) {
+  /// Transformer function
+  String transform(XmlDocument xmlNode) {
     Map json = null;
     try {
       json = _transform(xmlNode);
@@ -126,7 +118,6 @@ class _Xml2JsonGData {
       throw new Xml2JsonException(
           "GData internal transform error => ${e.toString()}");
     }
-
     return json.toString();
   }
 }
