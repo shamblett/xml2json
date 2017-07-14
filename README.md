@@ -1,6 +1,6 @@
 
 # xml2json
-
+[![Build Status](https://travis-ci.org/shamblett/xml2json.svg?branch=master)](https://travis-ci.org/shamblett/xml2json)
 An XML to JSON conversion package.
 
 This package allows the parsing of XML strings and the transformation of the resulting parse 
