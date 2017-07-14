@@ -8,9 +8,11 @@ environment:
   sdk: ">=1.8.0  <2.0.0-dev.infinity"
 
 dependencies:
-  xml: '>=2.2.0 <2.3.0'
+  xml: '>=2.2.0'
 
 dev_dependencies:
-  browser: '>=0.9.1 <0.10.0'
-  meta: any
   test: '^0.12.9'
+  coverage: '^0.7.3'
+  dart_dev: '^1.0.0'
+  dart_style: '>=0.2.0 <0.3.0'
+  dartdoc: '>=0.8.0 <=0.10.0'
