@@ -1,3 +1,7 @@
+## 2.0.9
+
+Issue 9, SDK version constraint update
+
 ## 2.0.8
 
 Issue 8, correctly escape CDATA strings for JSON
