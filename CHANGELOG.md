@@ -1,3 +1,6 @@
+## 2.0.10
+Rename the analysis options file
+
 ## 2.0.9
 
 Issue 9, SDK version constraint update, general
