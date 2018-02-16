@@ -1,14 +1,14 @@
 name: xml2json
-version: 2.0.10
+version: 2.0.11
 author: S. Hamblett <steve.hamblett@linux.com>
-description: An XML to JSON conversion package.
+description: An XML to JSON conversion package. Supports Badgerfish, GData and Parker conversions.
 homepage: https://github.com/shamblett/xml2json
 
 environment:
   sdk: ">=1.8.0  <2.0.0-dev.infinity"
 
 dependencies:
-  xml: '>=2.2.0'
+  xml: '>=2.2.0 <3.0.0'
 
 dev_dependencies:
   test: '^0.12.9'
