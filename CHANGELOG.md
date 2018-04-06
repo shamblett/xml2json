@@ -1,3 +1,6 @@
+# 2.0.12
+Remove dev infinity constraint on the Dart SDK for Flutter
+
 # 2.0.11
 Pub updates
 
