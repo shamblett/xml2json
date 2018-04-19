@@ -1,3 +1,6 @@
+# 2.0.12 
+Issue 11, exception message bug
+
 # 2.0.11
 Pub updates
 

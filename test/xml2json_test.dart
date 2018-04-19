@@ -56,7 +56,7 @@ void main() {
           throwsA(predicate((e) =>
               e is Xml2JsonException &&
               e.toString() ==
-                  'Xml2JsonException: message = parse error - invalid XML, Expected name at 1:2')));
+                  'Xml2JsonException: message = parse error - invalid XML')));
     });
 
     test("Valid XML", () {

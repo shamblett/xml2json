@@ -52,7 +52,7 @@ class Xml2Json {
     try {
       _result = xml.parse(xmlStringPrep);
     } catch (e) {
-      final errorString = "parse error - invalid XML, ${e.message}";
+      final errorString = "parse error - invalid XML";
       throw new Xml2JsonException(errorString);
     }
   }
