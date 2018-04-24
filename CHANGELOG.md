@@ -1,3 +1,6 @@
+# 2.0.14
+Issue 12, update to latest XML package
+
 # 2.0.13 
 Issue 11, exception message bug
 
