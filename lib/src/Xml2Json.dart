@@ -24,7 +24,7 @@
  * the transform functions convert XML data into JSON strings, so numbers such as
  * <mynumber>150</mynumber> become { "mynumber" : "150" } not { "mynumber" : 150 }
  * 
- * If your translating from ATOM then Badgerfish and GData are the better ones
+ * If you're translating from ATOM then Badgerfish and GData are the better ones
  * to use as they are less lossy.
  * 
  * Usage is :-
