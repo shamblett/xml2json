@@ -1,4 +1,7 @@
 .packages
 pubspec.lock
 
+# Dart 2 additions
+.dart_tool/
+
 
