@@ -34,7 +34,8 @@ part of xml2json;
 
 class _Xml2JsonParker {
   /// Parker transformer function.
-  Map _transform(var node, var obj) {
+  Map _transform(var node, var objin) {
+    var obj = objin;
     if (node is XmlElement) {
       final nodeName = "\"${node.name.qualified}\"";
       if (obj[nodeName] is List) {
@@ -79,7 +80,7 @@ class _Xml2JsonParker {
     try {
       json = _transform(xmlNode, {});
     } catch (e) {
-      throw new Xml2JsonException(
+      throw Xml2JsonException(
           "Parker internal transform error => ${e.toString()}");
     }
 

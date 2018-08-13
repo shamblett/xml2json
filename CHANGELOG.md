@@ -1,3 +1,6 @@
+# 3.0.0
+Issue 14, update to Dart 2
+
 # 2.0.14
 Issue 12, update to latest XML package
 

@@ -62,7 +62,7 @@ class _Xml2JsonGData {
         if (ns.isNotEmpty) {
           for (var prefix in ns.keys) {
             if (!p.containsKey(_xmlnsPrefix)) {
-              final List pList = new List<Map>();
+              final List pList = List<Map>();
               p[_xmlnsPrefix] = pList;
             }
             p[prefix] = ns[prefix];
@@ -115,7 +115,7 @@ class _Xml2JsonGData {
     try {
       json = _transform(xmlNode);
     } catch (e) {
-      throw new Xml2JsonException(
+      throw Xml2JsonException(
           "GData internal transform error => ${e.toString()}");
     }
     return json.toString();

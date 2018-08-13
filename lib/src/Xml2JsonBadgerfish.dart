@@ -77,10 +77,10 @@ class _Xml2JsonBadgerfish {
         if (ns.isNotEmpty) {
           for (var prefix in ns.keys) {
             if (!p.containsKey(_xmlnsPrefix)) {
-              final List pList = new List<Map>();
+              final List pList = List<Map>();
               p[_xmlnsPrefix] = pList;
             }
-            final Map nameMap = new Map<String, String>();
+            final Map nameMap = Map<String, String>();
             nameMap[prefix] = ns[prefix];
             p[_xmlnsPrefix].add(nameMap);
           }
@@ -108,6 +108,7 @@ class _Xml2JsonBadgerfish {
         }
       }
     }
+
     _process(node, json, {});
     return json;
   }
@@ -118,7 +119,7 @@ class _Xml2JsonBadgerfish {
     try {
       json = _transform(xmlNode);
     } catch (e) {
-      throw new Xml2JsonException(
+      throw Xml2JsonException(
           "Badgerfish internal transform error => ${e.toString()}");
     }
     return json.toString();

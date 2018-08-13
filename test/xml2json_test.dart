@@ -15,7 +15,7 @@ void main() {
   /* Group 1 - XML parse tests */
   group("1. Parse not performed  - ", () {
     /* Initialise */
-    final Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = Xml2Json();
 
     test("Badgerfish", () {
       expect(
@@ -48,7 +48,7 @@ void main() {
   /* Group 2 - XML Parsing */
   group("2. XML Parse - ", () {
     /* Initialise */
-    final Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = Xml2Json();
 
     test("Invalid XML", () {
       expect(
@@ -75,7 +75,7 @@ void main() {
   /* Group 3 - Badgerfish */
   group("3. Badgerfish - ", () {
     /* Initialise */
-    final Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = Xml2Json();
 
     test("Parse Simple test string", () {
       myTransformer.parse(goodXmlString);
@@ -84,12 +84,13 @@ void main() {
     });
 
     test("Transform Simple test string", () {
-      final String json = myTransformer.toBadgerfish();
-      expect(json.replaceAll(' ', ''),
+      final String res = myTransformer.toBadgerfish();
+      expect(res.replaceAll(' ', ''),
           equals(badgerfishSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(JSON.encode(json),
-          isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(
+          json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
     test("Parse Complex test string", () {
@@ -99,19 +100,20 @@ void main() {
     });
 
     test("Transform Complex test string", () {
-      final String json = myTransformer.toBadgerfish();
-      expect(json.replaceAll(' ', ''),
+      final String res = myTransformer.toBadgerfish();
+      expect(res.replaceAll(' ', ''),
           equals(badgerfishComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(JSON.encode(json),
-          isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(
+          json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
     });
   });
 
   /* Group 4 - Parker */
   group("4. Parker - ", () {
     /* Initialise */
-    final Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = Xml2Json();
 
     test("Parse Simple test string", () {
       myTransformer.parse(goodXmlString);
@@ -120,12 +122,13 @@ void main() {
     });
 
     test("Transform Simple test string", () {
-      final String json = myTransformer.toParker();
-      expect(json.replaceAll(' ', ''),
+      final String res = myTransformer.toParker();
+      expect(res.replaceAll(' ', ''),
           equals(parkerSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(JSON.encode(json),
-          isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(
+          json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
     test("Parse Complex test string", () {
@@ -135,19 +138,20 @@ void main() {
     });
 
     test("Transform Complex test string", () {
-      final String json = myTransformer.toParker();
-      expect(json.replaceAll(' ', ''),
+      final String res = myTransformer.toParker();
+      expect(res.replaceAll(' ', ''),
           equals(parkerComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(JSON.encode(json),
-          isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(
+          json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
     });
   });
 
   /* Group 5 - GData */
   group("5. GData - ", () {
     /* Initialise */
-    final Xml2Json myTransformer = new Xml2Json();
+    final Xml2Json myTransformer = Xml2Json();
 
     test("Parse Simple test string", () {
       myTransformer.parse(goodXmlString);
@@ -156,12 +160,13 @@ void main() {
     });
 
     test("Transform Simple test string", () {
-      final String json = myTransformer.toGData();
-      expect(json.replaceAll(' ', ''),
+      final String res = myTransformer.toGData();
+      expect(res.replaceAll(' ', ''),
           equals(gDataSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(JSON.encode(json),
-          isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(
+          json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
     test("Parse Complex test string", () {
@@ -171,12 +176,13 @@ void main() {
     });
 
     test("Transform Complex test string", () {
-      final String json = myTransformer.toGData();
-      expect(json.replaceAll(' ', ''),
+      final String res = myTransformer.toGData();
+      expect(res.replaceAll(' ', ''),
           equals(gDataComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(JSON.encode(json),
-          isNot(throwsA(new isInstanceOf<FormatException>())));
+      expect(
+          json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
     });
   });
 }

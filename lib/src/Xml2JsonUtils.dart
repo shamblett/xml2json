@@ -26,7 +26,7 @@ class _Xml2JsonUtils {
 
   /// Turn the processing node into a map of values.
   static Map mapProcessingNode(String text) {
-    final Map nodeMap = new Map<String, String>();
+    final Map nodeMap = Map<String, String>();
     String text1 = text.trim();
     text1 = text1.replaceAll('"', '');
     final List properties = text1.split(' ');
@@ -42,7 +42,7 @@ class _Xml2JsonUtils {
   static String prepareXmlString(String xmlString) {
     String xmlString1 = xmlString.trim();
     xmlString1 = xmlString1.replaceAll('>\n', '>');
-    final RegExp regex = new RegExp(r'>\s*<');
+    final RegExp regex = RegExp(r'>\s*<');
     xmlString1 = xmlString1.replaceAll(regex, "><");
 
     return xmlString1;

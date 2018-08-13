@@ -53,22 +53,22 @@ class Xml2Json {
       _result = xml.parse(xmlStringPrep);
     } catch (e) {
       final errorString = "parse error - invalid XML";
-      throw new Xml2JsonException(errorString);
+      throw Xml2JsonException(errorString);
     }
   }
 
   /// Badgerfish transformer
   String toBadgerfish() {
     if (_result == null) {
-      throw new Xml2JsonException("toBadgerfish - no parse result");
+      throw Xml2JsonException("toBadgerfish - no parse result");
     }
 
     String json = null;
-    final _Xml2JsonBadgerfish badgerfishTransformer = new _Xml2JsonBadgerfish();
+    final _Xml2JsonBadgerfish badgerfishTransformer = _Xml2JsonBadgerfish();
     try {
       json = badgerfishTransformer.transform(_result);
     } catch (e) {
-      throw new Xml2JsonException("toBadgerfish error => ${e.toString()}");
+      throw Xml2JsonException("toBadgerfish error => ${e.toString()}");
     }
 
     return json;
@@ -77,15 +77,15 @@ class Xml2Json {
   /// Parker transformer
   String toParker() {
     if (_result == null) {
-      throw new Xml2JsonException("toParker - no parse result");
+      throw Xml2JsonException("toParker - no parse result");
     }
 
     String json = null;
-    final _Xml2JsonParker parkerTransformer = new _Xml2JsonParker();
+    final _Xml2JsonParker parkerTransformer = _Xml2JsonParker();
     try {
       json = parkerTransformer.transform(_result);
     } catch (e) {
-      throw new Xml2JsonException("toParker error => ${e.toString()}");
+      throw Xml2JsonException("toParker error => ${e.toString()}");
     }
 
     return json;
@@ -94,15 +94,15 @@ class Xml2Json {
   /// GData transformer
   String toGData() {
     if (_result == null) {
-      throw new Xml2JsonException("toGData - no parse result");
+      throw Xml2JsonException("toGData - no parse result");
     }
 
     String json = null;
-    final _Xml2JsonGData gDataTransformer = new _Xml2JsonGData();
+    final _Xml2JsonGData gDataTransformer = _Xml2JsonGData();
     try {
       json = gDataTransformer.transform(_result);
     } catch (e) {
-      throw new Xml2JsonException("toGData error => ${e.toString()}");
+      throw Xml2JsonException("toGData error => ${e.toString()}");
     }
 
     return json;
