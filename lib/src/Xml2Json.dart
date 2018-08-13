@@ -11,7 +11,7 @@
  * Badgerfish
  * GData
  * 
- * The XML parser used is the one supplied by the petitparser package.
+ * The XML parser used is the one supplied by the xml package.
  * 
  * Functionality splits XML parsing out from transformation to JSON so as to allow
  * clients to extract intermediate results if needed and to transform into more than

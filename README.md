@@ -11,7 +11,7 @@ tree into the following XML JSON conventions :-
 2. Badgerfish
 3. Google Data(GData).
 
-The package uses the [petitparser](http://pub.dartlang.org/packages/petitparser) XML parser to peform the parsing of XML data into a parse tree.
+The package uses the [xml](http://pub.dartlang.org/packages/xml) parser to peform the parsing of XML data into a parse tree.
 
 Exact transforming rules can be found in the 'Transforming Details' document in the docs folder.
 
