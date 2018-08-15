@@ -88,8 +88,7 @@ void main() {
       expect(res.replaceAll(' ', ''),
           equals(badgerfishSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(
-          json.encode(res),
+      expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
@@ -104,8 +103,7 @@ void main() {
       expect(res.replaceAll(' ', ''),
           equals(badgerfishComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(
-          json.encode(res),
+      expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
   });
@@ -126,8 +124,7 @@ void main() {
       expect(res.replaceAll(' ', ''),
           equals(parkerSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(
-          json.encode(res),
+      expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
@@ -142,8 +139,7 @@ void main() {
       expect(res.replaceAll(' ', ''),
           equals(parkerComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(
-          json.encode(res),
+      expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
   });
@@ -164,8 +160,7 @@ void main() {
       expect(res.replaceAll(' ', ''),
           equals(gDataSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(
-          json.encode(res),
+      expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
@@ -180,8 +175,7 @@ void main() {
       expect(res.replaceAll(' ', ''),
           equals(gDataComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
-      expect(
-          json.encode(res),
+      expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
   });
