@@ -1,8 +1,9 @@
 language: dart
 dart:
-  # Install the latest stable release
-  - stable
+# Install the latest stable release
+- stable
 dart_task:
-    xvfb: false
-
-  
+- test: --exclude-tags no-xvfb
+  xvfb: false
+script:
+- pub run test/xml2json_test.dart
