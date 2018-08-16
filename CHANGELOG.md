@@ -1,3 +1,6 @@
+# 3.0.1
+Issue 15, relax sdk constraints for flutter
+
 # 3.0.0
 Issue 14, update to Dart 2
 
