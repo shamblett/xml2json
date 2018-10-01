@@ -7,3 +7,6 @@ dart_task:
   xvfb: false
 script:
 - pub run test/xml2json_test.dart
+- global activate webdev
+- webdev build --no-release --output test:build
+- pub run build_runner test --fail-on-severe -- -p chrome

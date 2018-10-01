@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett@OSCF
  */
 
-@TestOn("vm")
+@TestOn("browser")
 import 'package:xml2json/xml2json.dart';
 
 import 'dart:convert';
@@ -52,12 +52,8 @@ void main() {
     final Xml2Json myTransformer = Xml2Json();
 
     test("Invalid XML", () {
-      expect(
-          () => myTransformer.parse(rubbishXmlString),
-          throwsA(predicate((e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = parse error - invalid XML')));
+      expect(() => myTransformer.parse(rubbishXmlString),
+          throwsA(const TypeMatcher<Xml2JsonException>()));
     });
 
     test("Valid XML", () {

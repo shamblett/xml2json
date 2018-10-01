@@ -1,3 +1,6 @@
+# 3.0.2
+Update testing, run browser tests on Travis
+
 # 3.0.1
 Issue 15, relax sdk constraints for flutter
 
