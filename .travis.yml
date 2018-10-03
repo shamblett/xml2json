@@ -5,7 +5,7 @@ dart_task:
 - test: --exclude-tags no-xvfb
   xvfb: false
 script:
-- pub run test/xml2json_test.dart
+- pub run test
 - pub run build_runner test --fail-on-severe -- -p chrome
 sudo: required
 addons:
