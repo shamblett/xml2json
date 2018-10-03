@@ -1,3 +1,6 @@
+# 3.0.3
+Update testing, new linter rules
+
 # 3.0.2
 Update testing, run browser tests on Travis
 
