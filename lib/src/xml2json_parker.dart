@@ -34,26 +34,28 @@ part of xml2json;
 
 class _Xml2JsonParker {
   /// Parker transformer function.
-  Map _transform(var node, var objin) {
-    var obj = objin;
+  Map<dynamic, dynamic> _transform(dynamic node, dynamic objin) {
+    Map<dynamic, dynamic> obj = objin;
     if (node is XmlElement) {
-      final nodeName = "\"${node.name.qualified}\"";
+      final String nodeName = '"${node.name.qualified}"';
       if (obj[nodeName] is List) {
-        obj[nodeName].add({});
+        obj[nodeName].add(Map<dynamic, dynamic>());
         obj = obj[nodeName].last;
       } else if (obj[nodeName] is Map) {
-        obj[nodeName] = [obj[nodeName], {}];
+        obj[nodeName] = <dynamic>[obj[nodeName], Map<dynamic, dynamic>()];
         obj = obj[nodeName].last;
       } else {
-        if (node.children.length >= 1) {
+        if (node.children.isNotEmpty) {
           if (node.children[0] is XmlText) {
             final String sanitisedNodeData =
                 _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
-            String nodeData = '"' + sanitisedNodeData + '"';
-            if (nodeData.isEmpty) nodeData = null;
+            String nodeData = '"$sanitisedNodeData"';
+            if (nodeData.isEmpty) {
+              nodeData = null;
+            }
             obj[nodeName] = nodeData;
           } else {
-            obj[nodeName] = {};
+            obj[nodeName] = Map<dynamic, dynamic>();
             obj = obj[nodeName];
           }
         } else {
@@ -62,11 +64,11 @@ class _Xml2JsonParker {
         }
       }
 
-      for (var j = 0; j < node.children.length; j++) {
+      for (int j = 0; j < node.children.length; j++) {
         _transform(node.children[j], obj);
       }
     } else if (node is XmlDocument) {
-      for (var j = 0; j < node.children.length; j++) {
+      for (int j = 0; j < node.children.length; j++) {
         _transform(node.children[j], obj);
       }
     }
@@ -76,12 +78,12 @@ class _Xml2JsonParker {
 
   /// Transformer function
   String transform(XmlDocument xmlNode) {
-    Map json = null;
+    Map<dynamic, dynamic> json;
     try {
-      json = _transform(xmlNode, {});
-    } catch (e) {
+      json = _transform(xmlNode, Map<dynamic, dynamic>());
+    } on Exception catch (e) {
       throw Xml2JsonException(
-          "Parker internal transform error => ${e.toString()}");
+          'Parker internal transform error => ${e.toString()}');
     }
 
     return json.toString();

@@ -5,41 +5,40 @@
  * Copyright :  S.Hamblett@OSCF
  */
 
-@TestOn("browser")
-import 'package:xml2json/xml2json.dart';
-
+@TestOn('browser')
 import 'dart:convert';
 import 'package:test/test.dart';
+import 'package:xml2json/xml2json.dart';
 import 'xml2json_test_strings.dart';
 
 void main() {
   /* Group 1 - XML parse tests */
-  group("1. Parse not performed  - ", () {
+  group('1. Parse not performed  - ', () {
     /* Initialise */
     final Xml2Json myTransformer = Xml2Json();
 
-    test("Badgerfish", () {
+    test('Badgerfish', () {
       expect(
-          () => myTransformer.toBadgerfish(),
-          throwsA(predicate((e) =>
+          myTransformer.toBadgerfish(),
+          throwsA(predicate((dynamic e) =>
               e is Xml2JsonException &&
               e.toString() ==
                   'Xml2JsonException: message = toBadgerfish - no parse result')));
     });
 
-    test("Parker", () {
+    test('Parker', () {
       expect(
-          () => myTransformer.toParker(),
-          throwsA(predicate((e) =>
+          myTransformer.toParker(),
+          throwsA(predicate((dynamic e) =>
               e is Xml2JsonException &&
               e.toString() ==
                   'Xml2JsonException: message = toParker - no parse result')));
     });
 
-    test("GData", () {
+    test('GData', () {
       expect(
-          () => myTransformer.toGData(),
-          throwsA(predicate((e) =>
+          myTransformer.toGData(),
+          throwsA(predicate((dynamic e) =>
               e is Xml2JsonException &&
               e.toString() ==
                   'Xml2JsonException: message = toGData - no parse result')));
@@ -47,40 +46,40 @@ void main() {
   });
 
   /* Group 2 - XML Parsing */
-  group("2. XML Parse - ", () {
+  group('2. XML Parse - ', () {
     /* Initialise */
     final Xml2Json myTransformer = Xml2Json();
 
-    test("Invalid XML", () {
+    test('Invalid XML', () {
       expect(() => myTransformer.parse(rubbishXmlString),
           throwsA(const TypeMatcher<Xml2JsonException>()));
     });
 
-    test("Valid XML", () {
+    test('Valid XML', () {
       myTransformer.parse(goodXmlString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
 
-    test("Valid CMIS ATOM Feed", () {
+    test('Valid CMIS ATOM Feed', () {
       myTransformer.parse(cmisAtomXmlString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
   });
 
   /* Group 3 - Badgerfish */
-  group("3. Badgerfish - ", () {
+  group('3. Badgerfish - ', () {
     /* Initialise */
     final Xml2Json myTransformer = Xml2Json();
 
-    test("Parse Simple test string", () {
+    test('Parse Simple test string', () {
       myTransformer.parse(goodXmlString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
 
-    test("Transform Simple test string", () {
+    test('Transform Simple test string', () {
       final String res = myTransformer.toBadgerfish();
       expect(res.replaceAll(' ', ''),
           equals(badgerfishSimpleJsonCheckString.replaceAll(' ', '')));
@@ -89,13 +88,13 @@ void main() {
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
-    test("Parse Complex test string", () {
+    test('Parse Complex test string', () {
       myTransformer.parse(complexXmlTestString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
 
-    test("Transform Complex test string", () {
+    test('Transform Complex test string', () {
       final String res = myTransformer.toBadgerfish();
       expect(res.replaceAll(' ', ''),
           equals(badgerfishComplexJsonCheckString.replaceAll(' ', '')));
@@ -106,17 +105,17 @@ void main() {
   });
 
   /* Group 4 - Parker */
-  group("4. Parker - ", () {
+  group('4. Parker - ', () {
     /* Initialise */
     final Xml2Json myTransformer = Xml2Json();
 
-    test("Parse Simple test string", () {
+    test('Parse Simple test string', () {
       myTransformer.parse(goodXmlString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
 
-    test("Transform Simple test string", () {
+    test('Transform Simple test string', () {
       final String res = myTransformer.toParker();
       expect(res.replaceAll(' ', ''),
           equals(parkerSimpleJsonCheckString.replaceAll(' ', '')));
@@ -125,13 +124,13 @@ void main() {
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
-    test("Parse Complex test string", () {
+    test('Parse Complex test string', () {
       myTransformer.parse(complexXmlTestString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
 
-    test("Transform Complex test string", () {
+    test('Transform Complex test string', () {
       final String res = myTransformer.toParker();
       expect(res.replaceAll(' ', ''),
           equals(parkerComplexJsonCheckString.replaceAll(' ', '')));
@@ -142,17 +141,17 @@ void main() {
   });
 
   /* Group 5 - GData */
-  group("5. GData - ", () {
+  group('5. GData - ', () {
     /* Initialise */
     final Xml2Json myTransformer = Xml2Json();
 
-    test("Parse Simple test string", () {
+    test('Parse Simple test string', () {
       myTransformer.parse(goodXmlString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
 
-    test("Transform Simple test string", () {
+    test('Transform Simple test string', () {
       final String res = myTransformer.toGData();
       expect(res.replaceAll(' ', ''),
           equals(gDataSimpleJsonCheckString.replaceAll(' ', '')));
@@ -161,13 +160,13 @@ void main() {
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
 
-    test("Parse Complex test string", () {
+    test('Parse Complex test string', () {
       myTransformer.parse(gDatacomplexXmlTestString);
-      final result = myTransformer.xmlParserResult;
+      final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
     });
 
-    test("Transform Complex test string", () {
+    test('Transform Complex test string', () {
       final String res = myTransformer.toGData();
       expect(res.replaceAll(' ', ''),
           equals(gDataComplexJsonCheckString.replaceAll(' ', '')));

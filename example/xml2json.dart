@@ -10,31 +10,31 @@ import '../test/xml2json_test_strings.dart';
 
 void main() {
   // Create a client transformer
-  final Xml2Json myTransformer = new Xml2Json();
+  final Xml2Json myTransformer = Xml2Json();
 
   // Parse a simple XML string
   myTransformer.parse(goodXmlString);
-  print("XML string");
+  print('XML string');
   print(goodXmlString);
-  print("");
+  print('');
 
   // Transform to JSON using Badgerfish
   String json = myTransformer.toBadgerfish();
-  print("Badgerfish");
-  print("");
+  print('Badgerfish');
+  print('');
   print(json);
-  print("");
+  print('');
 
   // Transform to JSON using GData
   json = myTransformer.toGData();
-  print("GData");
-  print("");
+  print('GData');
+  print('');
   print(json);
-  print("");
+  print('');
 
   // Transform to JSON using Parker
   json = myTransformer.toParker();
-  print("Parker");
-  print("");
+  print('Parker');
+  print('');
   print(json);
 }

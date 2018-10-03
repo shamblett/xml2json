@@ -10,9 +10,14 @@ library xml2json;
 import 'package:xml/xml.dart';
 import 'package:xml/xml.dart' as xml;
 
-part 'src/Xml2Json.dart';
-part 'src/Xml2JsonException.dart';
-part 'src/Xml2JsonBadgerfish.dart';
-part 'src/Xml2JsonParker.dart';
-part 'src/Xml2JsonGData.dart';
-part 'src/Xml2JsonUtils.dart';
+part 'src/xml2json.dart';
+
+part 'src/xml2json_exception.dart';
+
+part 'src/xml2json_badgerfish.dart';
+
+part 'src/xml2json_parker.dart';
+
+part 'src/xml2json_gdata.dart';
+
+part 'src/xml2json_utils.dart';
