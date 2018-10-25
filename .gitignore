@@ -3,5 +3,10 @@ pubspec.lock
 
 # Dart 2 additions
 .dart_tool/
+.pub/
+build/
 
+# No idea
+.idea
 
+test/doc/
