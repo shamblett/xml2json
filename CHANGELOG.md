@@ -1,4 +1,4 @@
-# 4.0
+# 4.0.0
 Issue 17, License is now MIT, small tidy ups
 
 # 3.0.3
