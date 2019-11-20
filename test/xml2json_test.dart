@@ -136,7 +136,6 @@ void main() {
 
     test('Transform Complex test string', () {
       final String res = myTransformer.toParker();
-      print(res);
       expect(res.replaceAll(' ', ''),
           equals(parkerComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
