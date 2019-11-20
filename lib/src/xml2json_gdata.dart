@@ -14,6 +14,10 @@
 
 part of xml2json;
 
+// ignore_for_file: always_specify_types
+
+/// GData transform class, see Transforming Details.md document in the
+/// examples directory for further details.
 class _Xml2JsonGData {
   final String _marker = '"\$t"';
   final String _xmlnsPrefix = '"xmlns"';
@@ -22,7 +26,7 @@ class _Xml2JsonGData {
   /// GData transformer function.
 
   Map<dynamic, dynamic> _transform(XmlDocument node) {
-    final Map<dynamic, dynamic> json = Map<dynamic, dynamic>();
+    final Map<dynamic, dynamic> json = <dynamic, dynamic>{};
 
     void _process(dynamic node, dynamic obj, dynamic ns) {
       if (node is XmlText) {
@@ -39,7 +43,7 @@ class _Xml2JsonGData {
         }
       } else if (node is XmlElement) {
         /* Element node processing */
-        final Map<dynamic, dynamic> p = Map<dynamic, dynamic>();
+        final Map<dynamic, dynamic> p = <dynamic, dynamic>{};
         String nodeName = '"${node.name}"';
         nodeName = nodeName.replaceAll(':', '\$');
 
@@ -60,9 +64,9 @@ class _Xml2JsonGData {
         }
 
         if (ns.isNotEmpty) {
-          for (String prefix in ns.keys) {
+          for (final String prefix in ns.keys) {
             if (!p.containsKey(_xmlnsPrefix)) {
-              final List<dynamic> pList = List<Map<dynamic, dynamic>>();
+              final List<dynamic> pList = [<dynamic, dynamic>{}];
               p[_xmlnsPrefix] = pList;
             }
             p[prefix] = ns[prefix];
@@ -78,12 +82,12 @@ class _Xml2JsonGData {
         }
 
         for (int j = 0; j < node.children.length; j++) {
-          _process(node.children[j], p, Map<dynamic, dynamic>());
+          _process(node.children[j], p, <dynamic, dynamic>{});
         }
       } else if (node is XmlDocument) {
         /* Document node processing */
         for (int k = 0; k < node.children.length; k++) {
-          _process(node.children[k], obj, Map<dynamic, dynamic>());
+          _process(node.children[k], obj, <dynamic, dynamic>{});
         }
       } else if (node is XmlCDATA) {
         /* CDATA node processing */
@@ -95,8 +99,8 @@ class _Xml2JsonGData {
         /* Processing node, only text in this node */
         final String processingString = node.text;
         final Map<String, String> nodeMap =
-        _Xml2JsonUtils.mapProcessingNode(processingString);
-        for (String i in nodeMap.keys) {
+            _Xml2JsonUtils.mapProcessingNode(processingString);
+        for (final String i in nodeMap.keys) {
           final String index = '"$i"';
           final String sanitisedNodeData =
               _Xml2JsonUtils.escapeTextForJson(nodeMap[i]);
@@ -106,7 +110,7 @@ class _Xml2JsonGData {
       }
     }
 
-    _process(node, json, Map<dynamic, dynamic>());
+    _process(node, json, <dynamic, dynamic>{});
     return json;
   }
 

@@ -10,8 +10,9 @@
 
 part of xml2json;
 
+/// General utilities
 class _Xml2JsonUtils {
-  /// Escape any control characters and quotes for JSONencoding
+  /// Escape any control characters and quotes for JSON encoding
   static String escapeTextForJson(String text) {
     String text1 = text.replaceAll('\n', '\\\\n');
     text1 = text1.replaceAll("\'", "\\\\'");
@@ -26,11 +27,11 @@ class _Xml2JsonUtils {
 
   /// Turn the processing node into a map of values.
   static Map<String, String> mapProcessingNode(String text) {
-    final Map<String, String> nodeMap = Map<String, String>();
+    final Map<String, String> nodeMap = <String, String>{};
     String text1 = text.trim();
     text1 = text1.replaceAll('"', '');
     final List<String> properties = text1.split(' ');
-    for (dynamic element in properties) {
+    for (final dynamic element in properties) {
       final List<String> elementList = element.split('=');
       if (elementList.length == 2) {
         nodeMap[elementList[0]] = elementList[1];
@@ -40,7 +41,8 @@ class _Xml2JsonUtils {
     return nodeMap;
   }
 
-  /// Prepare the input XML string, close up tags, strip newlines between tags etc.
+  /// Prepare the input XML string, close up tags, strip newlines
+  /// between tags etc.
   static String prepareXmlString(String xmlString) {
     String xmlString1 = xmlString.trim();
     xmlString1 = xmlString1.replaceAll('>\n', '>');

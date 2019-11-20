@@ -1,3 +1,6 @@
+# 4.1.0
+Pull request 18, add CDATA node parsing for Parker
+
 # 4.0.0
 Issue 17, License is now MIT, small tidy ups
 

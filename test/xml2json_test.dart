@@ -22,7 +22,8 @@ void main() {
           throwsA(predicate((dynamic e) =>
               e is Xml2JsonException &&
               e.toString() ==
-                  'Xml2JsonException: message = toBadgerfish - no parse result')));
+                  'Xml2JsonException: message = toBadgerfish - '
+                      'no parse result')));
     });
 
     test('Parker', () {
