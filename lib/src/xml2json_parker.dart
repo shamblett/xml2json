@@ -54,7 +54,15 @@ class _Xml2JsonParker {
               nodeData = null;
             }
             obj[nodeName] = nodeData;
-          } else {
+          } else if(node.children[0] is XmlCDATA){
+            final String sanitisedNodeData =
+                _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
+            String nodeData = '"$sanitisedNodeData"';
+            if (nodeData.isEmpty) {
+              nodeData = null;
+            }
+            obj[nodeName] = nodeData;
+          }else {
             obj[nodeName] = Map<dynamic, dynamic>();
             obj = obj[nodeName];
           }
