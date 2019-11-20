@@ -254,7 +254,7 @@ String parkerSimpleJsonCheckString =
 
 /* Parker complex test check string from http://wiki.open311.org/index.php?title=JSON_and_XML_Conversion*/
 String parkerComplexJsonCheckString = '{'
-    '"reports":{ "entry":'
+    '"reports": "This is cdata with \\"quotes\\"", "entry":'
     '[{'
     '"id":"tag:open311.sfgov.org,2010-04-15:/dev/V1/reports/637619.xml",'
     '"title":"A large tree branch is blocking the road",'
@@ -312,7 +312,6 @@ String parkerComplexJsonCheckString = '{'
     '"policy":"The City will inspect and require the responsible party to correct within 24 hours and/or issue a Correction Notice or Notice of Violation of the Public Works Code"'
     '}'
     '}]'
-    '}'
     '}';
 
 /* GData simple test check string from */
