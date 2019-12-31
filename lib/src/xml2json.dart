@@ -7,6 +7,11 @@
 
 part of xml2json;
 
+// ignore_for_file: omit_local_variable_types
+// ignore_for_file: unnecessary_final
+// ignore_for_file: cascade_invocations
+// ignore_for_file: avoid_print
+
 /// The Xml2Json class provides a means of parsing XML data and transforming the
 /// resultant element tree into the following popular JSON XML formats :-
 ///

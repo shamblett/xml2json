@@ -1,3 +1,6 @@
+# 4.1.1
+Linter updates
+
 # 4.1.0
 Pull request 18, add CDATA node parsing for Parker
 

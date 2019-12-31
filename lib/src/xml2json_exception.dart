@@ -16,6 +16,7 @@ class Xml2JsonException implements Exception {
   /// Xml2Json exception
   Xml2JsonException([this._message = 'No Message Supplied']);
 
+  // ignore: unnecessary_final
   final String _message;
 
   @override

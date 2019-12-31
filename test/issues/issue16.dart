@@ -9,6 +9,12 @@ import 'package:xml2json/xml2json.dart';
 import 'package:test/test.dart';
 import '../xml2json_test_strings.dart';
 
+// ignore_for_file: omit_local_variable_types
+// ignore_for_file: unnecessary_final
+// ignore_for_file: cascade_invocations
+// ignore_for_file: avoid_print
+// ignore_for_file: avoid_annotating_with_dynamic
+
 void main() {
   /* Initialise */
   final Xml2Json myTransformer = Xml2Json();

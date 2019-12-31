@@ -14,6 +14,11 @@
 
 part of xml2json;
 
+// ignore_for_file: omit_local_variable_types
+// ignore_for_file: unnecessary_final
+// ignore_for_file: cascade_invocations
+// ignore_for_file: avoid_print
+// ignore_for_file: avoid_annotating_with_dynamic
 // ignore_for_file: always_specify_types
 
 /// GData transform class, see Transforming Details.md document in the
