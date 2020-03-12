@@ -10,17 +10,11 @@ import 'package:xml2json/xml2json.dart';
 import 'package:test/test.dart';
 import 'xml2json_test_strings.dart';
 
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: unnecessary_final
-// ignore_for_file: cascade_invocations
-// ignore_for_file: avoid_print
-// ignore_for_file: avoid_annotating_with_dynamic
-
 void main() {
   /* Group 1 - XML parse tests */
   group('1. Parse not performed  - ', () {
     /* Initialise */
-    final Xml2Json myTransformer = Xml2Json();
+    final myTransformer = Xml2Json();
 
     test('Badgerfish', () {
       expect(
@@ -54,7 +48,7 @@ void main() {
   /* Group 2 - XML Parsing */
   group('2. XML Parse - ', () {
     /* Initialise */
-    final Xml2Json myTransformer = Xml2Json();
+    final myTransformer = Xml2Json();
 
     test('Invalid XML', () {
       expect(
@@ -81,7 +75,7 @@ void main() {
   /* Group 3 - Badgerfish */
   group('3. Badgerfish - ', () {
     /* Initialise */
-    final Xml2Json myTransformer = Xml2Json();
+    final myTransformer = Xml2Json();
 
     test('Parse Simple test string', () {
       myTransformer.parse(goodXmlString);
@@ -90,7 +84,7 @@ void main() {
     });
 
     test('Transform Simple test string', () {
-      final String res = myTransformer.toBadgerfish();
+      final res = myTransformer.toBadgerfish();
       expect(res.replaceAll(' ', ''),
           equals(badgerfishSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
@@ -105,7 +99,7 @@ void main() {
     });
 
     test('Transform Complex test string', () {
-      final String res = myTransformer.toBadgerfish();
+      final res = myTransformer.toBadgerfish();
       expect(res.replaceAll(' ', ''),
           equals(badgerfishComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
@@ -117,7 +111,7 @@ void main() {
   /* Group 4 - Parker */
   group('4. Parker - ', () {
     /* Initialise */
-    final Xml2Json myTransformer = Xml2Json();
+    final myTransformer = Xml2Json();
 
     test('Parse Simple test string', () {
       myTransformer.parse(goodXmlString);
@@ -126,7 +120,7 @@ void main() {
     });
 
     test('Transform Simple test string', () {
-      final String res = myTransformer.toParker();
+      final res = myTransformer.toParker();
       expect(res.replaceAll(' ', ''),
           equals(parkerSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
@@ -141,7 +135,7 @@ void main() {
     });
 
     test('Transform Complex test string', () {
-      final String res = myTransformer.toParker();
+      final res = myTransformer.toParker();
       expect(res.replaceAll(' ', ''),
           equals(parkerComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
@@ -153,7 +147,7 @@ void main() {
   /* Group 5 - GData */
   group('5. GData - ', () {
     /* Initialise */
-    final Xml2Json myTransformer = Xml2Json();
+    final myTransformer = Xml2Json();
 
     test('Parse Simple test string', () {
       myTransformer.parse(goodXmlString);
@@ -162,7 +156,7 @@ void main() {
     });
 
     test('Transform Simple test string', () {
-      final String res = myTransformer.toGData();
+      final res = myTransformer.toGData();
       expect(res.replaceAll(' ', ''),
           equals(gDataSimpleJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
@@ -177,7 +171,7 @@ void main() {
     });
 
     test('Transform Complex test string', () {
-      final String res = myTransformer.toGData();
+      final res = myTransformer.toGData();
       expect(res.replaceAll(' ', ''),
           equals(gDataComplexJsonCheckString.replaceAll(' ', '')));
       /* Re parse just to check */

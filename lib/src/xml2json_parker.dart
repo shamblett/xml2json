@@ -7,12 +7,6 @@
 
 part of xml2json;
 
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: unnecessary_final
-// ignore_for_file: cascade_invocations
-// ignore_for_file: avoid_print
-// ignore_for_file: avoid_annotating_with_dynamic
-
 /// Parker transform class, see Transforming Details.md document in the
 /// examples directory for further details.
 class _Xml2JsonParker {
@@ -20,7 +14,7 @@ class _Xml2JsonParker {
   Map<dynamic, dynamic> _transform(dynamic node, dynamic objin) {
     Map<dynamic, dynamic> obj = objin;
     if (node is XmlElement) {
-      final String nodeName = '"${node.name.qualified}"';
+      final nodeName = '"${node.name.qualified}"';
       if (obj[nodeName] is List) {
         obj[nodeName].add(<dynamic, dynamic>{});
         obj = obj[nodeName].last;
@@ -30,17 +24,17 @@ class _Xml2JsonParker {
       } else {
         if (node.children.isNotEmpty) {
           if (node.children[0] is XmlText) {
-            final String sanitisedNodeData =
+            final sanitisedNodeData =
                 _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
-            String nodeData = '"$sanitisedNodeData"';
+            var nodeData = '"$sanitisedNodeData"';
             if (nodeData.isEmpty) {
               nodeData = null;
             }
             obj[nodeName] = nodeData;
           } else if (node.children[0] is XmlCDATA) {
-            final String sanitisedNodeData =
+            final sanitisedNodeData =
                 _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
-            String nodeData = '"$sanitisedNodeData"';
+            var nodeData = '"$sanitisedNodeData"';
             if (nodeData.isEmpty) {
               nodeData = null;
             }
@@ -55,11 +49,11 @@ class _Xml2JsonParker {
         }
       }
 
-      for (int j = 0; j < node.children.length; j++) {
+      for (var j = 0; j < node.children.length; j++) {
         _transform(node.children[j], obj);
       }
     } else if (node is XmlDocument) {
-      for (int j = 0; j < node.children.length; j++) {
+      for (var j = 0; j < node.children.length; j++) {
         _transform(node.children[j], obj);
       }
     }

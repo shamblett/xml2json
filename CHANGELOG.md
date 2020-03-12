@@ -1,3 +1,6 @@
+# 4.2.0
+Issue 16
+
 # 4.1.1
 Linter updates
 

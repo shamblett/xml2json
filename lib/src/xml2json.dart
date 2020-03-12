@@ -7,11 +7,6 @@
 
 part of xml2json;
 
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: unnecessary_final
-// ignore_for_file: cascade_invocations
-// ignore_for_file: avoid_print
-
 /// The Xml2Json class provides a means of parsing XML data and transforming the
 /// resultant element tree into the following popular JSON XML formats :-
 ///
@@ -53,11 +48,11 @@ class Xml2Json {
   /// Parse an XML string
   void parse(String xmlString) {
     _result = null;
-    final String xmlStringPrep = _Xml2JsonUtils.prepareXmlString(xmlString);
+    final xmlStringPrep = _Xml2JsonUtils.prepareXmlString(xmlString);
     try {
       _result = xml.parse(xmlStringPrep);
     } on Object {
-      const String errorString = 'parse error - invalid XML';
+      const errorString = 'parse error - invalid XML';
       throw Xml2JsonException(errorString);
     }
   }
@@ -69,7 +64,7 @@ class Xml2Json {
     }
 
     String json;
-    final _Xml2JsonBadgerfish badgerfishTransformer = _Xml2JsonBadgerfish();
+    final badgerfishTransformer = _Xml2JsonBadgerfish();
     try {
       json = badgerfishTransformer.transform(_result);
     } on Exception catch (e) {
@@ -86,7 +81,7 @@ class Xml2Json {
     }
 
     String json;
-    final _Xml2JsonParker parkerTransformer = _Xml2JsonParker();
+    final parkerTransformer = _Xml2JsonParker();
     try {
       json = parkerTransformer.transform(_result);
     } on Exception catch (e) {
@@ -103,7 +98,7 @@ class Xml2Json {
     }
 
     String json;
-    final _Xml2JsonGData gDataTransformer = _Xml2JsonGData();
+    final gDataTransformer = _Xml2JsonGData();
     try {
       json = gDataTransformer.transform(_result);
     } on Exception catch (e) {
