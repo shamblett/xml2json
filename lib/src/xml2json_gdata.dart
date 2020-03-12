@@ -14,13 +14,6 @@
 
 part of xml2json;
 
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: unnecessary_final
-// ignore_for_file: cascade_invocations
-// ignore_for_file: avoid_print
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: always_specify_types
-
 /// GData transform class, see Transforming Details.md document in the
 /// examples directory for further details.
 class _Xml2JsonGData {
@@ -31,14 +24,13 @@ class _Xml2JsonGData {
   /// GData transformer function.
 
   Map<dynamic, dynamic> _transform(XmlDocument node) {
-    final Map<dynamic, dynamic> json = <dynamic, dynamic>{};
+    final json = <dynamic, dynamic>{};
 
     void _process(dynamic node, dynamic obj, dynamic ns) {
       if (node is XmlText) {
         /* Text node processing */
-        final String sanitisedNodeData =
-            _Xml2JsonUtils.escapeTextForJson(node.text);
-        final String nodeData = '"$sanitisedNodeData"';
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final nodeData = '"$sanitisedNodeData"';
         if (obj['$_marker'] is List) {
           obj['$_marker'].add(nodeData);
         } else if (obj['$_marker'] is Map) {
@@ -48,22 +40,22 @@ class _Xml2JsonGData {
         }
       } else if (node is XmlElement) {
         /* Element node processing */
-        final Map<dynamic, dynamic> p = <dynamic, dynamic>{};
-        String nodeName = '"${node.name}"';
+        final p = <dynamic, dynamic>{};
+        var nodeName = '"${node.name}"';
         nodeName = nodeName.replaceAll(':', '\$');
 
-        for (int i = 0; i < node.attributes.length; i++) {
-          final XmlAttribute attr = node.attributes[i];
-          final String name = attr.name.qualified;
+        for (var i = 0; i < node.attributes.length; i++) {
+          final attr = node.attributes[i];
+          final name = attr.name.qualified;
           final dynamic value = attr.value;
           if (name == 'xmlns') {
             ns['"$name"'] = '"$value"';
           } else if (name.indexOf('xmlns:') == 0) {
-            String namePrefix = name.replaceAll(':', '\$');
+            var namePrefix = name.replaceAll(':', '\$');
             namePrefix = '"$namePrefix"';
             ns[namePrefix] = '"$value"';
           } else {
-            final String indexName = '"$name"';
+            final indexName = '"$name"';
             p[indexName] = '"$value"';
           }
         }
@@ -71,7 +63,7 @@ class _Xml2JsonGData {
         if (ns.isNotEmpty) {
           for (final String prefix in ns.keys) {
             if (!p.containsKey(_xmlnsPrefix)) {
-              final List<dynamic> pList = [<dynamic, dynamic>{}];
+              final pList = [<dynamic, dynamic>{}];
               p[_xmlnsPrefix] = pList;
             }
             p[prefix] = ns[prefix];
@@ -86,30 +78,28 @@ class _Xml2JsonGData {
           obj[nodeName] = p;
         }
 
-        for (int j = 0; j < node.children.length; j++) {
+        for (var j = 0; j < node.children.length; j++) {
           _process(node.children[j], p, <dynamic, dynamic>{});
         }
       } else if (node is XmlDocument) {
         /* Document node processing */
-        for (int k = 0; k < node.children.length; k++) {
+        for (var k = 0; k < node.children.length; k++) {
           _process(node.children[k], obj, <dynamic, dynamic>{});
         }
       } else if (node is XmlCDATA) {
         /* CDATA node processing */
-        final String sanitisedNodeData =
-            _Xml2JsonUtils.escapeTextForJson(node.text);
-        final String nodeData = '"$sanitisedNodeData"';
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final nodeData = '"$sanitisedNodeData"';
         obj['$_cdata'] = nodeData;
       } else if (node is XmlProcessing) {
         /* Processing node, only text in this node */
-        final String processingString = node.text;
-        final Map<String, String> nodeMap =
-            _Xml2JsonUtils.mapProcessingNode(processingString);
-        for (final String i in nodeMap.keys) {
-          final String index = '"$i"';
-          final String sanitisedNodeData =
+        final processingString = node.text;
+        final nodeMap = _Xml2JsonUtils.mapProcessingNode(processingString);
+        for (final i in nodeMap.keys) {
+          final index = '"$i"';
+          final sanitisedNodeData =
               _Xml2JsonUtils.escapeTextForJson(nodeMap[i]);
-          final String nodeData = '"$sanitisedNodeData"';
+          final nodeData = '"$sanitisedNodeData"';
           obj[index] = nodeData;
         }
       }

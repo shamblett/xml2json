@@ -8,12 +8,6 @@
 
 part of xml2json;
 
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: unnecessary_final
-// ignore_for_file: cascade_invocations
-// ignore_for_file: avoid_print
-// ignore_for_file: avoid_annotating_with_dynamic
-
 /// Badgerfish transform class, see Transforming Details.md document in the
 /// examples directory for further details.
 class _Xml2JsonBadgerfish {
@@ -24,14 +18,13 @@ class _Xml2JsonBadgerfish {
   final String _cdata = '"__cdata"';
 
   Map<dynamic, dynamic> _transform(XmlDocument node) {
-    final Map<dynamic, dynamic> json = <dynamic, dynamic>{};
+    final json = <dynamic, dynamic>{};
 
     void _process(dynamic node, Map<dynamic, dynamic> obj, dynamic ns) {
       if (node is XmlText) {
         /* Text node processing */
-        final String sanitisedNodeData =
-            _Xml2JsonUtils.escapeTextForJson(node.text);
-        final String nodeData = '"$sanitisedNodeData"';
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final nodeData = '"$sanitisedNodeData"';
         if (obj['$_marker'] is List) {
           obj['$_marker'].add(nodeData);
         } else if (obj['$_marker'] is Map<dynamic, dynamic>) {
@@ -41,9 +34,9 @@ class _Xml2JsonBadgerfish {
         }
       } else if (node is XmlElement) {
         /* Element node processing */
-        final Map<dynamic, dynamic> p = <dynamic, dynamic>{};
-        final String nodeName = '"${node.name}"';
-        for (int i = 0; i < node.attributes.length; i++) {
+        final p = <dynamic, dynamic>{};
+        final nodeName = '"${node.name}"';
+        for (var i = 0; i < node.attributes.length; i++) {
           final dynamic attr = node.attributes[i];
           final dynamic name = attr.name.qualified;
           final dynamic value = attr.value;
@@ -54,7 +47,7 @@ class _Xml2JsonBadgerfish {
             namePrefix = '"$namePrefix"';
             ns[namePrefix] = '"$value"';
           } else {
-            final String indexName = '"@$name"';
+            final indexName = '"@$name"';
             p[indexName] = '"$value"';
           }
         }
@@ -62,12 +55,10 @@ class _Xml2JsonBadgerfish {
         if (ns.isNotEmpty) {
           for (final String prefix in ns.keys) {
             if (!p.containsKey(_xmlnsPrefix)) {
-              final List<Map<dynamic, dynamic>> pList =
-                  // ignore: prefer_collection_literals
-                  List<Map<dynamic, dynamic>>();
+              final pList = <Map<dynamic, dynamic>>[];
               p[_xmlnsPrefix] = pList;
             }
-            final Map<String, String> nameMap = <String, String>{};
+            final nameMap = <String, String>{};
             nameMap[prefix] = ns[prefix];
             p[_xmlnsPrefix].add(nameMap);
           }
@@ -80,18 +71,17 @@ class _Xml2JsonBadgerfish {
         } else {
           obj[nodeName] = p;
         }
-        for (int j = 0; j < node.children.length; j++) {
+        for (var j = 0; j < node.children.length; j++) {
           _process(node.children[j], p, <dynamic, dynamic>{});
         }
       } else if (node is XmlCDATA) {
         /* CDATA node processing */
-        final String sanitisedNodeData =
-            _Xml2JsonUtils.escapeTextForJson(node.text);
-        final String nodeData = '"$sanitisedNodeData"';
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final nodeData = '"$sanitisedNodeData"';
         obj['$_cdata'] = nodeData;
       } else if (node is XmlDocument) {
         /* Document node processing */
-        for (int k = 0; k < node.children.length; k++) {
+        for (var k = 0; k < node.children.length; k++) {
           _process(node.children[k], obj, <dynamic, dynamic>{});
         }
       }
