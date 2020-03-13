@@ -47,7 +47,11 @@ class _Xml2JsonGData {
         for (var i = 0; i < node.attributes.length; i++) {
           final attr = node.attributes[i];
           final name = attr.name.qualified;
-          final dynamic value = attr.value;
+          dynamic value = attr.value;
+          // If the value is double quoted fix it.
+          if (value.startsWith('"') && value.endsWith('"')) {
+            value = value.substring(1, value.length - 1);
+          }
           if (name == 'xmlns') {
             ns['"$name"'] = '"$value"';
           } else if (name.indexOf('xmlns:') == 0) {
