@@ -17,10 +17,11 @@ void main() {
     myTransformer.parse(issue16);
     final bf = myTransformer.toBadgerfish();
     expect(bf, isNotNull);
-    print(bf);
+    expect(bf.contains('""C:Program Files (x86)MSBuild14.0BinMSBuild.exe""'),
+        isFalse);
     final gd = myTransformer.toGData();
     expect(gd, isNotNull);
-    final pa = myTransformer.toParker();
-    expect(pa, isNotNull);
+    expect(gd.contains('""C:Program Files (x86)MSBuild14.0BinMSBuild.exe""'),
+        isFalse);
   });
 }
