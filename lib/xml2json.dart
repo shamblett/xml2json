@@ -8,7 +8,6 @@
 library xml2json;
 
 import 'package:xml/xml.dart';
-import 'package:xml/xml.dart' as xml;
 
 part 'src/xml2json.dart';
 
