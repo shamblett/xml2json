@@ -50,7 +50,7 @@ class Xml2Json {
     _result = null;
     final xmlStringPrep = _Xml2JsonUtils.prepareXmlString(xmlString);
     try {
-      _result = xml.parse(xmlStringPrep);
+      _result = XmlDocument.parse(xmlStringPrep);
     } on Object {
       const errorString = 'parse error - invalid XML';
       throw Xml2JsonException(errorString);

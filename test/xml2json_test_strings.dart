@@ -316,11 +316,10 @@ String parkerComplexJsonCheckString = '{'
 
 /* GData simple test check string from */
 String gDataSimpleJsonCheckString =
-    '{"version": "1.0", "encoding": "UTF-8", "contacts": { "contact": { "id": "1", "name": { "\$t": "John Doe" }, "phone": { "\$t": "123-\\"456\\"-7890" }, "address": { "street": { "\$t": "123 JFKStreet" }, "city": { "\$t": "Any Town" }, "state": { "\$t": "Any State" }, "zipCode": { "\$t": "12345" } } } } }';
+    '{"contacts": { "contact": { "id": "1", "name": { "\$t": "John Doe" }, "phone": { "\$t": "123-\\"456\\"-7890" }, "address": { "street": { "\$t": "123 JFKStreet" }, "city": { "\$t": "Any Town" }, "state": { "\$t": "Any State" }, "zipCode": { "\$t": "12345" } } } } }';
 
 /* GData complex XML test string from https://developers.google.com/gdata/docs/json?csw=1 */
-String gDatacomplexXmlTestString = '<?xml version="1.0" encoding="UTF-8" ?>'
-    '<feed xmlns="http://www.w3.org/2005/Atom" '
+String gDatacomplexXmlTestString = '<feed xmlns="http://www.w3.org/2005/Atom" '
     'xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" '
     'xmlns:gd="http://schemas.google.com/g/2005" '
     'xmlns:gCal="http://schemas.google.com/gCal/2005">'
@@ -377,8 +376,6 @@ String gDatacomplexXmlTestString = '<?xml version="1.0" encoding="UTF-8" ?>'
 
 /* GData complex test check string from */
 String gDataComplexJsonCheckString = '{'
-    '"version": "1.0",'
-    '"encoding": "UTF-8",'
     '"feed": {'
     '"xmlns": "http://www.w3.org/2005/Atom",'
     '"xmlns\$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",'
