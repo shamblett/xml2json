@@ -17,7 +17,6 @@ class _Xml2JsonUtils {
     var text1 = text.replaceAll('\n', '\\\\n');
     text1 = text1.replaceAll("\'", "\\\\'");
     text1 = text1.replaceAll('"', '\\"');
-    text1 = text1.replaceAll('\&', '\\\\&');
     text1 = text1.replaceAll('\r', '\\\\r');
     text1 = text1.replaceAll('\t', '\\\\t');
     text1 = text1.replaceAll('\b', '\\\\f');
