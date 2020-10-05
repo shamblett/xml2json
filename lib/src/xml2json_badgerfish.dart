@@ -44,6 +44,10 @@ class _Xml2JsonBadgerfish {
           if (value.startsWith('"') && value.endsWith('"')) {
             value = value.substring(1, value.length - 1);
           }
+          // Fix @quot markup
+          if (value.contains(r'"')) {
+            value = _Xml2JsonUtils.escapeTextForJson(value);
+          }
           if (name == 'xmlns') {
             ns['$_marker'] = '"$value"';
           } else if (name.indexOf('xmlns:') == 0) {
