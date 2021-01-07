@@ -40,10 +40,10 @@ part of xml2json;
 ///  Any exceptions thrown by the parser/transformers are re-thrown as instances of
 ///  Xml2JsonException.
 class Xml2Json {
-  XmlDocument _result;
+  XmlDocument? _result;
 
   /// The parser result
-  XmlDocument get xmlParserResult => _result;
+  XmlDocument? get xmlParserResult => _result;
 
   /// Parse an XML string
   void parse(String xmlString) {

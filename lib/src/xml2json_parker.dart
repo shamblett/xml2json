@@ -11,11 +11,11 @@ part of xml2json;
 /// examples directory for further details.
 class _Xml2JsonParker {
   /// Parker transformer function.
-  Map<dynamic, dynamic> _transform(dynamic node, dynamic objin) {
-    Map<dynamic, dynamic> obj = objin;
+  Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin) {
+    Map<dynamic, dynamic>? obj = objin;
     if (node is XmlElement) {
       final nodeName = '"${node.name.qualified}"';
-      if (obj[nodeName] is List) {
+      if (obj![nodeName] is List) {
         obj[nodeName].add(<dynamic, dynamic>{});
         obj = obj[nodeName].last;
       } else if (obj[nodeName] is Map) {
@@ -28,7 +28,7 @@ class _Xml2JsonParker {
                 _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
             var nodeData = '"$sanitisedNodeData"';
             if (nodeData.isEmpty) {
-              nodeData = null;
+              nodeData = '';
             }
             obj[nodeName] = nodeData;
           } else if (node.children[0] is XmlCDATA) {
@@ -36,7 +36,7 @@ class _Xml2JsonParker {
                 _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
             var nodeData = '"$sanitisedNodeData"';
             if (nodeData.isEmpty) {
-              nodeData = null;
+              nodeData = '';
             }
             obj[nodeName] = nodeData;
           } else {
@@ -62,8 +62,8 @@ class _Xml2JsonParker {
   }
 
   /// Transformer function
-  String transform(XmlDocument xmlNode) {
-    Map<dynamic, dynamic> json;
+  String transform(XmlDocument? xmlNode) {
+    Map<dynamic, dynamic>? json;
     try {
       json = _transform(xmlNode, <dynamic, dynamic>{});
     } on Exception catch (e) {
