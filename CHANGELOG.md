@@ -1,3 +1,6 @@
+#5.0.0-nullsafety.0
+Null safety first update
+
 #4.4.0
 Issue 23
 
