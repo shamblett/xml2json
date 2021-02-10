@@ -23,4 +23,11 @@ void main() {
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
   });
+
+  test('Straight JSON Convert', () {
+    const input = '04/04/2019\$\$##+|=\\€';
+    var encoded = json.encode(input);
+    print(encoded);
+    expect(encoded,'"' + input + '"');
+  });
 }
