@@ -22,12 +22,17 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
+    expect(jsonResponse, r'{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019$$##+|=€"}}}}}');
   });
 
-  test('Straight JSON Convert', () {
-    const input = '04/04/2019\$\$##+|=\\€';
-    var encoded = json.encode(input);
-    print(encoded);
-    expect(encoded,'"' + input + '"');
+  test('Parker convert', () {
+    const input = '''<?xml version="1.0" encoding="UTF-8"?>
+            <feedback>04/04/2019\$\$##+|=\\€</feedback>''';
+
+    final xmlParser = Xml2Json();
+    xmlParser.parse(input);
+    var jsonResponse = xmlParser.toParker();
+    print(jsonResponse);
+    expect(jsonResponse,r'{"feedback": "04/04/2019$$##+|=€"}');
   });
 }
