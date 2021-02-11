@@ -35,4 +35,26 @@ void main() {
     print(jsonResponse);
     expect(jsonResponse,r'{"feedback": "04/04/2019$$##+|=€"}');
   });
+
+  test('File path Windows', () {
+    const input = '''<?xml version="1.0" encoding="UTF-8"?>
+            <path>C:work\\fred\\joe</path>''';
+
+    final xmlParser = Xml2Json();
+    xmlParser.parse(input);
+    var jsonResponse = xmlParser.toParker();
+    print(jsonResponse);
+    expect(jsonResponse,r'{"path": "C:work\fred\joe"}');
+  });
+  test('File path Linux', () {
+    const input = '''<?xml version="1.0" encoding="UTF-8"?>
+            <path>C:work/fred/joe</path>''';
+
+    final xmlParser = Xml2Json();
+    xmlParser.parse(input);
+    var jsonResponse = xmlParser.toParker();
+    print(jsonResponse);
+    expect(jsonResponse,r'{"path": "C:work/fred/joe"}');
+  });
+
 }
