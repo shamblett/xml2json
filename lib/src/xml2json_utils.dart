@@ -44,7 +44,6 @@ class _Xml2JsonUtils {
   static String prepareXmlString(String xmlString) {
     var xmlString1 = xmlString.trim();
     xmlString1 = xmlString1.replaceAll('>\n', '>');
-    xmlString1 = xmlString1.replaceAll(r'\', '');
     final regex = RegExp(r'>\s*<');
     return xmlString1 = xmlString1.replaceAll(regex, '><');
   }
