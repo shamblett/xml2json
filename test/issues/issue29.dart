@@ -44,7 +44,7 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,r'{"path": "C:work\fred\joe"}');
+    expect(jsonResponse,r'{"path": "C:work\\fred\\joe"}');
   });
   test('File path Linux', () {
     const input = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -55,6 +55,15 @@ void main() {
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
     expect(jsonResponse,r'{"path": "C:work/fred/joe"}');
+  });
+
+  test('\\ should be escaped', () {
+    var xml = r'<post tag="\m/"/>';
+    final xml2json = Xml2Json()..parse(xml);
+    final data = xml2json.toGData();
+
+    final expected = r'{"post": {"tag": "\\m/"}}';
+    expect(data, equals(expected));
   });
 
 }
