@@ -22,7 +22,7 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse, r'{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019$$##+|=€"}}}}}');
+    expect(jsonResponse, '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019\$\$##+|=\\€"}}}}}');
   });
 
   test('Parker convert', () {
@@ -33,7 +33,7 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,r'{"feedback": "04/04/2019$$##+|=€"}');
+    expect(jsonResponse,'{"feedback": "04/04/2019\$\$##+|=\\€"}');
   });
 
   test('File path Windows', () {
@@ -44,7 +44,7 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,r'{"path": "C:work\\fred\\joe"}');
+    expect(jsonResponse,'{"path": "C:work\\fred\\joe"}');
   });
   test('File path Linux', () {
     const input = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -54,15 +54,15 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,r'{"path": "C:work/fred/joe"}');
+    expect(jsonResponse,'{"path": "C:work/fred/joe"}');
   });
 
-  test('\\ should be escaped', () {
+  test('\\ Should be escaped', () {
     var xml = r'<post tag="\m/"/>';
     final xml2json = Xml2Json()..parse(xml);
     final data = xml2json.toGData();
 
-    final expected = r'{"post": {"tag": "\\m/"}}';
+    final expected = '{"post": {"tag": "\\m/"}}';
     expect(data, equals(expected));
   });
 

@@ -4,10 +4,8 @@ import 'package:test/test.dart';
 import 'package:xml2json/xml2json.dart';
 
 void main() {
-  test(
-      'Unhandled Exception: FormatException: Unrecognized string escape',
-      () {
-        const input = '''<?xml version="1.0" encoding="UTF-8"?>
+  test('Unhandled Exception: FormatException: Unrecognized string escape', () {
+    const input = '''<?xml version="1.0" encoding="UTF-8"?>
             <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
         <soapenv:Body>
         <ns1:GetCommentsResponse xmlns:ns1="http://website.com/AppWS/">
@@ -20,9 +18,11 @@ void main() {
         </soapenv:Body>
         </soapenv:Envelope>''';
 
-        final xmlParser = Xml2Json();
-        xmlParser.parse(input);
-        var jsonResponse = xmlParser.toParker();
-        print(jsonResponse);
+    final xmlParser = Xml2Json();
+    xmlParser.parse(input);
+    var jsonResponse = xmlParser.toParker();
+    print(jsonResponse);
+    expect(jsonResponse,
+        '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "it\'s a bug, it\'s not a bug"}}}}}');
   });
 }
