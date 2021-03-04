@@ -8,8 +8,6 @@ script:
 - pub run test
 - pub run test/issues/issue16.dart
 - pub run test/issues/issue23.dart
-- pub run test/issues/issue28.dart
-- pub run test/issues/issue29.dart
 - pub run test/issues/issue30.dart
 
 sudo: required
