@@ -24,6 +24,13 @@ void main() {
     print(jsonResponse);
     expect(jsonResponse,
         '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019\$\$##+|=\\\\€"}}}}}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 
   test('Parker convert', () {
@@ -35,6 +42,13 @@ void main() {
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
     expect(jsonResponse, '{"feedback": "04/04/2019\$\$##+|=\\\\€"}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 
   test('File path Windows', () {
@@ -46,6 +60,13 @@ void main() {
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
     expect(jsonResponse, '{"path": "C:work\\\\fred\\\\joe"}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
   test('File path Linux', () {
     const input = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -56,5 +77,12 @@ void main() {
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
     expect(jsonResponse, '{"path": "C:work/fred/joe"}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 }

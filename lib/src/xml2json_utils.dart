@@ -15,11 +15,11 @@ class _Xml2JsonUtils {
   /// Escape any control characters and quotes for JSON encoding
   static String escapeTextForJson(String text) {
     var text1 = text.replaceAll('\n', '\\\\n');
-    text1 = text1.replaceAll('"', '\\"');
+    text1 = text1.replaceAll(r'\', r'\\');
+    text1 = text1.replaceAll(r'"', r'\"');
     text1 = text1.replaceAll('\r', '\\\\r');
     text1 = text1.replaceAll('\t', '\\\\t');
     text1 = text1.replaceAll('\b', '\\\\f');
-    text1 = text1.replaceAll(r'\', r'\\');
 
     return text1;
   }

@@ -11,6 +11,13 @@ void main() {
     print(data);
     final expected = '{"post": {"tag": "\\\\m/"}}';
     expect(data, equals(expected));
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(data);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 
   test('Real decode', () async {
@@ -22,6 +29,12 @@ void main() {
     final xml = await rsp.transform(utf8.decoder).join();
     final xml2json = Xml2Json()..parse(xml);
     final data = xml2json.toGData();
-    jsonDecode(data);
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(data);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 }
