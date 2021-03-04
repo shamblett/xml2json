@@ -53,12 +53,4 @@ void main() {
     expect(jsonResponse,'{"path": "C:work/fred/joe"}');
   });
 
-  test('Should be escaped', () {
-    var xml = '<post tag="\\m/"/>';
-    final xml2json = Xml2Json()..parse(xml);
-    final data = xml2json.toGData();
-    final expected = '{"post": {"tag": "\\m/"}}';
-    expect(data, equals(expected));
-  });
-
 }
