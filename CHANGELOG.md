@@ -1,3 +1,6 @@
+#5.0.0
+Issues 27(NNBD), 28, 29 and 30
+
 #5.0.0-nullsafety.0
 Null safety first update
 
