@@ -52,10 +52,7 @@ class _Xml2JsonGData {
           if (value.startsWith('"') && value.endsWith('"')) {
             value = value.substring(1, value.length - 1);
           }
-          // Fix @quot markup
-          if (value.contains(r'"')) {
-            value = _Xml2JsonUtils.escapeTextForJson(value);
-          }
+          value = _Xml2JsonUtils.escapeTextForJson(value);
           if (name == 'xmlns') {
             ns['"$name"'] = '"$value"';
           } else if (name.indexOf('xmlns:') == 0) {

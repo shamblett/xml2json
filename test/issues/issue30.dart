@@ -8,7 +8,8 @@ void main() {
     var xml = '<post tag="\\m/"/>';
     final xml2json = Xml2Json()..parse(xml);
     final data = xml2json.toGData();
-    final expected = '{"post": {"tag": "\\m/"}}';
+    print(data);
+    final expected = '{"post": {"tag": "\\\\m/"}}';
     expect(data, equals(expected));
   });
 
@@ -19,7 +20,6 @@ void main() {
     final req = await httpClient.getUrl(uri);
     final rsp = await req.close();
     final xml = await rsp.transform(utf8.decoder).join();
-
     final xml2json = Xml2Json()..parse(xml);
     final data = xml2json.toGData();
     jsonDecode(data);

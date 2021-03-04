@@ -21,7 +21,9 @@ void main() {
     final xmlParser = Xml2Json();
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
-    expect(jsonResponse, '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019\$\$##+|=\\€"}}}}}');
+    print(jsonResponse);
+    expect(jsonResponse,
+        '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019\$\$##+|=\\\\€"}}}}}');
   });
 
   test('Parker convert', () {
@@ -31,7 +33,8 @@ void main() {
     final xmlParser = Xml2Json();
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
-    expect(jsonResponse,'{"feedback": "04/04/2019\$\$##+|=\\€"}');
+    print(jsonResponse);
+    expect(jsonResponse, '{"feedback": "04/04/2019\$\$##+|=\\\\€"}');
   });
 
   test('File path Windows', () {
@@ -41,7 +44,8 @@ void main() {
     final xmlParser = Xml2Json();
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
-    expect(jsonResponse,'{"path": "C:work\\fred\\joe"}');
+    print(jsonResponse);
+    expect(jsonResponse, '{"path": "C:work\\\\fred\\\\joe"}');
   });
   test('File path Linux', () {
     const input = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -50,7 +54,7 @@ void main() {
     final xmlParser = Xml2Json();
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
-    expect(jsonResponse,'{"path": "C:work/fred/joe"}');
+    print(jsonResponse);
+    expect(jsonResponse, '{"path": "C:work/fred/joe"}');
   });
-
 }

@@ -19,6 +19,7 @@ class _Xml2JsonUtils {
     text1 = text1.replaceAll('\r', '\\\\r');
     text1 = text1.replaceAll('\t', '\\\\t');
     text1 = text1.replaceAll('\b', '\\\\f');
+    text1 = text1.replaceAll(r'\', r'\\');
 
     return text1;
   }
