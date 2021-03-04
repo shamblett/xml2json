@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett@OSCF
  */
 // @dart=2.10.5
-TestOn('vm');
+@TestOn('vm')
 
 import 'package:xml2json/xml2json.dart';
 import 'package:test/test.dart';

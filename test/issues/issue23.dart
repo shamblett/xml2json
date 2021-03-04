@@ -1,5 +1,5 @@
 // @dart=2.10.5
-TestOn('vm');
+@TestOn('vm')
 
 import 'dart:convert';
 import 'package:test/test.dart';
