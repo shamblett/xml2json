@@ -23,7 +23,7 @@ class _Xml2JsonGData {
 
   /// GData transformer function.
 
-  Map<dynamic, dynamic> _transform(XmlDocument node) {
+  Map<dynamic, dynamic> _transform(XmlDocument? node) {
     final json = <dynamic, dynamic>{};
 
     void _process(dynamic node, dynamic obj, dynamic ns) {
@@ -103,7 +103,7 @@ class _Xml2JsonGData {
         for (final i in nodeMap.keys) {
           final index = '"$i"';
           final sanitisedNodeData =
-              _Xml2JsonUtils.escapeTextForJson(nodeMap[i]);
+              _Xml2JsonUtils.escapeTextForJson(nodeMap[i]!);
           final nodeData = '"$sanitisedNodeData"';
           obj[index] = nodeData;
         }
@@ -115,7 +115,7 @@ class _Xml2JsonGData {
   }
 
   /// Transformer function
-  String transform(XmlDocument xmlNode) {
+  String transform(XmlDocument? xmlNode) {
     Map<dynamic, dynamic> json;
     try {
       json = _transform(xmlNode);
