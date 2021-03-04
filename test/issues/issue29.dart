@@ -22,7 +22,15 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse, '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019\$\$##+|=\\€"}}}}}');
+    expect(jsonResponse,
+        '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "04/04/2019\$\$##+|=\\\\€"}}}}}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 
   test('Parker convert', () {
@@ -33,7 +41,14 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,'{"feedback": "04/04/2019\$\$##+|=\\€"}');
+    expect(jsonResponse, '{"feedback": "04/04/2019\$\$##+|=\\\\€"}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 
   test('File path Windows', () {
@@ -44,7 +59,14 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,'{"path": "C:work\\fred\\joe"}');
+    expect(jsonResponse, '{"path": "C:work\\\\fred\\\\joe"}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
   test('File path Linux', () {
     const input = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -54,16 +76,13 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,'{"path": "C:work/fred/joe"}');
+    expect(jsonResponse, '{"path": "C:work/fred/joe"}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
-
-  test('\\ Should be escaped', () {
-    var xml = r'<post tag="\m/"/>';
-    final xml2json = Xml2Json()..parse(xml);
-    final data = xml2json.toGData();
-
-    final expected = '{"post": {"tag": "\\m/"}}';
-    expect(data, equals(expected));
-  });
-
 }

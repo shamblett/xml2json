@@ -24,5 +24,12 @@ void main() {
     print(jsonResponse);
     expect(jsonResponse,
         '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "it\'s a bug, it\'s not a bug"}}}}}');
+    var decodedOk = true;
+    try {
+      final decoded = json.decode(jsonResponse);
+    } on FormatException {
+      decodedOk = false;
+    }
+    expect(decodedOk, isTrue);
   });
 }
