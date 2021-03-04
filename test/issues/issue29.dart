@@ -1,3 +1,6 @@
+// @dart=2.10.5
+TestOn('vm');
+
 import 'dart:convert';
 import 'package:pana/models.dart';
 import 'package:test/test.dart';
