@@ -17,7 +17,7 @@ class _Xml2JsonBadgerfish {
   final String _xmlnsPrefix = '"@xmlns"';
   final String _cdata = '"__cdata"';
 
-  Map<dynamic, dynamic> _transform(XmlDocument node) {
+  Map<dynamic, dynamic> _transform(XmlDocument? node) {
     final json = <dynamic, dynamic>{};
 
     void _process(dynamic node, Map<dynamic, dynamic> obj, dynamic ns) {
@@ -40,18 +40,11 @@ class _Xml2JsonBadgerfish {
           final dynamic attr = node.attributes[i];
           final dynamic name = attr.name.qualified;
           dynamic value = attr.value;
-          // If the value is double quoted fix it.
-          if (value.startsWith('"') && value.endsWith('"')) {
-            value = value.substring(1, value.length - 1);
-          }
-          // Fix @quot markup
-          if (value.contains(r'"')) {
-            value = _Xml2JsonUtils.escapeTextForJson(value);
-          }
+          value = _Xml2JsonUtils.escapeTextForJson(value);
           if (name == 'xmlns') {
             ns['$_marker'] = '"$value"';
           } else if (name.indexOf('xmlns:') == 0) {
-            String namePrefix = name.substring(name.indexOf(':') + 1);
+            String? namePrefix = name.substring(name.indexOf(':') + 1);
             namePrefix = '"$namePrefix"';
             ns[namePrefix] = '"$value"';
           } else {
@@ -66,7 +59,7 @@ class _Xml2JsonBadgerfish {
               final pList = <Map<dynamic, dynamic>>[];
               p[_xmlnsPrefix] = pList;
             }
-            final nameMap = <String, String>{};
+            final nameMap = <String, String?>{};
             nameMap[prefix] = ns[prefix];
             p[_xmlnsPrefix].add(nameMap);
           }
@@ -100,7 +93,7 @@ class _Xml2JsonBadgerfish {
   }
 
   /// Transformer function
-  String transform(XmlDocument xmlNode) {
+  String transform(XmlDocument? xmlNode) {
     Map<dynamic, dynamic> json;
     try {
       json = _transform(xmlNode);

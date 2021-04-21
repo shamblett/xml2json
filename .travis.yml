@@ -6,7 +6,10 @@ dart_task:
   xvfb: false
 script:
 - pub run test
-- pub run build_runner test --fail-on-severe -- -p chrome
+- pub run test/issues/issue16.dart
+- pub run test/issues/issue23.dart
+- pub run test/issues/issue30.dart
+
 sudo: required
 addons:
   chrome: stable

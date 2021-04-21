@@ -4,6 +4,7 @@
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
  */
+// @dart=2.10.5
 
 import 'dart:convert';
 import 'package:xml2json/xml2json.dart';
