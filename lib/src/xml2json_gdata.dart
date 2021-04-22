@@ -14,8 +14,7 @@
 
 part of xml2json;
 
-/// GData transform class, see Transforming Details.md document in the
-/// examples directory for further details.
+/// GData transform class.
 class _Xml2JsonGData {
   final String _marker = '"\$t"';
   final String _xmlnsPrefix = '"xmlns"';

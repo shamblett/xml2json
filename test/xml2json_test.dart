@@ -4,7 +4,6 @@
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
  */
-// @dart=2.10.5
 
 import 'dart:convert';
 import 'package:xml2json/xml2json.dart';
@@ -103,6 +102,18 @@ void main() {
       final res = myTransformer.toBadgerfish();
       expect(res.replaceAll(' ', ''),
           equals(badgerfishComplexJsonCheckString.replaceAll(' ', '')));
+      /* Re parse just to check */
+      expect(json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
+    });
+
+    test('Transform Local Node Name test string', () {
+      myTransformer.parse(badgerfishLocalNodeXmlTestString);
+      final dynamic result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
+      final res = myTransformer.toBadgerfish(useLocalNameForNodes: true);
+      expect(res.replaceAll(' ', ''),
+          equals(badgerfishLocalNodeCheckString.replaceAll(' ', '')));
       /* Re parse just to check */
       expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));

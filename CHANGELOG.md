@@ -1,3 +1,7 @@
+#5.1.0
+Merge pull request #32 from faithoflifedev/master
+Badgerfish transform now supports the option to use local name for nodes.
+
 #5.0.0
 Issues 27(NNBD), 28, 29 and 30
 

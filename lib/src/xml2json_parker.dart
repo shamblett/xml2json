@@ -7,8 +7,7 @@
 
 part of xml2json;
 
-/// Parker transform class, see Transforming Details.md document in the
-/// examples directory for further details.
+/// Parker transform class
 class _Xml2JsonParker {
   /// Parker transformer function.
   Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin) {

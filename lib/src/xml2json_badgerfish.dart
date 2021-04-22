@@ -8,8 +8,7 @@
 
 part of xml2json;
 
-/// Badgerfish transform class, see Transforming Details.md document in the
-/// examples directory for further details.
+/// Badgerfish transform class.
 class _Xml2JsonBadgerfish {
   /// Badgerfish transformer function.
 

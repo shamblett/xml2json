@@ -485,3 +485,7 @@ String issue16 = '<?xml version="1.0" encoding="utf-8"?>'
     '<vcsRoots href="/httpAuth/app/rest/vcs-roots?locator=project:(id:LHRPlus_LeyserPlusHelpCenterDevPackages)"/>'
     '<projects/>'
     '</project>';
+String badgerfishLocalNodeXmlTestString =
+    '<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"> <soapenv:Header/> <soapenv:Body> <tns:getDataResponse xmlns:tns="https://urchin.com/api/urchin/v1/"> <record> <recordId>1</recordId> <dimensions> <dimension name="u:month">2008-02-00T00:00:00Z</dimension> </dimensions> <metrics> <u:hits xmlns:u="https://urchin.com/api/urchin/v1/">836</u:hits> <u:bytes xmlns:u="https://urchin.com/api/urchin/v1/">1953960</u:bytes> </metrics> </record> </tns:getDataResponse> </soapenv:Body> </soapenv:Envelope>';
+String badgerfishLocalNodeCheckString =
+    '{"Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], "Header": {}, "Body": {"getDataResponse": {"@xmlns": [{"tns": "https://urchin.com/api/urchin/v1/"}], "record": {"recordId": {"\$": "1"}, "dimensions": {"dimension": {"@name": "u:month", "\$": "2008-02-00T00:00:00Z"}}, "metrics": {"hits": {"@xmlns": [{"u": "https://urchin.com/api/urchin/v1/"}], "\$": "836"}, "bytes": {"@xmlns": [{"u": "https://urchin.com/api/urchin/v1/"}], "\$": "1953960"}}}}}}}';
