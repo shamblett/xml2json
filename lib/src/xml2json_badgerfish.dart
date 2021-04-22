@@ -16,6 +16,9 @@ class _Xml2JsonBadgerfish {
   final String _marker = '"\$"';
   final String _xmlnsPrefix = '"@xmlns"';
   final String _cdata = '"__cdata"';
+  final bool useLocalNameForNodes;
+
+  _Xml2JsonBadgerfish(this.useLocalNameForNodes);
 
   Map<dynamic, dynamic> _transform(XmlDocument? node) {
     final json = <dynamic, dynamic>{};
@@ -35,7 +38,8 @@ class _Xml2JsonBadgerfish {
       } else if (node is XmlElement) {
         /* Element node processing */
         final p = <dynamic, dynamic>{};
-        final nodeName = '"${node.name}"';
+        final nodeName =
+            useLocalNameForNodes ? '"${node.name.local}"' : '"${node.name}"';
         for (var i = 0; i < node.attributes.length; i++) {
           final dynamic attr = node.attributes[i];
           final dynamic name = attr.name.qualified;
