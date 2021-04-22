@@ -58,13 +58,13 @@ class Xml2Json {
   }
 
   /// Badgerfish transformer
-  String toBadgerfish() {
+  String toBadgerfish({bool useLocalNameForNodes = false}) {
     if (_result == null) {
       throw Xml2JsonException('toBadgerfish - no parse result');
     }
 
     String json;
-    final badgerfishTransformer = _Xml2JsonBadgerfish();
+    final badgerfishTransformer = _Xml2JsonBadgerfish(useLocalNameForNodes);
     try {
       json = badgerfishTransformer.transform(_result);
     } on Exception catch (e) {
