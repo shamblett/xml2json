@@ -18,6 +18,6 @@ void main() {
   test('Issue 33', () {
     myTransformer.parse(issue33);
     final bf = myTransformer.toParker();
-    expect(bf, '{"item": ["1","2","three"]}');
+    expect(bf, '{"root": {"item": ["1", "2", "three"]}}');
   });
 }
