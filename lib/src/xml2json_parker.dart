@@ -22,22 +22,15 @@ class _Xml2JsonParker {
         obj = obj[nodeName].last;
       } else {
         if (node.children.isNotEmpty) {
-          if (node.children[0] is XmlText) {
-            final sanitisedNodeData =
-                _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
-            var nodeData = '"$sanitisedNodeData"';
-            if (nodeData.isEmpty) {
-              nodeData = '';
-            }
-            obj[nodeName] = nodeData;
-          } else if (node.children[0] is XmlCDATA) {
-            final sanitisedNodeData =
-                _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
-            var nodeData = '"$sanitisedNodeData"';
-            if (nodeData.isEmpty) {
-              nodeData = '';
-            }
-            obj[nodeName] = nodeData;
+          if (node.children[0] is XmlText || node.children[0] is XmlCDATA) {
+            _parseXmlTextNode(node, obj, nodeName);
+          } else if (obj[nodeName] is Map) {
+            var jsonCopy = json.decode(json.encode(obj[nodeName]));
+            obj[nodeName] = <dynamic>[jsonCopy, <dynamic, dynamic>{}];
+            obj = obj[nodeName].last;
+          } else if (obj[nodeName] is List) {
+            obj[nodeName].add(<dynamic, dynamic>{});
+            obj = obj[nodeName].last;
           } else {
             obj[nodeName] = <dynamic, dynamic>{};
             obj = obj[nodeName];
@@ -60,14 +53,29 @@ class _Xml2JsonParker {
     return obj;
   }
 
+  /// 解析XmlText节点
+  void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName) {
+    final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
+    var nodeData = '"$sanitisedNodeData"';
+    if (nodeData.isEmpty) {
+      nodeData = '';
+    }
+    if (obj[nodeName] is String) {
+      obj[nodeName] = <dynamic>[obj[nodeName], nodeData];
+    } else if (obj[nodeName] is List) {
+      obj[nodeName].add(nodeData);
+    } else {
+      obj[nodeName] = nodeData;
+    }
+  }
+
   /// Transformer function
   String transform(XmlDocument? xmlNode) {
     Map<dynamic, dynamic>? json;
     try {
       json = _transform(xmlNode, <dynamic, dynamic>{});
     } on Exception catch (e) {
-      throw Xml2JsonException(
-          'Parker internal transform error => ${e.toString()}');
+      throw Xml2JsonException('Parker internal transform error => ${e.toString()}');
     }
 
     return json.toString();

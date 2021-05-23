@@ -38,4 +38,10 @@ void main() {
   print('Parker');
   print('');
   print(json);
+
+  // Transform to JSON using ParkerWithAttrs
+  json = myTransformer.toParkerWithAttrs();
+  print('ParkerWithAttrs');
+  print('');
+  print(json);
 }
