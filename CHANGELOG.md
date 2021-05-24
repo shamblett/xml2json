@@ -1,3 +1,6 @@
+#5.2.0
+Issue 33, addition of Parker with attributes transformer.
+
 #5.1.0
 Merge pull request #32 from faithoflifedev/master
 Badgerfish transform now supports the option to use local name for nodes.

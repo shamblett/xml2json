@@ -9,6 +9,7 @@ script:
 - pub run test/issues/issue16.dart
 - pub run test/issues/issue23.dart
 - pub run test/issues/issue30.dart
+- pub run test/issues/issue33.dart
 
 sudo: required
 addons:

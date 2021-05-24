@@ -50,7 +50,8 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
-    expect(jsonResponse, '{"root": {"result": "ok", "items": {"item": ["Android", "iOS", "Flutter"]}}}');
+    expect(jsonResponse,
+        '{"root": {"result": "ok", "items": {"item": ["Android", "iOS", "Flutter"]}}}');
     var decodedOk = true;
     try {
       final decoded = json.decode(jsonResponse);
