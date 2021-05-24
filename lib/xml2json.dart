@@ -7,6 +7,8 @@
 
 library xml2json;
 
+import 'dart:convert';
+
 import 'package:xml/xml.dart';
 
 part 'src/xml2json.dart';
@@ -16,6 +18,8 @@ part 'src/xml2json_exception.dart';
 part 'src/xml2json_badgerfish.dart';
 
 part 'src/xml2json_parker.dart';
+
+part 'src/xml2json_parker_attrs.dart';
 
 part 'src/xml2json_gdata.dart';
 
