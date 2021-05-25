@@ -91,6 +91,23 @@ class Xml2Json {
     return json;
   }
 
+  /// Parker with attributes transformer
+  String toParkerWithAttrs() {
+    if (_result == null) {
+      throw Xml2JsonException('toParkerWithAttrs - no parse result');
+    }
+
+    String json;
+    final parkerTransformer = _Xml2JsonParkerWithAttrs();
+    try {
+      json = parkerTransformer.transform(_result);
+    } on Exception catch (e) {
+      throw Xml2JsonException('toParkerWithAttrs error => ${e.toString()}');
+    }
+
+    return json;
+  }
+
   /// GData transformer
   String toGData() {
     if (_result == null) {
