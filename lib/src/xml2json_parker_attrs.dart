@@ -11,7 +11,7 @@ part of xml2json;
 /// ParkerWithAttrs transform class
 class _Xml2JsonParkerWithAttrs {
   /// Parker transformer function.
-  Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin) {
+  Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin, {List<String>? array}) {
     Map<dynamic, dynamic>? obj = objin;
     if (node is XmlElement) {
       final nodeName = '"${node.name.qualified}"';
@@ -25,7 +25,7 @@ class _Xml2JsonParkerWithAttrs {
       } else {
         if (node.children.isNotEmpty) {
           if (node.children[0] is XmlText || node.children[0] is XmlCDATA) {
-            _parseXmlTextNode(node, obj, nodeName);
+            _parseXmlTextNode(node, obj, nodeName, array: array);
           } else if (obj[nodeName] is Map) {
             var jsonCopy = json.decode(json.encode(obj[nodeName]));
             obj[nodeName] = <dynamic>[jsonCopy, <dynamic, dynamic>{}];
@@ -35,6 +35,12 @@ class _Xml2JsonParkerWithAttrs {
             }
           } else if (obj[nodeName] is List) {
             obj[nodeName].add(<dynamic, dynamic>{});
+            obj = obj[nodeName].last;
+            if (node.attributes.isNotEmpty) {
+              _parseAttrs(node, obj);
+            }
+          } else if ((array ?? []).contains(node.name.qualified)) {
+            obj[nodeName] = <dynamic>[<dynamic, dynamic>{}];
             obj = obj[nodeName].last;
             if (node.attributes.isNotEmpty) {
               _parseAttrs(node, obj);
@@ -53,11 +59,11 @@ class _Xml2JsonParkerWithAttrs {
       }
 
       for (var j = 0; j < node.children.length; j++) {
-        _transform(node.children[j], obj);
+        _transform(node.children[j], obj, array: array);
       }
     } else if (node is XmlDocument) {
       for (var j = 0; j < node.children.length; j++) {
-        _transform(node.children[j], obj);
+        _transform(node.children[j], obj, array: array);
       }
     }
 
@@ -72,7 +78,7 @@ class _Xml2JsonParkerWithAttrs {
   }
 
   /// 解析XmlText节点
-  void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName) {
+  void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName, {List<String>? array}) {
     final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
     var nodeData = '"$sanitisedNodeData"';
     // print('nodeData----------->$nodeData');
@@ -102,13 +108,17 @@ class _Xml2JsonParkerWithAttrs {
         obj[nodeName] = nodeData;
       }
     }
+    if ((array ?? []).contains(node.name.qualified)) {
+      var jsonCopy = json.decode(json.encode(obj[nodeName]));
+      obj[nodeName] = <dynamic>[jsonCopy];
+    }
   }
 
   /// Transformer function
-  String transform(XmlDocument? xmlNode) {
+  String transform(XmlDocument? xmlNode, {List<String>? array}) {
     Map<dynamic, dynamic>? json;
     try {
-      json = _transform(xmlNode, <dynamic, dynamic>{});
+      json = _transform(xmlNode, <dynamic, dynamic>{}, array: array);
     } on Exception catch (e) {
       throw Xml2JsonException('Parker internal transform error => ${e.toString()}');
     }
