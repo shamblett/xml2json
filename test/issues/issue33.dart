@@ -50,32 +50,7 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
-    expect(jsonResponse,
-        '{"root": {"result": "ok", "items": {"item": ["Android", "iOS", "Flutter"]}}}');
-    var decodedOk = true;
-    try {
-      final decoded = json.decode(jsonResponse);
-    } on FormatException {
-      decodedOk = false;
-    }
-    expect(decodedOk, isTrue);
-  });
-
-  test('Transform xml without attributes,and specify a node as an array', () {
-    const input = '''<?xml version="1.0" encoding="utf-8"?>
-                      <root>
-                        <result>ok</result>
-                        <items>
-                          <item>Flutter</item>
-                        </items>
-                      </root>
-                      ''';
-
-    final xmlParser = Xml2Json();
-    xmlParser.parse(input);
-    var jsonResponse = xmlParser.toParkerWithAttrs(array: ['item']);
-    print(jsonResponse);
-    expect(jsonResponse, '{"root": {"result": "ok", "items": {"item": ["Flutter"]}}}');
+    expect(jsonResponse, '{"root": {"result": "ok", "items": {"item": ["Android", "iOS", "Flutter"]}}}');
     var decodedOk = true;
     try {
       final decoded = json.decode(jsonResponse);
