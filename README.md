@@ -7,7 +7,7 @@ An XML to JSON conversion package.
 This package allows the parsing of XML strings and the transformation of the resulting parse 
 tree into the following XML JSON conventions :-
 
-1. Parker
+1. Parker(optionally with attributes)
 2. Badgerfish
 3. Google Data(GData).
 
@@ -51,7 +51,9 @@ The Parker transformer follows the rules documented [here](https://code.google.c
    items can be referenced through the 'item' property. This is better for the usage this transform
    is suited to, the parsing of simple list like structures of books, records etc that just happen to
    be in XML.
-
+   There is also an alternative Parker transformer that transforms node elements that have attributes.
+   The standard Parker transformer should suffice for most use cases.
+   
 ## Badgerfish
 The Badgerfish transformer follows the rules documented [here](http://www.sklar.com/badgerfish/), to summarise :-
 
@@ -85,7 +87,7 @@ For example, this xml :-
 
 gives this JSON output if useLocalNameForNodes is set true +-
 
-```aidl
+```
 {"Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], "Header": {}, "Body": 
 {"getDataResponse": {"@xmlns": [{"tns": "https://urchin.com/api/urchin/v1/"}], "record": {"recordId": 
 {"$": "1"}, "dimensions": {"dimension": {"@name": "u:month", "$": "2008-02-00T00:00:00Z"}}, 
@@ -94,7 +96,7 @@ gives this JSON output if useLocalNameForNodes is set true +-
 ```
 
 if set to false(default) this JSON response is given :-
-```aidl
+```
 {"soapenv:Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], 
 "soapenv:Header": {}, "soapenv:Body": {"tns:getDataResponse": {"@xmlns": [{"tns": 
 "https://urchin.com/api/urchin/v1/"}], "record": {"recordId": {"$": "1"}, "dimensions": 

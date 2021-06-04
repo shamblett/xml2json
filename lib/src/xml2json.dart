@@ -91,7 +91,7 @@ class Xml2Json {
     return json;
   }
 
-  /// Parker transformer
+  /// Parker with attributes transformer
   String toParkerWithAttrs({List<String>? array}) {
     if (_result == null) {
       throw Xml2JsonException('toParkerWithAttrs - no parse result');

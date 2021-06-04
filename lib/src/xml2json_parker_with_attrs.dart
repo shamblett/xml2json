@@ -8,14 +8,14 @@
 
 part of xml2json;
 
-/// ParkerWithAttrs transform class
+/// ParkerWithAttrs transform class.
+/// Used as an alternative to Parker if the node element contains attributes.
 class _Xml2JsonParkerWithAttrs {
   /// Parker transformer function.
   Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin, {List<String>? array}) {
     Map<dynamic, dynamic>? obj = objin;
     if (node is XmlElement) {
       final nodeName = '"${node.name.qualified}"';
-      // print('nodeName----------->$nodeName');
       if (obj![nodeName] is List && !obj.keys.contains(nodeName)) {
         obj[nodeName].add(<dynamic, dynamic>{});
         obj = obj[nodeName].last;
@@ -70,23 +70,22 @@ class _Xml2JsonParkerWithAttrs {
     return obj;
   }
 
-  /// 解析节点里的属性值
+  /// Analyze the attribute value in the node
   void _parseAttrs(dynamic node, dynamic obj) {
     node.attributes.forEach((attr) {
       obj!['"_${attr.name.qualified}"'] = '"${attr.value}"';
     });
   }
 
-  /// 解析XmlText节点
+  /// Parse XmlText node
   void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName, {List<String>? array}) {
     final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
     var nodeData = '"$sanitisedNodeData"';
-    // print('nodeData----------->$nodeData');
     if (nodeData.isEmpty) {
       nodeData = '';
     }
     var attrs = node.attributes;
-    // 如果开始节点里有属性
+    // Check for attributes in the start node
     if (attrs.isNotEmpty) {
       var objTemp = <dynamic, dynamic>{};
       _parseAttrs(node, objTemp);
@@ -120,7 +119,7 @@ class _Xml2JsonParkerWithAttrs {
     try {
       json = _transform(xmlNode, <dynamic, dynamic>{}, array: array);
     } on Exception catch (e) {
-      throw Xml2JsonException('Parker internal transform error => ${e.toString()}');
+      throw Xml2JsonException('Parker with attrs internal transform error => ${e.toString()}');
     }
 
     return json.toString();
