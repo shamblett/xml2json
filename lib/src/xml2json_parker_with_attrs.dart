@@ -12,7 +12,8 @@ part of xml2json;
 /// Used as an alternative to Parker if the node element contains attributes.
 class _Xml2JsonParkerWithAttrs {
   /// Parker transformer function.
-  Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin, {List<String>? array}) {
+  Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin,
+      {List<String>? array}) {
     Map<dynamic, dynamic>? obj = objin;
     if (node is XmlElement) {
       final nodeName = '"${node.name.qualified}"';
@@ -78,8 +79,10 @@ class _Xml2JsonParkerWithAttrs {
   }
 
   /// Parse XmlText node
-  void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName, {List<String>? array}) {
-    final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
+  void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName,
+      {List<String>? array}) {
+    final sanitisedNodeData =
+        _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
     var nodeData = '"$sanitisedNodeData"';
     if (nodeData.isEmpty) {
       nodeData = '';
@@ -107,7 +110,8 @@ class _Xml2JsonParkerWithAttrs {
         obj[nodeName] = nodeData;
       }
     }
-    if ((array ?? []).contains(node.name.qualified) && !(obj[nodeName] is List)) {
+    if ((array ?? []).contains(node.name.qualified) &&
+        !(obj[nodeName] is List)) {
       var jsonCopy = json.decode(json.encode(obj[nodeName]));
       obj[nodeName] = <dynamic>[jsonCopy];
     }
@@ -119,7 +123,8 @@ class _Xml2JsonParkerWithAttrs {
     try {
       json = _transform(xmlNode, <dynamic, dynamic>{}, array: array);
     } on Exception catch (e) {
-      throw Xml2JsonException('Parker with attrs internal transform error => ${e.toString()}');
+      throw Xml2JsonException(
+          'Parker with attrs internal transform error => ${e.toString()}');
     }
 
     return json.toString();

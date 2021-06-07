@@ -10,6 +10,7 @@ script:
 - pub run test/issues/issue23.dart
 - pub run test/issues/issue30.dart
 - pub run test/issues/issue33.dart
+- pub run test/issues/issue36.dart
 
 sudo: required
 addons:
