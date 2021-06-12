@@ -1,3 +1,6 @@
+#5.3.0
+Issue 36
+
 #5.2.0
 Issue 33, addition of Parker with attributes transformer.
 
