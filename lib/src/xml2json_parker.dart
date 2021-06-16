@@ -14,31 +14,26 @@ class _Xml2JsonParker {
     Map<dynamic, dynamic>? obj = objin;
     if (node is XmlElement) {
       final nodeName = '"${node.name.qualified}"';
-      if (obj![nodeName] is List) {
-        obj[nodeName].add(<dynamic, dynamic>{});
-        obj = obj[nodeName].last;
-      } else if (obj[nodeName] is Map) {
-        obj[nodeName] = <dynamic>[obj[nodeName], <dynamic, dynamic>{}];
-        obj = obj[nodeName].last;
-      } else {
-        if (node.children.isNotEmpty) {
-          if (node.children[0] is XmlText || node.children[0] is XmlCDATA) {
-            _parseXmlTextNode(node, obj, nodeName);
-          } else if (obj[nodeName] is Map) {
-            var jsonCopy = json.decode(json.encode(obj[nodeName]));
-            obj[nodeName] = <dynamic>[jsonCopy, <dynamic, dynamic>{}];
-            obj = obj[nodeName].last;
-          } else if (obj[nodeName] is List) {
-            obj[nodeName].add(<dynamic, dynamic>{});
-            obj = obj[nodeName].last;
-          } else {
-            obj[nodeName] = <dynamic, dynamic>{};
-            obj = obj[nodeName];
-          }
+      if (obj == null) {
+        return null;
+      }
+      if (node.children.isNotEmpty) {
+        if (node.children[0] is XmlText || node.children[0] is XmlCDATA) {
+          _parseXmlTextNode(node, obj, nodeName);
+        } else if (obj[nodeName] is Map) {
+          var jsonCopy = json.decode(json.encode(obj[nodeName]));
+          obj[nodeName] = <dynamic>[jsonCopy, <dynamic, dynamic>{}];
+          obj = obj[nodeName].last;
+        } else if (obj[nodeName] is List) {
+          obj[nodeName].add(<dynamic, dynamic>{});
+          obj = obj[nodeName].last;
         } else {
-          /* No children, empty element */
-          obj[nodeName] = null;
+          obj[nodeName] = <dynamic, dynamic>{};
+          obj = obj[nodeName];
         }
+      } else {
+        /* No children, empty element */
+        obj[nodeName] = null;
       }
 
       for (var j = 0; j < node.children.length; j++) {
