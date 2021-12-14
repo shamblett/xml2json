@@ -1,65 +1,65 @@
-#5.3.1
+## 5.3.1
 Issue 41
 
-#5.3.0
+## 5.3.0
 Issue 36
 
-#5.2.0
+## 5.2.0
 Issue 33, addition of Parker with attributes transformer.
 
-#5.1.0
+## 5.1.0
 Merge pull request #32 from faithoflifedev/master
 Badgerfish transform now supports the option to use local name for nodes.
 
-#5.0.0
+## 5.0.0
 Issues 27(NNBD), 28, 29 and 30
 
-#5.0.0-nullsafety.0
+## 5.0.0-nullsafety.0
 Null safety first update
 
-#4.4.0
+## 4.4.0
 Issue 23
 
-#4.3.0
+## 4.3.0
 Issue 21
 
-#4.2.1
+## 4.2.1
 Issue 20
 
-# 4.2.0
+## 4.2.0
 Issue 16
 
-# 4.1.1
+## 4.1.1
 Linter updates
 
-# 4.1.0
+## 4.1.0
 Pull request 18, add CDATA node parsing for Parker
 
-# 4.0.0
+## 4.0.0
 Issue 17, License is now MIT, small tidy ups
 
-# 3.0.3
+## 3.0.3
 Update testing, new linter rules
 
-# 3.0.2
+## 3.0.2
 Update testing, run browser tests on Travis
 
-# 3.0.1
+## 3.0.1
 Issue 15, relax sdk constraints for flutter
 
-# 3.0.0
+## 3.0.0
 Issue 14, update to Dart 2
 
-# 2.0.14
+## 2.0.14
 Issue 12, update to latest XML package
 
-# 2.0.13 
+## 2.0.13 
 Issue 11, exception message bug
 
-# 2.0.12
+## 2.0.12
 Remove dev infinity constraint on the Dart SDK for Flutter
 
-# 2.0.11
+## 2.0.11
 Pub updates
 
 ## 2.0.10
