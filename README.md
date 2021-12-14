@@ -39,11 +39,11 @@ The Parker transformer follows the rules documented [here](https://code.google.c
 
    becomes
 
-   {"item":["1","2","three"]}
+   `{"item":["1","2","three"]}`
 
    NOT
 
-   ["1","2","three"]
+   `["1","2","three"]`
 
    as per the rules.
 
@@ -76,7 +76,7 @@ will assign "soapenv as the key, while another might assign "ENV"), using the ke
 resulting json from xml2json dependent on the implementation as well.
 
 For example, this xml :-
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"> <soapenv:Header/> <soapenv:Body> 
 <tns:getDataResponse xmlns:tns="https://urchin.com/api/urchin/v1/"> <record> <recordId>1</recordId> 
 <dimensions> <dimension name="u:month">2008-02-00T00:00:00Z</dimension> </dimensions> <metrics> 
@@ -87,7 +87,7 @@ For example, this xml :-
 
 gives this JSON output if useLocalNameForNodes is set true +-
 
-```
+```json
 {"Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], "Header": {}, "Body": 
 {"getDataResponse": {"@xmlns": [{"tns": "https://urchin.com/api/urchin/v1/"}], "record": {"recordId": 
 {"$": "1"}, "dimensions": {"dimension": {"@name": "u:month", "$": "2008-02-00T00:00:00Z"}}, 
@@ -96,7 +96,7 @@ gives this JSON output if useLocalNameForNodes is set true +-
 ```
 
 if set to false(default) this JSON response is given :-
-```
+```json
 {"soapenv:Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], 
 "soapenv:Header": {}, "soapenv:Body": {"tns:getDataResponse": {"@xmlns": [{"tns": 
 "https://urchin.com/api/urchin/v1/"}], "record": {"recordId": {"$": "1"}, "dimensions": 
