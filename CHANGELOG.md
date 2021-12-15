@@ -1,3 +1,6 @@
+## 5.3.2
+PR's 45 and 46, add SBOM
+
 ## 5.3.1
 Issue 41
 
