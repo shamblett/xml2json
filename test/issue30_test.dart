@@ -1,4 +1,4 @@
-// @dart=2.10.5
+
 @TestOn('vm')
 
 import 'dart:convert';
@@ -16,7 +16,7 @@ void main() {
     expect(data, equals(expected));
     var decodedOk = true;
     try {
-      final decoded = json.decode(data);
+      json.decode(data);
     } on FormatException {
       decodedOk = false;
     }
@@ -34,7 +34,7 @@ void main() {
     final data = xml2json.toGData();
     var decodedOk = true;
     try {
-      final decoded = json.decode(data);
+      json.decode(data);
     } on FormatException {
       decodedOk = false;
     }

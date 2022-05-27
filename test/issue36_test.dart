@@ -5,7 +5,6 @@
  * @date: 2021/06/04 13:05:46
  * Copyright © 2021年 zjhcsoft. All rights reserved.
  */
-// @dart=2.12.0
 @TestOn('vm')
 
 import 'dart:convert';
@@ -31,7 +30,7 @@ void main() {
         '{"root": {"result": "ok", "items": {"item": ["Flutter"]}}}');
     var decodedOk = true;
     try {
-      final decoded = json.decode(jsonResponse);
+      json.decode(jsonResponse);
     } on FormatException {
       decodedOk = false;
     }

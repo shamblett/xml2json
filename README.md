@@ -1,6 +1,6 @@
 
 # xml2json
-[![Build Status](https://travis-ci.org/shamblett/xml2json.svg?branch=master)](https://travis-ci.org/shamblett/xml2json)
+[![Build Status](https://github.com/shamblett/xml2json/actions/workflows/ci.yml/badge.svg)](https://github.com/shamblett/xml2json/actions/workflows/ci.yml)
 
 An XML to JSON conversion package.
 

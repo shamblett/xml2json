@@ -4,12 +4,12 @@
  * Date   : 12/09/2013
  * Copyright :  S.Hamblett@OSCF
  */
-// @dart=2.10.5
+
 @TestOn('vm')
 
 import 'package:xml2json/xml2json.dart';
 import 'package:test/test.dart';
-import '../xml2json_test_strings.dart';
+import 'xml2json_test_strings.dart';
 
 void main() {
   /* Initialise */
