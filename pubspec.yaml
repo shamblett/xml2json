@@ -1,5 +1,5 @@
 name: xml2json
-version: 5.3.2
+version: 5.3.3
 description: An XML to JSON conversion package. Supports Badgerfish, GData and Parker conversions.
 homepage: https://github.com/shamblett/xml2json
 
@@ -7,7 +7,7 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  xml: '^5.0.2'
+  xml: ^6.1.0
 
 dev_dependencies:
   test: '^1.16.2'
