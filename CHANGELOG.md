@@ -1,5 +1,8 @@
+## 5.3.3
+PR 46 and issue 47, remove Travis
+
 ## 5.3.2
-PR's 45 and 46, add SBOM
+PR's 44 and 45, add SBOM
 
 ## 5.3.1
 Issue 41
