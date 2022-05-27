@@ -1,4 +1,3 @@
-// @dart=2.12.0
 @TestOn('vm')
 
 import 'dart:convert';
@@ -27,7 +26,7 @@ void main() {
         '{"root": {"result": "ok", "items": {"_parent": "111", "item": [{"_id": "10", "value": "Android"}, {"_id": "11", "value": "iOS"}, {"_id": "12", "value": "Flutter"}]}}}');
     var decodedOk = true;
     try {
-      final decoded = json.decode(jsonResponse);
+      json.decode(jsonResponse);
     } on FormatException {
       decodedOk = false;
     }
@@ -54,7 +53,7 @@ void main() {
         '{"root": {"result": "ok", "items": {"item": ["Android", "iOS", "Flutter"]}}}');
     var decodedOk = true;
     try {
-      final decoded = json.decode(jsonResponse);
+      json.decode(jsonResponse);
     } on FormatException {
       decodedOk = false;
     }
