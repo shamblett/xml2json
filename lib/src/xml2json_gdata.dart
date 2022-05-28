@@ -30,12 +30,12 @@ class _Xml2JsonGData {
         /* Text node processing */
         final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
         final nodeData = '"$sanitisedNodeData"';
-        if (obj['$_marker'] is List) {
-          obj['$_marker'].add(nodeData);
-        } else if (obj['$_marker'] is Map) {
-          obj['$_marker'] = <dynamic>[obj['$_marker'], nodeData];
+        if (obj[_marker] is List) {
+          obj[_marker].add(nodeData);
+        } else if (obj[_marker] is Map) {
+          obj[_marker] = <dynamic>[obj[_marker], nodeData];
         } else {
-          obj['$_marker'] = nodeData;
+          obj[_marker] = nodeData;
         }
       } else if (node is XmlElement) {
         /* Element node processing */
@@ -94,7 +94,7 @@ class _Xml2JsonGData {
         /* CDATA node processing */
         final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
         final nodeData = '"$sanitisedNodeData"';
-        obj['$_cdata'] = nodeData;
+        obj[_cdata] = nodeData;
       } else if (node is XmlProcessing) {
         /* Processing node, only text in this node */
         final processingString = node.text;

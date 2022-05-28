@@ -27,12 +27,12 @@ class _Xml2JsonBadgerfish {
         /* Text node processing */
         final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
         final nodeData = '"$sanitisedNodeData"';
-        if (obj['$_marker'] is List) {
-          obj['$_marker'].add(nodeData);
-        } else if (obj['$_marker'] is Map<dynamic, dynamic>) {
-          obj['$_marker'] = <dynamic>[obj['$_marker'], nodeData];
+        if (obj[_marker] is List) {
+          obj[_marker].add(nodeData);
+        } else if (obj[_marker] is Map<dynamic, dynamic>) {
+          obj[_marker] = <dynamic>[obj[_marker], nodeData];
         } else {
-          obj['$_marker'] = nodeData;
+          obj[_marker] = nodeData;
         }
       } else if (node is XmlElement) {
         /* Element node processing */
@@ -45,7 +45,7 @@ class _Xml2JsonBadgerfish {
           dynamic value = attr.value;
           value = _Xml2JsonUtils.escapeTextForJson(value);
           if (name == 'xmlns') {
-            ns['$_marker'] = '"$value"';
+            ns[_marker] = '"$value"';
           } else if (name.indexOf('xmlns:') == 0) {
             String? namePrefix = name.substring(name.indexOf(':') + 1);
             namePrefix = '"$namePrefix"';
@@ -82,7 +82,7 @@ class _Xml2JsonBadgerfish {
         /* CDATA node processing */
         final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
         final nodeData = '"$sanitisedNodeData"';
-        obj['$_cdata'] = nodeData;
+        obj[_cdata] = nodeData;
       } else if (node is XmlDocument) {
         /* Document node processing */
         for (var k = 0; k < node.children.length; k++) {

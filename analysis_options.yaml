@@ -9,3 +9,4 @@ include: package:lints/recommended.yaml
 analyzer:
   exclude:
     - test/issues/**
+    - test/xml2json_test_strings.dart

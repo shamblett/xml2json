@@ -110,8 +110,7 @@ class _Xml2JsonParkerWithAttrs {
         obj[nodeName] = nodeData;
       }
     }
-    if ((array ?? []).contains(node.name.qualified) &&
-        !(obj[nodeName] is List)) {
+    if ((array ?? []).contains(node.name.qualified) && obj[nodeName] is! List) {
       var jsonCopy = json.decode(json.encode(obj[nodeName]));
       obj[nodeName] = <dynamic>[jsonCopy];
     }
