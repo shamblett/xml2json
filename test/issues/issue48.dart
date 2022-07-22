@@ -21,9 +21,9 @@ void main() {
 
     final xmlParser = Xml2Json();
     xmlParser.parse(input);
-    var jsonResponse = jsonDecode(xmlParser.toParkerWithAttrs());
+    var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
     expect(jsonResponse,
-        '{SubItems: {Item": {Value": ["1","2","","3"],"LinkTo": ["1000029214","1000029214","1000029214","1000029214"],}}}');
+        '{"SubItems: {Item": {Value": ["1","2","","3"],"LinkTo": ["1000029214","1000029214","1000029214","1000029214"],}}}"');
   });
 }
