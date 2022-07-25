@@ -1,6 +1,5 @@
 @TestOn('vm')
 
-import 'dart:convert';
 import 'package:test/test.dart';
 import 'package:xml2json/xml2json.dart';
 
@@ -24,6 +23,6 @@ void main() {
     var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
     expect(jsonResponse,
-        '{"SubItems": {"Item": {"Value": ["1", "2", "50", "3"], "LinkTo": ["1000029214", "1000029214", "1000029214", "1000029214"]}}}');
+        '{"SubItems": {"Item": {"Value": ["1", "2", "", "3"], "LinkTo": ["1000029214", "1000029214", "1000029214", "1000029214"]}}}');
   });
 }

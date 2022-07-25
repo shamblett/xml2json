@@ -24,38 +24,38 @@ class _Xml2JsonParkerWithAttrs {
         obj[nodeName] = <dynamic>[obj[nodeName], <dynamic, dynamic>{}];
         obj = obj[nodeName].last;
       } else {
-        if (node.children.isNotEmpty) {
-          if (node.children[0] is XmlText || node.children[0] is XmlCDATA) {
-            _parseXmlTextNode(node, obj, nodeName, array: array);
-          } else if (obj[nodeName] is Map) {
-            var jsonCopy = json.decode(json.encode(obj[nodeName]));
-            obj[nodeName] = <dynamic>[jsonCopy, <dynamic, dynamic>{}];
-            obj = obj[nodeName].last;
-            if (node.attributes.isNotEmpty) {
-              _parseAttrs(node, obj);
-            }
-          } else if (obj[nodeName] is List) {
-            obj[nodeName].add(<dynamic, dynamic>{});
-            obj = obj[nodeName].last;
-            if (node.attributes.isNotEmpty) {
-              _parseAttrs(node, obj);
-            }
-          } else if ((array ?? []).contains(node.name.qualified)) {
-            obj[nodeName] = <dynamic>[<dynamic, dynamic>{}];
-            obj = obj[nodeName].last;
-            if (node.attributes.isNotEmpty) {
-              _parseAttrs(node, obj);
-            }
-          } else {
-            obj[nodeName] = <dynamic, dynamic>{};
-            obj = obj[nodeName];
-            if (node.attributes.isNotEmpty) {
-              _parseAttrs(node, obj);
-            }
+        if (node.children.isEmpty) {
+          // Add a dummy node, node children cannot now be empty
+          final dummyNode = XmlText('');
+          node.children.add(dummyNode);
+        }
+        if (node.children[0] is XmlText || node.children[0] is XmlCDATA) {
+          _parseXmlTextNode(node, obj, nodeName, array: array);
+        } else if (obj[nodeName] is Map) {
+          var jsonCopy = json.decode(json.encode(obj[nodeName]));
+          obj[nodeName] = <dynamic>[jsonCopy, <dynamic, dynamic>{}];
+          obj = obj[nodeName].last;
+          if (node.attributes.isNotEmpty) {
+            _parseAttrs(node, obj);
+          }
+        } else if (obj[nodeName] is List) {
+          obj[nodeName].add(<dynamic, dynamic>{});
+          obj = obj[nodeName].last;
+          if (node.attributes.isNotEmpty) {
+            _parseAttrs(node, obj);
+          }
+        } else if ((array ?? []).contains(node.name.qualified)) {
+          obj[nodeName] = <dynamic>[<dynamic, dynamic>{}];
+          obj = obj[nodeName].last;
+          if (node.attributes.isNotEmpty) {
+            _parseAttrs(node, obj);
           }
         } else {
-          /* No children, empty element */
-          obj[nodeName] = null;
+          obj[nodeName] = <dynamic, dynamic>{};
+          obj = obj[nodeName];
+          if (node.attributes.isNotEmpty) {
+            _parseAttrs(node, obj);
+          }
         }
       }
 
