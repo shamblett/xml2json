@@ -1,3 +1,6 @@
+## 5.3.4 
+Issue 48
+
 ## 5.3.3
 PR 46 and issue 47, remove Travis
 
