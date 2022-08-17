@@ -15,5 +15,9 @@ void main() {
     xmlParser.parse(fileContent);
     var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
+    filePath =
+    p.join(Directory.current.path, 'test', 'issues', 'issue50', 'transformed.json');
+    File outputFile = File(filePath);
+    outputFile.writeAsStringSync(jsonResponse);
   });
 }

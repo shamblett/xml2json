@@ -1,0 +1,101 @@
+{
+  "gamebook": {
+    "_xml:lang": "en-UK",
+    "_version": "0.12",
+    "meta": {
+      "title": "Flight from the Dark",
+      "creator": [
+        {
+          "_class": "author",
+          "_sort-name": "Dever, Joe",
+          "value": "Joe Dever"
+        },
+        {
+          "_class": "illustrator",
+          "_sort-name": "Chalk, Gary",
+          "value": "Gary Chalk"
+        },
+        {
+          "_class": "short",
+          "value": "Joe Dever and Gary Chalk"
+        },
+        {
+          "_class": "medium",
+          "line": [
+            "Joe Dever",
+            "Illustrated by Gary Chalk"
+          ]
+        },
+        {
+          "_class": "long",
+          "value": "\\r\\\\n            &inclusion.joe.dever.bio.lw;\\r\\\\n            &inclusion.gary.chalk.bio.lw;\\r\\\\n        "
+        }
+      ],
+      "publisher": "Project Aon",
+      "date": {
+        "_class": "publication",
+        "year": "2018",
+        "month": "2",
+        "day": "15"
+      },
+      "description": [
+        {
+          "_class": "blurb",
+          "p": [
+            "You are Lone Wolf. In a devastating attack the Darklords have destroyed the monastery where you were learning the skills of the Kai Lords. You are the sole survivor.",
+            "In "
+          ],
+          "strong": {
+            "cite": "Flight from the Dark"
+          },
+          "ch.emdash": ""
+        },
+        {
+          "_class": "publication",
+          "p": "Internet Edition published by ",
+          "a": [
+            {
+              "_href": "&link.project.website;",
+              "value": "Project Aon"
+            },
+            {
+              "_idref": "errata",
+              "value": "Errata"
+            }
+          ]
+        }
+      ],
+      "rights": [
+        {
+          "_class": "copyrights",
+          "line": [
+            "Text copyright ",
+            "Illustrations copyright "
+          ],
+          "ch.copy": [
+            "",
+            ""
+          ]
+        },
+        {
+          "_class": "license-notification",
+          "p": {
+            "line": [
+              "Text copyright ",
+              "Illustrations copyright ",
+              "Distribution of this Internet Edition is restricted under the terms of the "
+            ],
+            "ch.copy": [
+              "",
+              ""
+            ],
+            "a": {
+              "_idref": "license",
+              "value": "Project Aon License"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
