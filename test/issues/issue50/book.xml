@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE gamebook SYSTEM "gamebook.dtd" [
+        <!ENTITY % general.links SYSTEM "genlink.mod">
+        %general.links;
+        <!ENTITY % xhtml.links   SYSTEM "htmllink.mod">
+        %xhtml.links;
+
+        <!ENTITY % general.inclusions SYSTEM "geninc.mod">
+        %general.inclusions;
+        ]>
+
+<gamebook xml:lang="en-UK" version="0.12">
+    <meta>
+        <title>Flight from the Dark</title>
+        <creator class="author" sort-name="Dever, Joe">Joe Dever</creator>
+        <creator class="illustrator" sort-name="Chalk, Gary">Gary Chalk</creator>
+        <creator class="short">Joe Dever and Gary Chalk</creator>
+        <creator class="medium">
+            <line>Joe Dever</line>
+            <line>Illustrated by Gary Chalk</line>
+        </creator>
+        <creator class="long">
+            &inclusion.joe.dever.bio.lw;
+            &inclusion.gary.chalk.bio.lw;
+        </creator>
+        <publisher>Project Aon</publisher>
+        <date class="publication"><year>2018</year><month>2</month><day>15</day></date>
+        <description class="blurb">
+            <p>You are Lone Wolf. In a devastating attack the Darklords have destroyed the monastery where you were learning the skills of the Kai Lords. You are the sole survivor.</p>
+            <p>In <strong><cite>Flight from the Dark</cite></strong>, you swear revenge. But first you must reach Holmgard to warn the King of the gathering evil. Relentlessly the servants of darkness hunt you across your country and every turn of the page presents a new challenge. Choose your skills and your weapons carefully<ch.emdash/>for they can help you succeed in the most fantastic and terrifying journey of your life.</p>
+        </description>
+        <description class="publication">
+            <p>Internet Edition published by <a href="&link.project.website;">Project Aon</a>. This edition is intended to reflect the complete text of the original version. Where we have made minor corrections, they will be noted in the <a idref="errata">Errata</a>.</p>
+        </description>
+        <rights class="copyrights">
+            <line>Text copyright <ch.copy/> 1984 Joe Dever.</line>
+            <line>Illustrations copyright <ch.copy/> 1984 Gary Chalk.</line>
+        </rights>
+        <rights class="license-notification">
+            <p>
+                <line>Text copyright <ch.copy/> 1984 Joe Dever.</line>
+                <line>Illustrations copyright <ch.copy/> 1984 Gary Chalk.</line>
+                <line>Distribution of this Internet Edition is restricted under the terms of the <a idref="license">Project Aon License</a>.</line>
+            </p>
+        </rights>
+    </meta>
+</gamebook>
+
