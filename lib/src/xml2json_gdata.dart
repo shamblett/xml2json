@@ -25,7 +25,7 @@ class _Xml2JsonGData {
   Map<dynamic, dynamic> _transform(XmlDocument? node) {
     final json = <dynamic, dynamic>{};
 
-    void _process(dynamic node, dynamic obj, dynamic ns) {
+    void process(dynamic node, dynamic obj, dynamic ns) {
       if (node is XmlText) {
         /* Text node processing */
         final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
@@ -83,12 +83,12 @@ class _Xml2JsonGData {
         }
 
         for (var j = 0; j < node.children.length; j++) {
-          _process(node.children[j], p, <dynamic, dynamic>{});
+          process(node.children[j], p, <dynamic, dynamic>{});
         }
       } else if (node is XmlDocument) {
         /* Document node processing */
         for (var k = 0; k < node.children.length; k++) {
-          _process(node.children[k], obj, <dynamic, dynamic>{});
+          process(node.children[k], obj, <dynamic, dynamic>{});
         }
       } else if (node is XmlCDATA) {
         /* CDATA node processing */
@@ -109,7 +109,7 @@ class _Xml2JsonGData {
       }
     }
 
-    _process(node, json, <dynamic, dynamic>{});
+    process(node, json, <dynamic, dynamic>{});
     return json;
   }
 
