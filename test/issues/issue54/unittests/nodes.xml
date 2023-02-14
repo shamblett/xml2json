@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodes version="1.0" xmlns:ding="http://zanstra.com/ding">
+  <ding:dong-dang.dung>Namespaced element with dash and dot</ding:dong-dang.dung>
+  <yo123-ho456/>
+  <yo123-ho457>data</yo123-ho457>
+  <nil/>
+  <empty></empty>
+</nodes>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zoo>
+  <fish>
+    <name>whale</name>
+    <weight/>
+  </fish>
+  <bird>
+    <name>owl</name>
+  </bird>
+</zoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<types>
+  <true-boolean>true</true-boolean>
+  <false-boolean>false</false-boolean>
+  <object test="true" attributes="are commented in js">
+    <zooi>jaja</zooi>
+    <zut>frot</zut>
+  </object>
+  <array>
+    <item/>
+    <item>true</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>six</item>
+    <item>
+      <key>item</key>
+      <value>7</value>
+    </item>
+  </array>
+</types>

@@ -1,0 +1,11 @@
+{
+    script:"<script>alert(\"YES\")<\/script>",
+    string:"Zooi",
+    string:"Tab\tText",
+    string:"Quote \"test\"",
+    string:"Backslash \\ test",
+    string:"Quote \" en \\ test",
+    string:"\"Forsooth! It 'tis as I thought!\"",
+    string:"\"Begin/end quote\"",
+    escape:"Line one (één in Dutch)\nLine two:\ttab\nHe said: \"Much fun with a €\"\nMore unicode†",
+    poetry:"JABBERWOCKY\n\nLewis Carroll\n\n(from Through the Looking-Glass and What Alice Found There, 1872)\n`Twas brillig, and the slithy toves\n  Did gyre and gimble in the wabe:\nAll mimsy were the borogoves,\n  And the mome raths outgrabe.\n\n \n\n\"Beware the Jabberwock, my son!\n  The jaws that bite, the claws that catch!\nBeware the Jubjub bird, and shun\n  The frumious Bandersnatch!\"\nHe took his vorpal sword in hand:\n  Long time the manxome foe he sought --\nSo rested he by the Tumtum tree,\n  And stood awhile in thought.\nAnd, as in uffish thought he stood,\n  The Jabberwock, with eyes of flame,\nCame whiffling through the tulgey wood,\n  And burbled as it came!\nOne, two! One, two! And through and through\n  The vorpal blade went snicker-snack!\nHe left it dead, and with its head\n  He went galumphing back.\n\"And, has thou slain the Jabberwock?\n  Come to my arms, my beamish boy!\nO frabjous day! Callooh! Callay!'\n  He chortled in his joy.\n\n\n\n`Twas brillig, and the slithy toves\n  Did gyre and gimble in the wabe;\nAll mimsy were the borogoves,\n  And the mome raths outgrabe."}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Test Case submitted in issue 2: Invalid octals
+ http://code.google.com/p/xml2json-xslt/issues/detail?id=2
+ -->
+<root>
+  <octal>01234567</octal>
+  <notoctal>089</notoctal>
+</root>

@@ -1,0 +1,4 @@
+{
+    birthdate:new Date(2006,11-1,14),
+    appointment:new Date(2006,11-1,14,12,30),
+    appointment:new Date(2006,11-1,14,12,30,00)}

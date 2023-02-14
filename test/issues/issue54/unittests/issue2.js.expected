@@ -1,0 +1,6 @@
+/*
+ Test Case submitted in issue 2: Invalid octals
+ http://code.google.com/p/xml2json-xslt/issues/detail?id=2
+ */{
+    octal:"01234567",
+    notoctal:"089"}

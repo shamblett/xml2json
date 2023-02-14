@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Test Case submitted in issue 1:
+ http://code.google.com/p/xml2json-xslt/issues/detail?id=1
+ -->
+<productRating>
+   <rating>
+     <ratingCode>PG-13</ratingCode>
+   </rating>
+   <explaination/>
+</productRating>

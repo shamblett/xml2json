@@ -1,0 +1,7 @@
+/*
+ Test Case submitted in issue 1:
+ http://code.google.com/p/xml2json-xslt/issues/detail?id=1
+ */{
+    rating:{
+      ratingCode:"PG-13"},
+    explaination:null}

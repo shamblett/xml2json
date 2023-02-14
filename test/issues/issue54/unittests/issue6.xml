@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Test Case submitted in issue 6: Singleton arrays
+ http://code.google.com/p/xml2json-xslt/issues/detail?id=6
+ -->
+<array type="array">
+  <item>one</item>
+</array>

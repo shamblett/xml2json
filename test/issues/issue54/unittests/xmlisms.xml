@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+XML-isms in a giant blob of text.
+ -->
+<text>
+  <![CDATA[
+<div id="test">
+<span>This is "text", &lt;dude&gt;.</span>
+<span>c:\windows</span>
+</div>
+]]>
+</text>

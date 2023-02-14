@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <zero>0</zero>
+  <fixed>10.25</fixed>
+  <octal>0123</octal>
+  <hex>0x123</hex>
+  <padded_zero>01</padded_zero>
+  <fixed-neg>-10.25</fixed-neg>
+  <int>123</int>
+  <int-neg>-321</int-neg>
+  <float>-12.123</float>
+  <exp>-1.234e5</exp>
+</root>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dates version="1.0" xmlns:ding="http://zanstra.com/ding">
+  This should be ignored, as usual.
+  <birthdate>2006-11-14</birthdate>
+  <appointment>2006-11-14T12:30</appointment>
+  <appointment>2006-11-14T12:30:00</appointment>
+</dates>

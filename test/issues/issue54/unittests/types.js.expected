@@ -1,0 +1,17 @@
+{
+    "true-boolean":true,
+    "false-boolean":false,
+    /*@test="true" @attributes="are commented in js"*/object:{
+      zooi:"jaja",
+      zut:"frot"},
+    array:[
+      null,
+      true,
+      2,
+      3,
+      4,
+      5,
+      "six",
+      {
+        key:"item",
+        value:7}]}

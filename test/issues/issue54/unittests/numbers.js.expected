@@ -1,0 +1,11 @@
+{
+    zero:0,
+    fixed:10.25,
+    octal:"0123",
+    hex:"0x123",
+    padded_zero:"01",
+    "fixed-neg":-10.25,
+    "int":123,
+    "int-neg":-321,
+    "float":-12.123,
+    exp:-1.234e5}
