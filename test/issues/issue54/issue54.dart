@@ -13,7 +13,7 @@ void main() async {
           .toList())
       .cast<File>()
       .where((element) => element.path.endsWith("xml"));
-
+  print(xmlFiles);
   await Future.forEach(xmlFiles, testXmlFile);
 }
 
@@ -25,11 +25,10 @@ Future<void> testXmlFile(File xmlFile) async {
   String jsonFileContent = await jsonFile.readAsString();
   String xmlFileContent = await xmlFile.readAsString();
 
-  test("correct parker conversion of $xmlFilePath", () {
+  test("Parker conversion of $xmlFilePath", () {
     final xmlParser = Xml2Json();
     xmlParser.parse(xmlFileContent);
     var jsonResponse = xmlParser.toParker();
-    //print(jsonResponse);
     expect(jsonDecode(jsonResponse), jsonDecode(jsonFileContent));
   });
 }
