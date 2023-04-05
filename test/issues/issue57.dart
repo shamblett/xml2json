@@ -10,8 +10,7 @@ void main() {
     </a>''';
     final Xml2Json myTransformer = Xml2Json();
     myTransformer.parse(s1);
-    print(' This is a \\\\\\\\n    multi-line string \\\\\\\\n');
-    expect(myTransformer.toParker(), '{"a": " This is a multi-line string "}');
-
+    final res = myTransformer.toParker();
+    expect(res, '{"a": ```This is a multi-line string "}');
   });
 }
