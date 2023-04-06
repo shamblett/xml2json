@@ -13,10 +13,13 @@ void main() {
     myTransformer.parse(s1);
     print(s1);
     final res = myTransformer.toParker();
-    print(res);
+    print('Undecoded : $res');
     final decoder = JsonDecoder();
     final decoded = decoder.convert(res);
-    print(decoded);
+    print('Decoded : $decoded');
     expect(decoded.toString(), r'{a: This is a\\n    multi-line\\n    string }');
+    final encoder = JsonEncoder();
+    final encoded = encoder.convert(decoded);
+    print('Encoded : $encoded');
   });
 }
