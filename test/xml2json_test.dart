@@ -43,6 +43,15 @@ void main() {
               e.toString() ==
                   'Xml2JsonException: message = toGData - no parse result')));
     });
+
+    test('OpenRally', () {
+      expect(
+          myTransformer.toOpenRally,
+          throwsA(predicate((dynamic e) =>
+              e is Xml2JsonException &&
+              e.toString() ==
+                  'Xml2JsonException: message = toOpenRally - no parse result')));
+    });
   });
 
   /* Group 2 - XML Parsing */
