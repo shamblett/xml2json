@@ -74,6 +74,23 @@ class Xml2Json {
     return json;
   }
 
+  /// OpenRally transformer
+  String toOpenRally() {
+    if (_result == null) {
+      throw Xml2JsonException('toOpenRally - no parse result');
+    }
+
+    String json;
+    final openRallyTransformer = _Xml2JsonOpenRally();
+    try {
+      json = openRallyTransformer.transform(_result);
+    } on Exception catch (e) {
+      throw Xml2JsonException('toOpenRally error => ${e.toString()}');
+    }
+
+    return json;
+  }
+
   /// Parker transformer
   String toParker() {
     if (_result == null) {
