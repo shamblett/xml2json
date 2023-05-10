@@ -28,7 +28,7 @@ class _Xml2JsonGData {
     void process(dynamic node, dynamic obj, dynamic ns) {
       if (node is XmlText) {
         /* Text node processing */
-        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.value);
         final nodeData = '"$sanitisedNodeData"';
         if (obj[_marker] is List) {
           obj[_marker].add(nodeData);
@@ -92,12 +92,12 @@ class _Xml2JsonGData {
         }
       } else if (node is XmlCDATA) {
         /* CDATA node processing */
-        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.value);
         final nodeData = '"$sanitisedNodeData"';
         obj[_cdata] = nodeData;
       } else if (node is XmlProcessing) {
         /* Processing node, only text in this node */
-        final processingString = node.text;
+        final processingString = node.value;
         final nodeMap = _Xml2JsonUtils.mapProcessingNode(processingString);
         for (final i in nodeMap.keys) {
           final index = '"$i"';

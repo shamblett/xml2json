@@ -25,7 +25,7 @@ class _Xml2JsonBadgerfish {
     void process(dynamic node, Map<dynamic, dynamic> obj, dynamic ns) {
       if (node is XmlText) {
         /* Text node processing */
-        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.value);
         final nodeData = '"$sanitisedNodeData"';
         if (obj[_marker] is List) {
           obj[_marker].add(nodeData);
@@ -80,7 +80,7 @@ class _Xml2JsonBadgerfish {
         }
       } else if (node is XmlCDATA) {
         /* CDATA node processing */
-        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.text);
+        final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(node.value);
         final nodeData = '"$sanitisedNodeData"';
         obj[_cdata] = nodeData;
       } else if (node is XmlDocument) {
