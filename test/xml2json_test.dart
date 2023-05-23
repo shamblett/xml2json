@@ -200,4 +200,25 @@ void main() {
           isNot(throwsA(const TypeMatcher<FormatException>())));
     });
   });
+
+  /* Group 6 - OpenRally */
+  group('6. OpenRally - ', () {
+    /* Initialise */
+    final myTransformer = Xml2Json();
+
+    test('Parse test string', () {
+      myTransformer.parse(openRallyStringXML);
+      final dynamic result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
+    });
+
+    test('Transform test string', () {
+      final res = myTransformer.toOpenRally();
+      expect(res.replaceAll(' ', '').replaceAll('\n', ''),
+          equals(openRallyStringJson.replaceAll(' ', '').replaceAll('\n', '')));
+      /* Re parse just to check */
+      expect(json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
+    });
+  });
 }

@@ -490,3 +490,116 @@ String badgerfishLocalNodeXmlTestString =
 String badgerfishLocalNodeCheckString =
     '{"Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], "Header": {}, "Body": {"getDataResponse": {"@xmlns": [{"tns": "https://urchin.com/api/urchin/v1/"}], "record": {"recordId": {"\$": "1"}, "dimensions": {"dimension": {"@name": "u:month", "\$": "2008-02-00T00:00:00Z"}}, "metrics": {"hits": {"@xmlns": [{"u": "https://urchin.com/api/urchin/v1/"}], "\$": "836"}, "bytes": {"@xmlns": [{"u": "https://urchin.com/api/urchin/v1/"}], "\$": "1953960"}}}}}}}';
 String issue33 = '<root><item>1</item><item>2</item><item>three</item></root>';
+
+/* General testing XML strings from http://www.ibm.com/developerworks/library/x-xml2jsonphp */
+String openRallyStringXML =
+    """<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gpx
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:openrally="http://www.openrally.org/xmlschemas/GpxExtensions/v1.0.3"
+  creator="Rally Navigator"
+  version="1.1"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd                       http://www.openrally.org/xmlschemas/GpxExtensions/v1.0.3 openrally.xsd">
+  <metadata>
+    <extensions>
+      <openrally:units>metric</openrally:units>
+      <openrally:distance>7.16</openrally:distance>
+    </extensions>
+  </metadata>
+  <wpt lat="47.458149" lon="-0.477797">
+    <name>waypoint_1</name>
+    <extensions>
+      <openrally:distance>0</openrally:distance>
+      <openrally:cap>328</openrally:cap>
+      <openrally:show_coordinates/>
+      <openrally:tulip>
+        <![CDATA[data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...]]>
+      </openrally:tulip>
+      <openrally:notes>   
+        <![CDATA[data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...]]>
+      </openrally:notes>
+      <openrally:timecontrol/>
+    </extensions>
+  </wpt>
+  <wpt lat="47.458807" lon="-0.478419">
+    <name>waypoint_2</name>
+    <extensions>
+      <openrally:distance>0.09</openrally:distance>
+      <openrally:cap>60</openrally:cap>
+      <openrally:tulip>
+        <![CDATA[data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...]]>
+      </openrally:tulip>
+      <openrally:notes>
+        <![CDATA[data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...]]>
+      </openrally:notes>
+    </extensions>
+  </wpt>
+  <trk>
+    <name>ACTIVE LOG 001</name>
+    <desc>waypoints</desc>
+    <trkseg>
+      <trkpt lat="47.458149" lon="-0.477797"/>
+      <trkpt lat="47.458431" lon="-0.478062"/>
+    </trkseg>
+  </trk>
+</gpx>""";
+String openRallyStringJson = """
+{
+  "gpx":{
+    "xmlns":"http://www.topografix.com/GPX/1/1",
+    "xsi":"http://www.w3.org/2001/XMLSchema-instance",
+    "openrally":"http://www.openrally.org/xmlschemas/GpxExtensions/v1.0.3",
+    "creator":"RallyNavigator",
+    "version":"1.1",
+    "schemaLocation":"http://www.topografix.com/GPX/1/1http://www.topografix.com/GPX/1/1/gpx.xsdhttp://www.openrally.org/xmlschemas/GpxExtensions/v1.0.3openrally.xsd",
+    "metadata":{
+      "extensions":{
+        "units":"metric",
+        "distance":"7.16"
+      }
+    },
+    "wpt":[
+      {
+        "lat":"47.458149",
+        "lon":"-0.477797",
+        "name":"waypoint_1",
+        "extensions":{
+          "distance":"0",
+          "cap":"328",
+          "show_coordinates":"true",
+          "tulip":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...",
+          "notes":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...",
+          "timecontrol":"true"
+        }
+      },
+      {
+        "lat":"47.458807",
+        "lon":"-0.478419",
+        "name":"waypoint_2",
+        "extensions":{
+          "distance":"0.09",
+          "cap":"60",
+          "tulip":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA..."
+          ,"notes":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA..."
+        }
+      }
+    ],
+    "trk":{
+      "name":"ACTIVELOG001",
+      "desc":"waypoints",
+      "trkseg":{
+        "trkpt":[
+          {
+            "lat":"47.458149",
+            "lon":"-0.477797"
+          },
+          {
+            "lat":"47.458431",
+            "lon":"-0.478062"
+          }
+        ]
+      }  
+    }
+  }
+}""";
