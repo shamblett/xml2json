@@ -6,7 +6,7 @@
 
 part of xml2json;
 
-/// Parker transform class
+/// OpenRally transform class
 class _Xml2JsonOpenRally {
   ///
   String _toJsonString(dynamic value, {String? prefix}) {
@@ -74,7 +74,7 @@ class _Xml2JsonOpenRally {
     } else if (node is XmlText) {
       return node.toString();
     } else if (node is XmlCDATA) {
-      return _Xml2JsonUtils.escapeTextForJson(node.text);
+      return _Xml2JsonUtils.escapeTextForJson(node.value);
     } else {
       return true;
     }

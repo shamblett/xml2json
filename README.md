@@ -10,6 +10,7 @@ tree into the following XML JSON conventions :-
 1. Parker(optionally with attributes)
 2. Badgerfish
 3. Google Data(GData).
+4. OpenRally
 
 The package uses the [xml](https://pub.dev/packages/xml) parser to perform the parsing of XML data into a parse tree.
 
