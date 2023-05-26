@@ -43,6 +43,15 @@ void main() {
               e.toString() ==
                   'Xml2JsonException: message = toGData - no parse result')));
     });
+
+    test('OpenRally', () {
+      expect(
+          myTransformer.toOpenRally,
+          throwsA(predicate((dynamic e) =>
+              e is Xml2JsonException &&
+              e.toString() ==
+                  'Xml2JsonException: message = toOpenRally - no parse result')));
+    });
   });
 
   /* Group 2 - XML Parsing */
@@ -186,6 +195,27 @@ void main() {
       final res = myTransformer.toGData();
       expect(res.replaceAll(' ', ''),
           equals(gDataComplexJsonCheckString.replaceAll(' ', '')));
+      /* Re parse just to check */
+      expect(json.encode(res),
+          isNot(throwsA(const TypeMatcher<FormatException>())));
+    });
+  });
+
+  /* Group 6 - OpenRally */
+  group('6. OpenRally - ', () {
+    /* Initialise */
+    final myTransformer = Xml2Json();
+
+    test('Parse test string', () {
+      myTransformer.parse(openRallyStringXML);
+      final dynamic result = myTransformer.xmlParserResult;
+      expect(result, isNot(isNull));
+    });
+
+    test('Transform test string', () {
+      final res = myTransformer.toOpenRally();
+      expect(res.replaceAll(' ', '').replaceAll('\n', ''),
+          equals(openRallyStringJson.replaceAll(' ', '').replaceAll('\n', '')));
       /* Re parse just to check */
       expect(json.encode(res),
           isNot(throwsA(const TypeMatcher<FormatException>())));

@@ -1,10 +1,10 @@
-
 # xml2json
+
 [![Build Status](https://github.com/shamblett/xml2json/actions/workflows/ci.yml/badge.svg)](https://github.com/shamblett/xml2json/actions/workflows/ci.yml)
 
 An XML to JSON conversion package.
 
-This package allows the parsing of XML strings and the transformation of the resulting parse 
+This package allows the parsing of XML strings and the transformation of the resulting parse
 tree into the following XML JSON conventions :-
 
 1. Parker(optionally with attributes)
@@ -30,6 +30,7 @@ The rules each transformer uses are documented below, following that a global ru
 rules all the transformers obey.
 
 ## Parker
+
 The Parker transformer follows the rules documented [here](https://code.google.com/p/xml2json-xslt/wiki/TransformingRules) with the following caveats :-
 
 1. Similar named consecutive elements are grouped under the name of the element, not
@@ -53,8 +54,9 @@ The Parker transformer follows the rules documented [here](https://code.google.c
    be in XML.
    There is also an alternative Parker transformer that transforms node elements that have attributes.
    The standard Parker transformer should suffice for most use cases.
-   
+
 ## Badgerfish
+
 The Badgerfish transformer follows the rules documented [here](http://www.sklar.com/badgerfish/), to summarise :-
 
 1.  Element names become object properties
@@ -76,43 +78,98 @@ will assign "soapenv as the key, while another might assign "ENV"), using the ke
 resulting json from xml2json dependent on the implementation as well.
 
 For example, this xml :-
+
 ```xml
-<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"> <soapenv:Header/> <soapenv:Body> 
-<tns:getDataResponse xmlns:tns="https://urchin.com/api/urchin/v1/"> <record> <recordId>1</recordId> 
-<dimensions> <dimension name="u:month">2008-02-00T00:00:00Z</dimension> </dimensions> <metrics> 
-<u:hits xmlns:u="https://urchin.com/api/urchin/v1/">836</u:hits> 
-<u:bytes xmlns:u="https://urchin.com/api/urchin/v1/">1953960</u:bytes> </metrics> </record> 
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"> <soapenv:Header/> <soapenv:Body>
+<tns:getDataResponse xmlns:tns="https://urchin.com/api/urchin/v1/"> <record> <recordId>1</recordId>
+<dimensions> <dimension name="u:month">2008-02-00T00:00:00Z</dimension> </dimensions> <metrics>
+<u:hits xmlns:u="https://urchin.com/api/urchin/v1/">836</u:hits>
+<u:bytes xmlns:u="https://urchin.com/api/urchin/v1/">1953960</u:bytes> </metrics> </record>
 </tns:getDataResponse> </soapenv:Body> </soapenv:Envelope>
 ```
 
 gives this JSON output if useLocalNameForNodes is set true +-
 
 ```json
-{"Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], "Header": {}, "Body": 
-{"getDataResponse": {"@xmlns": [{"tns": "https://urchin.com/api/urchin/v1/"}], "record": {"recordId": 
-{"$": "1"}, "dimensions": {"dimension": {"@name": "u:month", "$": "2008-02-00T00:00:00Z"}}, 
-"metrics": {"hits": {"@xmlns": [{"u": "https://urchin.com/api/urchin/v1/"}], "$": "836"}, 
-"bytes": {"@xmlns": [{"u": "https://urchin.com/api/urchin/v1/"}], "$": "1953960"}}}}}}}
+{
+  "Envelope": {
+    "@xmlns": [{ "soapenv": "http://www.w3.org/2003/05/soap-envelope" }],
+    "Header": {},
+    "Body": {
+      "getDataResponse": {
+        "@xmlns": [{ "tns": "https://urchin.com/api/urchin/v1/" }],
+        "record": {
+          "recordId": { "$": "1" },
+          "dimensions": {
+            "dimension": { "@name": "u:month", "$": "2008-02-00T00:00:00Z" }
+          },
+          "metrics": {
+            "hits": {
+              "@xmlns": [{ "u": "https://urchin.com/api/urchin/v1/" }],
+              "$": "836"
+            },
+            "bytes": {
+              "@xmlns": [{ "u": "https://urchin.com/api/urchin/v1/" }],
+              "$": "1953960"
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 if set to false(default) this JSON response is given :-
+
 ```json
-{"soapenv:Envelope": {"@xmlns": [{"soapenv": "http://www.w3.org/2003/05/soap-envelope"}], 
-"soapenv:Header": {}, "soapenv:Body": {"tns:getDataResponse": {"@xmlns": [{"tns": 
-"https://urchin.com/api/urchin/v1/"}], "record": {"recordId": {"$": "1"}, "dimensions": 
-{"dimension": {"@name": "u:month", "$": "2008-02-00T00:00:00Z"}}, "metrics": {"u:hits": 
-{"@xmlns": [{"u": "https://urchin.com/api/urchin/v1/"}], "$": "836"}, "u:bytes": {"@xmlns": 
-[{"u": "https://urchin.com/api/urchin/v1/"}], "$": "1953960"}}}}}}}
+{
+  "soapenv:Envelope": {
+    "@xmlns": [{ "soapenv": "http://www.w3.org/2003/05/soap-envelope" }],
+    "soapenv:Header": {},
+    "soapenv:Body": {
+      "tns:getDataResponse": {
+        "@xmlns": [{ "tns": "https://urchin.com/api/urchin/v1/" }],
+        "record": {
+          "recordId": { "$": "1" },
+          "dimensions": {
+            "dimension": { "@name": "u:month", "$": "2008-02-00T00:00:00Z" }
+          },
+          "metrics": {
+            "u:hits": {
+              "@xmlns": [{ "u": "https://urchin.com/api/urchin/v1/" }],
+              "$": "836"
+            },
+            "u:bytes": {
+              "@xmlns": [{ "u": "https://urchin.com/api/urchin/v1/" }],
+              "$": "1953960"
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 ## GData
+
 This is the Google Data(GData) format specified [here](https://developers.google.com/gdata/docs/json?csw=1)
 
 This is basically the same as Badgerfish except that it drops the @ symbol for attributes and
 uses $t instead of just $ for values, also the XML Processing element is included at the top of the
 transform.
 
+## OpenRally
+
+This is the Open Rally format specified [here](http://www.topografix.com/GPX/1/1/#SchemaProperties)
+
+This is basically the same as Badgerfish except that it drops the @ symbol for attributes and
+uses (key/value) format for values, also the XML Processing element is included at the top of the
+transform.
+
 ## Global Rules
+
 Each transformer implements the following rules :-
 
 1. All JSON output is in the form of strings, numeric literals, true and false become strings.
@@ -120,7 +177,5 @@ Each transformer implements the following rules :-
 
 2. XML Comments are ignored.
 
-3. CDATA sections are ignored for Parker but translated into '__cdata' properties
+3. CDATA sections are ignored for Parker but translated into '\_\_cdata' properties
    for Badgerfish and GData
- 
- 

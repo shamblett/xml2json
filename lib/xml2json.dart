@@ -19,6 +19,8 @@ part 'src/xml2json_badgerfish.dart';
 
 part 'src/xml2json_parker.dart';
 
+part 'src/xml2json_open_rally.dart';
+
 part 'src/xml2json_parker_with_attrs.dart';
 
 part 'src/xml2json_gdata.dart';

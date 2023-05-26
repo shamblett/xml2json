@@ -19,8 +19,15 @@ void main() {
   print(goodXmlString);
   print('');
 
+  // Transform to JSON using OpenRally
+  var json = myTransformer.toOpenRally();
+  print('OpenRally');
+  print('');
+  print(json);
+  print('');
+
   // Transform to JSON using Badgerfish
-  var json = myTransformer.toBadgerfish();
+  json = myTransformer.toBadgerfish();
   print('Badgerfish');
   print('');
   print(json);
