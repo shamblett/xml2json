@@ -10,6 +10,7 @@ part of xml2json;
 class _Xml2JsonOpenRally {
   ///
   String _toJsonString(dynamic value, {String? prefix}) {
+    value = _Xml2JsonUtils.escapeTextForJson(value);
     return '"${prefix ?? ''}$value"';
   }
 
