@@ -1,26 +1,26 @@
-SPDXVersion: SPDX-2.2DataLicense: CC0-1.0SPDXID: SPDXRef-DOCUMENTDocumentName: xml2jsonDocumentNamespace: https://pub.dev/packages/xml2jsonLicenseListVersion: 3.8Creator: Tool: https://pub.dev/packages/sbomCreated: 2023-05-26T09:39:51Z
+SPDXVersion: SPDX-2.2DataLicense: CC0-1.0SPDXID: SPDXRef-DOCUMENTDocumentName: xml2jsonDocumentNamespace: https://pub.dev/packages/xml2jsonLicenseListVersion: 3.8Creator: Tool: https://pub.dev/packages/sbomCreated: 2023-07-19T14:52:45Z
 
-PackageName: xml2jsonSPDXID: SPDXRef-Package-xml2jsonPackageVersion: 6.1.0PackageFileName: xml2jsonPackageSupplier: NOASSERTIONPackageOriginator: NOASSERTIONPackageDownloadLocation: https://pub.dev/packages/xml2jsonFilesAnalyzed: truePackageVerificationCode: 2b475936f9ce88330dd4082ef2244d780635fc36PackageHomePage: https://pub.dev/packages/xml2jsonPackageLicenseConcluded: MITPackageLicenseInfoFromFiles: NOASSERTIONPackageLicenseDeclared: NOASSERTIONPackageCopyrightText: NOASSERTIONPackageSummary: <text>An XML to JSON conversion package. Supports Badgerfish, GData and Parker conversions.</text>
+PackageName: xml2jsonSPDXID: SPDXRef-Package-xml2jsonPackageVersion: 6.2.0PackageFileName: xml2jsonPackageSupplier: NOASSERTIONPackageOriginator: NOASSERTIONPackageDownloadLocation: https://pub.dev/packages/xml2jsonFilesAnalyzed: truePackageVerificationCode: 00775a7bdbcdb9da6d72e4dff6fff9ad6ad9dbf5PackageHomePage: https://pub.dev/packages/xml2jsonPackageLicenseConcluded: MITPackageLicenseInfoFromFiles: NOASSERTIONPackageLicenseDeclared: NOASSERTIONPackageCopyrightText: NOASSERTIONPackageSummary: <text>An XML to JSON conversion package. Supports Badgerfish, GData and Parker conversions.</text>
 
-FileName: /lib/src/xml2json.dartSPDXID: SPDXRef-xml2json-0FileType: SOURCEFileChecksum: SHA1: 220e0909c8b71ff3d05f3b748795e147dce5309dLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json.dartSPDXID: SPDXRef-xml2json-0FileType: SOURCEFileChecksum: SHA1: b3b9ce3e7dede1cf8c0701f8147e7c4ba0ab930bLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_badgerfish.dartSPDXID: SPDXRef-xml2json-badgerfish-1FileType: SOURCEFileChecksum: SHA1: e90d479c453b2f20873c7f23d9c1f261fbb25d3bLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_badgerfish.dartSPDXID: SPDXRef-xml2json-badgerfish-1FileType: SOURCEFileChecksum: SHA1: 220e0909c8b71ff3d05f3b748795e147dce5309dLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_exception.dartSPDXID: SPDXRef-xml2json-exception-2FileType: SOURCEFileChecksum: SHA1: 8ed59cf1b9806fd22a497c68ec35fd04aa4428deLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_exception.dartSPDXID: SPDXRef-xml2json-exception-2FileType: SOURCEFileChecksum: SHA1: 35457891d4b3943c9990f417d2249ce0960ea791LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_gdata.dartSPDXID: SPDXRef-xml2json-gdata-3FileType: SOURCEFileChecksum: SHA1: c5b170bd6602ae8a06acbbd6e1952574440685ceLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_gdata.dartSPDXID: SPDXRef-xml2json-gdata-3FileType: SOURCEFileChecksum: SHA1: e90d479c453b2f20873c7f23d9c1f261fbb25d3bLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_open_rally.dartSPDXID: SPDXRef-xml2json-open-rally-4FileType: SOURCEFileChecksum: SHA1: b3b9ce3e7dede1cf8c0701f8147e7c4ba0ab930bLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_open_rally.dartSPDXID: SPDXRef-xml2json-open-rally-4FileType: SOURCEFileChecksum: SHA1: 8ed59cf1b9806fd22a497c68ec35fd04aa4428deLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_parker.dartSPDXID: SPDXRef-xml2json-parker-5FileType: SOURCEFileChecksum: SHA1: 35457891d4b3943c9990f417d2249ce0960ea791LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_parker.dartSPDXID: SPDXRef-xml2json-parker-5FileType: SOURCEFileChecksum: SHA1: c5b170bd6602ae8a06acbbd6e1952574440685ceLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
 FileName: /lib/src/xml2json_parker_with_attrs.dartSPDXID: SPDXRef-xml2json-parker-with-attrs-6FileType: SOURCEFileChecksum: SHA1: 9b06c1e1fc6c276f50b5f2cd787587c533091236LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_utils.dartSPDXID: SPDXRef-xml2json-utils-7FileType: SOURCEFileChecksum: SHA1: dd7aa5c5b9bf82523b31a474ef63d8cb5ffdcfc5LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_utils.dartSPDXID: SPDXRef-xml2json-utils-7FileType: SOURCEFileChecksum: SHA1: 5a1ad510e8a1944fd47a697386edbacf6385a55dLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
 FileName: /lib/xml2json.dartSPDXID: SPDXRef-xml2json-8FileType: SOURCEFileChecksum: SHA1: 4889609834c7a13a05b5d3b92a7e301278b053aeLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /pubspec.yamlSPDXID: SPDXRef-pubspec-9FileType: TEXTFileChecksum: SHA1: e40be24749016bcfa788a7d890dda9abf003cfa3LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /pubspec.yamlSPDXID: SPDXRef-pubspec-9FileType: TEXTFileChecksum: SHA1: a3d8743b67cc2c799e6a42356bab67b92f20f0baLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
 Relationship: SPDXRef-pubspec-9 DEPENDENCY_MANIFEST_OF SPDXRef-Package-xml2json
 
