@@ -32,7 +32,11 @@ class _Xml2JsonBadgerfish {
         } else if (obj[_marker] is Map<dynamic, dynamic>) {
           obj[_marker] = <dynamic>[obj[_marker], nodeData];
         } else {
-          obj[_marker] = nodeData;
+          if ((obj as Map).containsKey(_marker)) {
+            obj[_marker] = obj[_marker] + nodeData;
+          } else {
+            obj[_marker] = nodeData;
+          }
         }
       } else if (node is XmlElement) {
         /* Element node processing */

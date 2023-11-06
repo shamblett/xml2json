@@ -35,7 +35,11 @@ class _Xml2JsonGData {
         } else if (obj[_marker] is Map) {
           obj[_marker] = <dynamic>[obj[_marker], nodeData];
         } else {
-          obj[_marker] = nodeData;
+          if ((obj as Map).containsKey(_marker)) {
+            obj[_marker] = obj[_marker] + nodeData;
+          } else {
+            obj[_marker] = nodeData;
+          }
         }
       } else if (node is XmlElement) {
         /* Element node processing */
