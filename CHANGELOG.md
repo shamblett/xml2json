@@ -1,3 +1,6 @@
+## 6.2.1
+Issue 62
+
 ## 6.2.0
 Issue 23 - OpenRally update
 
