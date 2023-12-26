@@ -6,7 +6,7 @@
  * @date: 2021/05/23 18:04:54
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// ParkerWithAttrs transform class.
 /// Used as an alternative to Parker if the node element contains attributes.

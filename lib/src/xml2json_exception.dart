@@ -6,7 +6,7 @@
  *
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// Exception class
 ///

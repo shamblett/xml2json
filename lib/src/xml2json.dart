@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett@OSCF
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// The Xml2Json class provides a means of parsing XML data and transforming the
 /// resultant element tree into the following popular JSON XML formats :-

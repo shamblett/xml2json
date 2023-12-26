@@ -6,7 +6,7 @@
  *
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// Badgerfish transform class.
 class _Xml2JsonBadgerfish {
@@ -32,7 +32,7 @@ class _Xml2JsonBadgerfish {
         } else if (obj[_marker] is Map<dynamic, dynamic>) {
           obj[_marker] = <dynamic>[obj[_marker], nodeData];
         } else {
-          if ((obj as Map).containsKey(_marker)) {
+          if ((obj).containsKey(_marker)) {
             obj[_marker] = obj[_marker] + nodeData;
           } else {
             obj[_marker] = nodeData;
