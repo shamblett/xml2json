@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett@OSCF
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// Parker transform class
 class _Xml2JsonParker {

@@ -12,7 +12,7 @@
  * 
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// GData transform class.
 class _Xml2JsonGData {

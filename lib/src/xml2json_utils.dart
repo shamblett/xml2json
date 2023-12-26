@@ -8,7 +8,7 @@
  * 
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// General utilities
 class _Xml2JsonUtils {

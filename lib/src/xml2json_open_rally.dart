@@ -4,7 +4,7 @@
  * Date   : 26/04/2023
  */
 
-part of xml2json;
+part of '../xml2json.dart';
 
 /// OpenRally transform class
 class _Xml2JsonOpenRally {
