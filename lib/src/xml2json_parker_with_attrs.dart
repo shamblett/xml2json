@@ -74,7 +74,8 @@ class _Xml2JsonParkerWithAttrs {
   /// Analyze the attribute value in the node
   void _parseAttrs(dynamic node, dynamic obj) {
     node.attributes.forEach((attr) {
-      obj!['"_${attr.name.qualified}"'] = '"${attr.value}"';
+      obj!['"_${_Xml2JsonUtils.escapeTextForJson(attr.name.qualified)}"'] =
+          '"${_Xml2JsonUtils.escapeTextForJson(attr.value)}"';
     });
   }
 
