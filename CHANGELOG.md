@@ -1,3 +1,6 @@
+## 6.2.4
+Update to issue 23
+
 ## 6.2.3
 Added topics and screenshot
 

@@ -1,6 +1,6 @@
-SPDXVersion: SPDX-2.2DataLicense: CC0-1.0SPDXID: SPDXRef-DOCUMENTDocumentName: xml2jsonDocumentNamespace: https://pub.dev/packages/xml2jsonLicenseListVersion: 3.8Creator: Tool: https://pub.dev/packages/sbomCreated: 2024-03-24T10:15:43Z
+SPDXVersion: SPDX-2.2DataLicense: CC0-1.0SPDXID: SPDXRef-DOCUMENTDocumentName: xml2jsonDocumentNamespace: https://pub.dev/packages/xml2jsonLicenseListVersion: 3.8Creator: Tool: https://pub.dev/packages/sbomCreated: 2024-09-17T09:08:07Z
 
-PackageName: xml2jsonSPDXID: SPDXRef-Package-xml2jsonPackageVersion: 6.2.3PackageFileName: xml2jsonPackageSupplier: NOASSERTIONPackageOriginator: NOASSERTIONPackageDownloadLocation: https://pub.dev/packages/xml2jsonFilesAnalyzed: truePackageVerificationCode: 0a9917c733cb5cd1c007020c9a8569b4f9d1596bPackageHomePage: https://pub.dev/packages/xml2jsonPackageLicenseConcluded: MITPackageLicenseInfoFromFiles: NOASSERTIONPackageLicenseDeclared: NOASSERTIONPackageCopyrightText: NOASSERTIONPackageSummary: <text>An XML to JSON conversion package. Supports Badgerfish, GData and Parker conversions.</text>
+PackageName: xml2jsonSPDXID: SPDXRef-Package-xml2jsonPackageVersion: 6.2.4PackageFileName: xml2jsonPackageSupplier: NOASSERTIONPackageOriginator: NOASSERTIONPackageDownloadLocation: https://pub.dev/packages/xml2jsonFilesAnalyzed: truePackageVerificationCode: 6b3418f56609b7f036c8f0dc2501c22bea5238faPackageHomePage: https://pub.dev/packages/xml2jsonPackageLicenseConcluded: MITPackageLicenseInfoFromFiles: NOASSERTIONPackageLicenseDeclared: NOASSERTIONPackageCopyrightText: NOASSERTIONPackageSummary: <text>An XML to JSON conversion package. Supports Badgerfish, GData and Parker conversions.</text>
 
 FileName: /lib/src/xml2json.dartSPDXID: SPDXRef-xml2json-0FileType: SOURCEFileChecksum: SHA1: 44601aa5fad4f7a0a64846acafbf238c86ddbf95LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
@@ -14,13 +14,13 @@ FileName: /lib/src/xml2json_open_rally.dartSPDXID: SPDXRef-xml2json-open-rally-
 
 FileName: /lib/src/xml2json_parker.dartSPDXID: SPDXRef-xml2json-parker-5FileType: SOURCEFileChecksum: SHA1: 477c8119e92cab5c295662f7aed7c93b6de75aa2LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_parker_with_attrs.dartSPDXID: SPDXRef-xml2json-parker-with-attrs-6FileType: SOURCEFileChecksum: SHA1: 8d4684672961804f119028dd0b7b377018792769LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_parker_with_attrs.dartSPDXID: SPDXRef-xml2json-parker-with-attrs-6FileType: SOURCEFileChecksum: SHA1: 6c64e6416cdd94dfcfb0574243d91ef47d2270f6LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /lib/src/xml2json_utils.dartSPDXID: SPDXRef-xml2json-utils-7FileType: SOURCEFileChecksum: SHA1: 6c64e6416cdd94dfcfb0574243d91ef47d2270f6LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /lib/src/xml2json_utils.dartSPDXID: SPDXRef-xml2json-utils-7FileType: SOURCEFileChecksum: SHA1: 45adc300c10fb82234593adb2ce07fd7dd9c4e88LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
 FileName: /lib/xml2json.dartSPDXID: SPDXRef-xml2json-8FileType: SOURCEFileChecksum: SHA1: 4889609834c7a13a05b5d3b92a7e301278b053aeLicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
-FileName: /pubspec.yamlSPDXID: SPDXRef-pubspec-9FileType: TEXTFileChecksum: SHA1: 9dfcda41869b54745a05372d5b45135c597161b8LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
+FileName: /pubspec.yamlSPDXID: SPDXRef-pubspec-9FileType: TEXTFileChecksum: SHA1: 0241b4a6b6dde1d4452a1503d297ee9fc5e40573LicenseConcluded: NOASSERTIONLicenseInfoInFile: NOASSERTIONFileCopyrightText: NOASSERTION
 
 Relationship: SPDXRef-pubspec-9 DEPENDENCY_MANIFEST_OF SPDXRef-Package-xml2json
 
