@@ -6,6 +6,7 @@
  */
 
 @TestOn('vm')
+library;
 
 import 'package:xml2json/xml2json.dart';
 import 'package:test/test.dart';

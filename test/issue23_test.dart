@@ -1,4 +1,5 @@
 @TestOn('vm')
+library;
 
 import 'dart:convert';
 import 'package:test/test.dart';
@@ -56,4 +57,17 @@ void main() {
     final decoded = json.decode(actual);
     expect(decoded['element'], ' "test" ');
   }, skip: true);
+
+  test(
+      'xml2json escapes &quot; in the json output when used in an xml attribute - Parker with Attrs',
+      () {
+    final xml = '<element att=" &quot;test&quot; "/>';
+    print(xml);
+    final actual = (Xml2Json()..parse(xml)).toParkerWithAttrs();
+    print(actual);
+    final expected = '{"element": {"_att": " \\"test\\" ", "value": ""}}';
+    expect(actual, equals(expected));
+    final decoded = json.decode(actual);
+    expect(decoded['element'], {'_att': ' "test" ', 'value': ''});
+  });
 }
