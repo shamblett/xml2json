@@ -68,8 +68,7 @@ class _Xml2JsonOpenRally {
       } else if (children.isNotEmpty) {
         ret.addAll({_toJsonString(node.name.local): children});
       } else {
-        ret.addAll(
-            {_toJsonString(node.name.local): null});
+        ret.addAll({_toJsonString(node.name.local): null});
       }
       return ret;
     } else if (node is XmlText) {
