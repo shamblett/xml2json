@@ -68,8 +68,7 @@ class _Xml2JsonOpenRally {
       } else if (children.isNotEmpty) {
         ret.addAll({_toJsonString(node.name.local): children});
       } else {
-        ret.addAll(
-            {_toJsonString(node.name.local): _toJsonString(true.toString())});
+        ret.addAll({_toJsonString(node.name.local): null});
       }
       return ret;
     } else if (node is XmlText) {
@@ -91,7 +90,7 @@ class _Xml2JsonOpenRally {
       json = _recursiveParse(xmlNode, attributePrefix: attributePrefix);
     } on Exception catch (e) {
       throw Xml2JsonException(
-          'Parker internal transform error => ${e.toString()}');
+          'OpenRally internal transform error => ${e.toString()}');
     }
     return json.toString();
   }
