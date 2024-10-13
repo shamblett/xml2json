@@ -1,3 +1,6 @@
+## 6.2.5
+Issue 67
+
 ## 6.2.4
 Update to issue 23
 
