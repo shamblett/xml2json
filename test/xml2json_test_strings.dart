@@ -567,10 +567,10 @@ String openRallyStringJson = """
         "extensions":{
           "distance":"0",
           "cap":"328",
-          "show_coordinates":"true",
+          "show_coordinates":null,
           "tulip":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...",
           "notes":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY4AAA...",
-          "timecontrol":"true"
+          "timecontrol": null
         }
       },
       {
