@@ -26,7 +26,10 @@ part of '../xml2json.dart';
 ///
 /// See the individual transform classes for further documentation, however, all
 /// the transform functions convert XML data into JSON strings, so numbers
-/// such as <mynumber>150</mynumber> become { "mynumber" : "150" } not { "mynumber" : 150 }
+/// such as -
+/// ```
+/// <mynumber>150</mynumber> become { "mynumber" : "150" } not { "mynumber" : 150 }
+/// ```
 ///
 /// If you're translating from ATOM then Badgerfish and GData are the
 /// better ones to use as they are less lossy.
