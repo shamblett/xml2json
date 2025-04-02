@@ -26,9 +26,11 @@ class _Xml2JsonBadgerfish {
       json = _transform(xmlNode);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException(
-              'Badgerfish internal transform error => ${e.toString()}'),
-          stack);
+        Xml2JsonException(
+          'Badgerfish internal transform error => ${e.toString()}',
+        ),
+        stack,
+      );
     }
     return json.toString();
   }

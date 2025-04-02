@@ -9,18 +9,17 @@ part of '../xml2json.dart';
 /// OpenRally transform class
 class _Xml2JsonOpenRally {
   /// Transformer function
-  String transform(
-    XmlDocument? xmlNode, {
-    String attributePrefix = '',
-  }) {
+  String transform(XmlDocument? xmlNode, {String attributePrefix = ''}) {
     Map<dynamic, dynamic> json;
     try {
       json = _recursiveParse(xmlNode, attributePrefix: attributePrefix);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException(
-              'OpenRally internal transform error => ${e.toString()}'),
-          stack);
+        Xml2JsonException(
+          'OpenRally internal transform error => ${e.toString()}',
+        ),
+        stack,
+      );
     }
     return json.toString();
   }
@@ -31,10 +30,7 @@ class _Xml2JsonOpenRally {
   }
 
   ///
-  dynamic _recursiveParse(
-    dynamic node, {
-    String attributePrefix = '',
-  }) {
+  dynamic _recursiveParse(dynamic node, {String attributePrefix = ''}) {
     if (node is XmlDocument) {
       Map<dynamic, dynamic> document = {};
       for (var child in node.children) {
@@ -51,8 +47,10 @@ class _Xml2JsonOpenRally {
 
       for (var attribute in node.attributes) {
         children.addAll({
-          _toJsonString(attribute.name.local, prefix: attributePrefix):
-              _toJsonString(attribute.value)
+          _toJsonString(
+            attribute.name.local,
+            prefix: attributePrefix,
+          ): _toJsonString(attribute.value),
         });
       }
 

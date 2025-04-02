@@ -72,7 +72,9 @@ class Xml2Json {
       json = badgerfishTransformer.transform(_result);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException('toBadgerfish error => ${e.toString()}'), stack);
+        Xml2JsonException('toBadgerfish error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -90,7 +92,9 @@ class Xml2Json {
       json = openRallyTransformer.transform(_result);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException('toOpenRally error => ${e.toString()}'), stack);
+        Xml2JsonException('toOpenRally error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -108,7 +112,9 @@ class Xml2Json {
       json = parkerTransformer.transform(_result);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException('toParker error => ${e.toString()}'), stack);
+        Xml2JsonException('toParker error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -126,8 +132,9 @@ class Xml2Json {
       json = parkerTransformer.transform(_result, array: array);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException('toParkerWithAttrs error => ${e.toString()}'),
-          stack);
+        Xml2JsonException('toParkerWithAttrs error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -145,7 +152,9 @@ class Xml2Json {
       json = gDataTransformer.transform(_result);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException('toGData error => ${e.toString()}'), stack);
+        Xml2JsonException('toGData error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;

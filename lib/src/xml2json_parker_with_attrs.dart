@@ -18,17 +18,22 @@ class _Xml2JsonParkerWithAttrs {
       json = _transform(xmlNode, <dynamic, dynamic>{}, array: array);
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException(
-              'Parker with attrs internal transform error => ${e.toString()}'),
-          stack);
+        Xml2JsonException(
+          'Parker with attrs internal transform error => ${e.toString()}',
+        ),
+        stack,
+      );
     }
 
     return json.toString();
   }
 
   // Parker transformer function.
-  Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin,
-      {List<String>? array}) {
+  Map<dynamic, dynamic>? _transform(
+    dynamic node,
+    dynamic objin, {
+    List<String>? array,
+  }) {
     Map<dynamic, dynamic>? obj = objin;
     if (node is XmlElement) {
       final nodeName = '"${node.name.qualified}"';
@@ -95,10 +100,15 @@ class _Xml2JsonParkerWithAttrs {
   }
 
   // Parse XmlText node
-  void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName,
-      {List<String>? array}) {
-    final sanitisedNodeData =
-        _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
+  void _parseXmlTextNode(
+    dynamic node,
+    dynamic obj,
+    dynamic nodeName, {
+    List<String>? array,
+  }) {
+    final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(
+      node.children[0].text,
+    );
     var nodeData = '"$sanitisedNodeData"';
     if (nodeData.isEmpty) {
       nodeData = '';

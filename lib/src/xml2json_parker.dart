@@ -16,9 +16,9 @@ class _Xml2JsonParker {
       json = _transform(xmlNode, <dynamic, dynamic>{});
     } on Exception catch (e, stack) {
       Error.throwWithStackTrace(
-          Xml2JsonException(
-              'Parker internal transform error => ${e.toString()}'),
-          stack);
+        Xml2JsonException('Parker internal transform error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json.toString();
@@ -65,8 +65,9 @@ class _Xml2JsonParker {
 
   /// 解析XmlText节点
   void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName) {
-    final sanitisedNodeData =
-        _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
+    final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(
+      node.children[0].text,
+    );
     var nodeData = '"$sanitisedNodeData"';
     if (nodeData.isEmpty) {
       nodeData = '';
