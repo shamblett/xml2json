@@ -84,7 +84,8 @@ String badgerfishSimpleJsonCheckString =
     '{ "contacts": { "contact": { "@id": "1", "name": { "\$": "John Doe" }, "phone": { "\$": "123-\\"456\\"-7890" }, "address": { "street": { "\$": "123 JFKStreet" }, "city": { "\$": "Any Town" }, "state": { "\$": "Any State" }, "zipCode": { "\$": "12345" } } } } }';
 
 /* Badgerfish complex test check string from http://wiki.open311.org/index.php?title=JSON_and_XML_Conversion*/
-String badgerfishComplexJsonCheckString = '{'
+String badgerfishComplexJsonCheckString =
+    '{'
     '"reports": {'
     '"@xmlns": [{'
     '"\$": "http://www.w3.org/2005/Atom"},'
@@ -253,7 +254,8 @@ String parkerSimpleJsonCheckString =
     '{"contacts": {"contact": {"name": "John Doe", "phone": "123-\\"456\\"-7890", "address": {"street": "123 JFKStreet", "city": "Any Town", "state": "Any State", "zipCode": "12345"}}}}';
 
 /* Parker complex test check string from http://wiki.open311.org/index.php?title=JSON_and_XML_Conversion*/
-String parkerComplexJsonCheckString = '{'
+String parkerComplexJsonCheckString =
+    '{'
     '"reports": "This is cdata with \\"quotes\\"", "entry":'
     '[{'
     '"id":"tag:open311.sfgov.org,2010-04-15:/dev/V1/reports/637619.xml",'
@@ -319,7 +321,8 @@ String gDataSimpleJsonCheckString =
     '{"contacts": { "contact": { "id": "1", "name": { "\$t": "John Doe" }, "phone": { "\$t": "123-\\"456\\"-7890" }, "address": { "street": { "\$t": "123 JFKStreet" }, "city": { "\$t": "Any Town" }, "state": { "\$t": "Any State" }, "zipCode": { "\$t": "12345" } } } } }';
 
 /* GData complex XML test string from https://developers.google.com/gdata/docs/json?csw=1 */
-String gDatacomplexXmlTestString = '<feed xmlns="http://www.w3.org/2005/Atom" '
+String gDatacomplexXmlTestString =
+    '<feed xmlns="http://www.w3.org/2005/Atom" '
     'xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" '
     'xmlns:gd="http://schemas.google.com/g/2005" '
     'xmlns:gCal="http://schemas.google.com/gCal/2005">'
@@ -375,7 +378,8 @@ String gDatacomplexXmlTestString = '<feed xmlns="http://www.w3.org/2005/Atom" '
     '</feed>';
 
 /* GData complex test check string from */
-String gDataComplexJsonCheckString = '{'
+String gDataComplexJsonCheckString =
+    '{'
     '"feed": {'
     '"xmlns": "http://www.w3.org/2005/Atom",'
     '"xmlns\$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",'
@@ -463,7 +467,8 @@ String gDataComplexJsonCheckString = '{'
     '}'
     '}'
     '}';
-String issue16 = '<?xml version="1.0" encoding="utf-8"?>'
+String issue16 =
+    '<?xml version="1.0" encoding="utf-8"?>'
     '<project id="LHRPlus_LeyserPlusHelpCenterDevPackages" name="HelpCenter_Dev_Packages" parentProjectId="LHRPlus_LeySerPlusHelpCenter" href="/httpAuth/app/rest/projects/id:LHRPlus_LeyserPlusHelpCenterDevPackages" webUrl="http://xa-tools-tcity/project.html?projectId=LHRPlus_LeyserPlusHelpCenterDevPackages">'
     '<parentProject id="LHRPlus_LeySerPlusHelpCenter" name="LeySerPlusHelpCenter" parentProjectId="LHRPlus" href="/httpAuth/app/rest/projects/id:LHRPlus_LeySerPlusHelpCenter" webUrl="http://xa-tools-tcity/project.html?projectId=LHRPlus_LeySerPlusHelpCenter"/>'
     '<buildTypes count="3">'

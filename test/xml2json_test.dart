@@ -18,39 +18,59 @@ void main() {
 
     test('Badgerfish', () {
       expect(
-          myTransformer.toBadgerfish,
-          throwsA(predicate((dynamic e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = toBadgerfish - '
-                      'no parse result')));
+        myTransformer.toBadgerfish,
+        throwsA(
+          predicate(
+            (dynamic e) =>
+                e is Xml2JsonException &&
+                e.toString() ==
+                    'Xml2JsonException: message = toBadgerfish - '
+                        'no parse result',
+          ),
+        ),
+      );
     });
 
     test('Parker', () {
       expect(
-          myTransformer.toParker,
-          throwsA(predicate((dynamic e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = toParker - no parse result')));
+        myTransformer.toParker,
+        throwsA(
+          predicate(
+            (dynamic e) =>
+                e is Xml2JsonException &&
+                e.toString() ==
+                    'Xml2JsonException: message = toParker - no parse result',
+          ),
+        ),
+      );
     });
 
     test('GData', () {
       expect(
-          myTransformer.toGData,
-          throwsA(predicate((dynamic e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = toGData - no parse result')));
+        myTransformer.toGData,
+        throwsA(
+          predicate(
+            (dynamic e) =>
+                e is Xml2JsonException &&
+                e.toString() ==
+                    'Xml2JsonException: message = toGData - no parse result',
+          ),
+        ),
+      );
     });
 
     test('OpenRally', () {
       expect(
-          myTransformer.toOpenRally,
-          throwsA(predicate((dynamic e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = toOpenRally - no parse result')));
+        myTransformer.toOpenRally,
+        throwsA(
+          predicate(
+            (dynamic e) =>
+                e is Xml2JsonException &&
+                e.toString() ==
+                    'Xml2JsonException: message = toOpenRally - no parse result',
+          ),
+        ),
+      );
     });
   });
 
@@ -61,11 +81,16 @@ void main() {
 
     test('Invalid XML', () {
       expect(
-          () => myTransformer.parse(rubbishXmlString),
-          throwsA(predicate((dynamic e) =>
-              e is Xml2JsonException &&
-              e.toString() ==
-                  'Xml2JsonException: message = parse error - invalid XML')));
+        () => myTransformer.parse(rubbishXmlString),
+        throwsA(
+          predicate(
+            (dynamic e) =>
+                e is Xml2JsonException &&
+                e.toString() ==
+                    'Xml2JsonException: message = parse error - invalid XML',
+          ),
+        ),
+      );
     });
 
     test('Valid XML', () {
@@ -94,11 +119,15 @@ void main() {
 
     test('Transform Simple test string', () {
       final res = myTransformer.toBadgerfish();
-      expect(res.replaceAll(' ', ''),
-          equals(badgerfishSimpleJsonCheckString.replaceAll(' ', '')));
+      expect(
+        res.replaceAll(' ', ''),
+        equals(badgerfishSimpleJsonCheckString.replaceAll(' ', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
 
     test('Parse Complex test string', () {
@@ -109,11 +138,15 @@ void main() {
 
     test('Transform Complex test string', () {
       final res = myTransformer.toBadgerfish();
-      expect(res.replaceAll(' ', ''),
-          equals(badgerfishComplexJsonCheckString.replaceAll(' ', '')));
+      expect(
+        res.replaceAll(' ', ''),
+        equals(badgerfishComplexJsonCheckString.replaceAll(' ', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
 
     test('Transform Local Node Name test string', () {
@@ -121,11 +154,15 @@ void main() {
       final dynamic result = myTransformer.xmlParserResult;
       expect(result, isNot(isNull));
       final res = myTransformer.toBadgerfish(useLocalNameForNodes: true);
-      expect(res.replaceAll(' ', ''),
-          equals(badgerfishLocalNodeCheckString.replaceAll(' ', '')));
+      expect(
+        res.replaceAll(' ', ''),
+        equals(badgerfishLocalNodeCheckString.replaceAll(' ', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
   });
 
@@ -142,11 +179,15 @@ void main() {
 
     test('Transform Simple test string', () {
       final res = myTransformer.toParker();
-      expect(res.replaceAll(' ', ''),
-          equals(parkerSimpleJsonCheckString.replaceAll(' ', '')));
+      expect(
+        res.replaceAll(' ', ''),
+        equals(parkerSimpleJsonCheckString.replaceAll(' ', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
 
     test('Parse Complex test string', () {
@@ -157,11 +198,15 @@ void main() {
 
     test('Transform Complex test string', () {
       final res = myTransformer.toParker();
-      expect(res.replaceAll(' ', ''),
-          equals(parkerComplexJsonCheckString.replaceAll(' ', '')));
+      expect(
+        res.replaceAll(' ', ''),
+        equals(parkerComplexJsonCheckString.replaceAll(' ', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
   });
 
@@ -178,11 +223,15 @@ void main() {
 
     test('Transform Simple test string', () {
       final res = myTransformer.toGData();
-      expect(res.replaceAll(' ', ''),
-          equals(gDataSimpleJsonCheckString.replaceAll(' ', '')));
+      expect(
+        res.replaceAll(' ', ''),
+        equals(gDataSimpleJsonCheckString.replaceAll(' ', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
 
     test('Parse Complex test string', () {
@@ -193,11 +242,15 @@ void main() {
 
     test('Transform Complex test string', () {
       final res = myTransformer.toGData();
-      expect(res.replaceAll(' ', ''),
-          equals(gDataComplexJsonCheckString.replaceAll(' ', '')));
+      expect(
+        res.replaceAll(' ', ''),
+        equals(gDataComplexJsonCheckString.replaceAll(' ', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
   });
 
@@ -214,11 +267,15 @@ void main() {
 
     test('Transform test string', () {
       final res = myTransformer.toOpenRally();
-      expect(res.replaceAll(' ', '').replaceAll('\n', ''),
-          equals(openRallyStringJson.replaceAll(' ', '').replaceAll('\n', '')));
+      expect(
+        res.replaceAll(' ', '').replaceAll('\n', ''),
+        equals(openRallyStringJson.replaceAll(' ', '').replaceAll('\n', '')),
+      );
       /* Re parse just to check */
-      expect(json.encode(res),
-          isNot(throwsA(const TypeMatcher<FormatException>())));
+      expect(
+        json.encode(res),
+        isNot(throwsA(const TypeMatcher<FormatException>())),
+      );
     });
   });
 }

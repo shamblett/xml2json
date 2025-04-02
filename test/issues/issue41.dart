@@ -7,7 +7,6 @@
  */
 // @dart=2.12.0
 @TestOn('vm')
-
 import 'dart:convert';
 import 'package:test/test.dart';
 import 'package:xml2json/xml2json.dart';

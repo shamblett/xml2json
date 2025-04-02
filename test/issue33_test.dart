@@ -23,8 +23,10 @@ void main() {
     // 如果多个相同的节点中只有String类型的value，将所有的value解析到同一个数组中
     var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
-    expect(jsonResponse,
-        '{"root": {"result": "ok", "items": {"_parent": "111", "item": [{"_id": "10", "value": "Android"}, {"_id": "11", "value": "iOS"}, {"_id": "12", "value": "Flutter"}]}}}');
+    expect(
+      jsonResponse,
+      '{"root": {"result": "ok", "items": {"_parent": "111", "item": [{"_id": "10", "value": "Android"}, {"_id": "11", "value": "iOS"}, {"_id": "12", "value": "Flutter"}]}}}',
+    );
     var decodedOk = true;
     try {
       json.decode(jsonResponse);
@@ -50,8 +52,10 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
-    expect(jsonResponse,
-        '{"root": {"result": "ok", "items": {"item": ["Android", "iOS", "Flutter"]}}}');
+    expect(
+      jsonResponse,
+      '{"root": {"result": "ok", "items": {"item": ["Android", "iOS", "Flutter"]}}}',
+    );
     var decodedOk = true;
     try {
       json.decode(jsonResponse);

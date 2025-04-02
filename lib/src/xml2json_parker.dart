@@ -9,7 +9,22 @@ part of '../xml2json.dart';
 
 /// Parker transform class
 class _Xml2JsonParker {
-  /// Parker transformer function.
+  /// Transformer function
+  String transform(XmlDocument? xmlNode) {
+    Map<dynamic, dynamic>? json;
+    try {
+      json = _transform(xmlNode, <dynamic, dynamic>{});
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+        Xml2JsonException('Parker internal transform error => ${e.toString()}'),
+        stack,
+      );
+    }
+
+    return json.toString();
+  }
+
+  // Parker transformer function.
   Map<dynamic, dynamic>? _transform(dynamic node, dynamic objin) {
     Map<dynamic, dynamic>? obj = objin;
     if (node is XmlElement) {
@@ -18,7 +33,7 @@ class _Xml2JsonParker {
         return null;
       }
       if (node.children.isNotEmpty) {
-        if (node.children[0] is XmlText || node.children[0] is XmlCDATA) {
+        if (node.children.first is XmlText || node.children.first is XmlCDATA) {
           _parseXmlTextNode(node, obj, nodeName);
         } else if (obj[nodeName] is Map) {
           var jsonCopy = json.decode(json.encode(obj[nodeName]));
@@ -50,8 +65,9 @@ class _Xml2JsonParker {
 
   /// 解析XmlText节点
   void _parseXmlTextNode(dynamic node, dynamic obj, dynamic nodeName) {
-    final sanitisedNodeData =
-        _Xml2JsonUtils.escapeTextForJson(node.children[0].text);
+    final sanitisedNodeData = _Xml2JsonUtils.escapeTextForJson(
+      node.children[0].text,
+    );
     var nodeData = '"$sanitisedNodeData"';
     if (nodeData.isEmpty) {
       nodeData = '';
@@ -63,18 +79,5 @@ class _Xml2JsonParker {
     } else {
       obj[nodeName] = nodeData;
     }
-  }
-
-  /// Transformer function
-  String transform(XmlDocument? xmlNode) {
-    Map<dynamic, dynamic>? json;
-    try {
-      json = _transform(xmlNode, <dynamic, dynamic>{});
-    } on Exception catch (e) {
-      throw Xml2JsonException(
-          'Parker internal transform error => ${e.toString()}');
-    }
-
-    return json.toString();
   }
 }

@@ -6,7 +6,8 @@ import 'package:xml2json/xml2json.dart';
 
 void main() {
   test('Incorrect transform', () {
-    const input = "<SubItems>"
+    const input =
+        "<SubItems>"
         " <Item>"
         " <Value>1</Value>"
         " <LinkTo>1000029214</LinkTo>"
@@ -23,7 +24,9 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParkerWithAttrs();
     print(jsonResponse);
-    expect(jsonResponse,
-        '{"SubItems": {"Item": {"Value": ["1", "2", "", "3"], "LinkTo": ["1000029214", "1000029214", "1000029214", "1000029214"]}}}');
+    expect(
+      jsonResponse,
+      '{"SubItems": {"Item": {"Value": ["1", "2", "", "3"], "LinkTo": ["1000029214", "1000029214", "1000029214", "1000029214"]}}}',
+    );
   });
 }

@@ -25,7 +25,8 @@ void main() {
 
   test('Real decode', () async {
     final uri = Uri.parse(
-        'https://safebooru.org/index.php?page=dapi&s=post&q=index&tags=%20m/');
+      'https://safebooru.org/index.php?page=dapi&s=post&q=index&tags=%20m/',
+    );
     final httpClient = HttpClient();
     final req = await httpClient.getUrl(uri);
     final rsp = await req.close();

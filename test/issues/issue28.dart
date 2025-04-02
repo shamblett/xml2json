@@ -1,6 +1,5 @@
 // @dart=2.10.5
 @TestOn('vm')
-
 import 'dart:convert';
 import 'package:test/test.dart';
 import 'package:xml2json/xml2json.dart';
@@ -24,8 +23,10 @@ void main() {
     xmlParser.parse(input);
     var jsonResponse = xmlParser.toParker();
     print(jsonResponse);
-    expect(jsonResponse,
-        '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "it\'s a bug, it\'s not a bug"}}}}}');
+    expect(
+      jsonResponse,
+      '{"soapenv:Envelope": {"soapenv:Body": {"ns1:GetCommentsResponse": {"status": "true", "message": "Succeed", "comments": {"feedback": "it\'s a bug, it\'s not a bug"}}}}}',
+    );
     var decodedOk = true;
     try {
       final decoded = json.decode(jsonResponse);

@@ -54,9 +54,9 @@ class Xml2Json {
     final xmlStringPrep = _Xml2JsonUtils.prepareXmlString(xmlString);
     try {
       _result = XmlDocument.parse(xmlStringPrep);
-    } on Object {
+    } on Object catch (_, stack) {
       const errorString = 'parse error - invalid XML';
-      throw Xml2JsonException(errorString);
+      Error.throwWithStackTrace(Xml2JsonException(errorString), stack);
     }
   }
 
@@ -70,8 +70,11 @@ class Xml2Json {
     final badgerfishTransformer = _Xml2JsonBadgerfish(useLocalNameForNodes);
     try {
       json = badgerfishTransformer.transform(_result);
-    } on Exception catch (e) {
-      throw Xml2JsonException('toBadgerfish error => ${e.toString()}');
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+        Xml2JsonException('toBadgerfish error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -87,8 +90,11 @@ class Xml2Json {
     final openRallyTransformer = _Xml2JsonOpenRally();
     try {
       json = openRallyTransformer.transform(_result);
-    } on Exception catch (e) {
-      throw Xml2JsonException('toOpenRally error => ${e.toString()}');
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+        Xml2JsonException('toOpenRally error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -104,8 +110,11 @@ class Xml2Json {
     final parkerTransformer = _Xml2JsonParker();
     try {
       json = parkerTransformer.transform(_result);
-    } on Exception catch (e) {
-      throw Xml2JsonException('toParker error => ${e.toString()}');
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+        Xml2JsonException('toParker error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -121,8 +130,11 @@ class Xml2Json {
     final parkerTransformer = _Xml2JsonParkerWithAttrs();
     try {
       json = parkerTransformer.transform(_result, array: array);
-    } on Exception catch (e) {
-      throw Xml2JsonException('toParkerWithAttrs error => ${e.toString()}');
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+        Xml2JsonException('toParkerWithAttrs error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;
@@ -138,8 +150,11 @@ class Xml2Json {
     final gDataTransformer = _Xml2JsonGData();
     try {
       json = gDataTransformer.transform(_result);
-    } on Exception catch (e) {
-      throw Xml2JsonException('toGData error => ${e.toString()}');
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+        Xml2JsonException('toGData error => ${e.toString()}'),
+        stack,
+      );
     }
 
     return json;

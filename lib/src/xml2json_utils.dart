@@ -12,6 +12,8 @@ part of '../xml2json.dart';
 
 /// General utilities
 class _Xml2JsonUtils {
+  static const mapValueLength = 2;
+
   /// Escape any control characters and quotes for JSON encoding
   static String escapeTextForJson(String text) {
     var text1 = text.replaceAll('\n', '\\\\n');
@@ -32,8 +34,8 @@ class _Xml2JsonUtils {
     final properties = text1.split(' ');
     for (final dynamic element in properties) {
       final List<String> elementList = element.split('=');
-      if (elementList.length == 2) {
-        nodeMap[elementList[0]] = elementList[1];
+      if (elementList.length == mapValueLength) {
+        nodeMap[elementList.first] = elementList[1];
       }
     }
 
