@@ -20,8 +20,21 @@ class _Xml2JsonGData {
   final String _xmlnsPrefix = '"xmlns"';
   final String _cdata = '"__cdata"';
 
-  /// GData transformer function.
+  /// Transformer function
+  String transform(XmlDocument? xmlNode) {
+    Map<dynamic, dynamic> json;
+    try {
+      json = _transform(xmlNode);
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+          Xml2JsonException(
+              'GData internal transform error => ${e.toString()}'),
+          stack);
+    }
+    return json.toString();
+  }
 
+  // GData transformer function.
   Map<dynamic, dynamic> _transform(XmlDocument? node) {
     final json = <dynamic, dynamic>{};
 
@@ -115,17 +128,5 @@ class _Xml2JsonGData {
 
     process(node, json, <dynamic, dynamic>{});
     return json;
-  }
-
-  /// Transformer function
-  String transform(XmlDocument? xmlNode) {
-    Map<dynamic, dynamic> json;
-    try {
-      json = _transform(xmlNode);
-    } on Exception catch (e) {
-      throw Xml2JsonException(
-          'GData internal transform error => ${e.toString()}');
-    }
-    return json.toString();
   }
 }

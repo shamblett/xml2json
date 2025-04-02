@@ -12,12 +12,26 @@ part of '../xml2json.dart';
 class _Xml2JsonBadgerfish {
   /// Badgerfish transformer function.
 
+  final bool useLocalNameForNodes;
   final String _marker = '"\$"';
   final String _xmlnsPrefix = '"@xmlns"';
   final String _cdata = '"__cdata"';
-  final bool useLocalNameForNodes;
 
   _Xml2JsonBadgerfish(this.useLocalNameForNodes);
+
+  /// Transformer function
+  String transform(XmlDocument? xmlNode) {
+    Map<dynamic, dynamic> json;
+    try {
+      json = _transform(xmlNode);
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+          Xml2JsonException(
+              'Badgerfish internal transform error => ${e.toString()}'),
+          stack);
+    }
+    return json.toString();
+  }
 
   Map<dynamic, dynamic> _transform(XmlDocument? node) {
     final json = <dynamic, dynamic>{};
@@ -97,17 +111,5 @@ class _Xml2JsonBadgerfish {
 
     process(node, json, <dynamic, dynamic>{});
     return json;
-  }
-
-  /// Transformer function
-  String transform(XmlDocument? xmlNode) {
-    Map<dynamic, dynamic> json;
-    try {
-      json = _transform(xmlNode);
-    } on Exception catch (e) {
-      throw Xml2JsonException(
-          'Badgerfish internal transform error => ${e.toString()}');
-    }
-    return json.toString();
   }
 }

@@ -8,7 +8,23 @@ part of '../xml2json.dart';
 
 /// OpenRally transform class
 class _Xml2JsonOpenRally {
-  ///
+  /// Transformer function
+  String transform(
+    XmlDocument? xmlNode, {
+    String attributePrefix = '',
+  }) {
+    Map<dynamic, dynamic> json;
+    try {
+      json = _recursiveParse(xmlNode, attributePrefix: attributePrefix);
+    } on Exception catch (e, stack) {
+      Error.throwWithStackTrace(
+          Xml2JsonException(
+              'OpenRally internal transform error => ${e.toString()}'),
+          stack);
+    }
+    return json.toString();
+  }
+
   String _toJsonString(dynamic value, {String? prefix}) {
     value = _Xml2JsonUtils.escapeTextForJson(value);
     return '"${prefix ?? ''}$value"';
@@ -78,20 +94,5 @@ class _Xml2JsonOpenRally {
     } else {
       return true;
     }
-  }
-
-  /// Transformer function
-  String transform(
-    XmlDocument? xmlNode, {
-    String attributePrefix = '',
-  }) {
-    Map<dynamic, dynamic> json;
-    try {
-      json = _recursiveParse(xmlNode, attributePrefix: attributePrefix);
-    } on Exception catch (e) {
-      throw Xml2JsonException(
-          'OpenRally internal transform error => ${e.toString()}');
-    }
-    return json.toString();
   }
 }
