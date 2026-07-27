@@ -47,10 +47,8 @@ class _Xml2JsonOpenRally {
 
       for (var attribute in node.attributes) {
         children.addAll({
-          _toJsonString(
-            attribute.name.local,
-            prefix: attributePrefix,
-          ): _toJsonString(attribute.value),
+          _toJsonString(attribute.name.local, prefix: attributePrefix):
+              _toJsonString(attribute.value),
         });
       }
 

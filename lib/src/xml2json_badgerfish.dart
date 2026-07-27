@@ -57,8 +57,9 @@ class _Xml2JsonBadgerfish {
       } else if (node is XmlElement) {
         /* Element node processing */
         final p = <dynamic, dynamic>{};
-        final nodeName =
-            useLocalNameForNodes ? '"${node.name.local}"' : '"${node.name}"';
+        final nodeName = useLocalNameForNodes
+            ? '"${node.name.local}"'
+            : '"${node.name}"';
         for (var i = 0; i < node.attributes.length; i++) {
           final dynamic attr = node.attributes[i];
           final dynamic name = attr.name.qualified;
