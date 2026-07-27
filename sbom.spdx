@@ -5,18 +5,18 @@ DocumentName: xml2json
 DocumentNamespace: https://pub.dev/packages/xml2json
 LicenseListVersion: 3.8
 Creator: Tool: https://pub.dev/packages/sbom
-Created: 2025-04-02T11:21:16Z
+Created: 2026-07-27T10:56:38Z
 
 
 PackageName: xml2json
 SPDXID: SPDXRef-Package-xml2json
-PackageVersion: 6.2.7
+PackageVersion: 6.2.8
 PackageFileName: xml2json
 PackageSupplier: NOASSERTION
 PackageOriginator: NOASSERTION
 PackageDownloadLocation: https://pub.dev/packages/xml2json
 FilesAnalyzed: true
-PackageVerificationCode: ec67a73c87c93ad4a69032344b648ad45ab19797
+PackageVerificationCode: 69d9eb39f96410b59740fee7d0cfa33ca6d9dc9b
 PackageHomePage: https://pub.dev/packages/xml2json
 PackageLicenseConcluded: MIT
 PackageLicenseInfoFromFiles: NOASSERTION
@@ -109,7 +109,7 @@ FileCopyrightText: NOASSERTION
 FileName: pubspec.yaml
 SPDXID: SPDXRef-pubspec-9
 FileType: TEXT
-FileChecksum: SHA1: 2cecd4b1f22de98a5ac9d5c34cd2a83e396cb723
+FileChecksum: SHA1: cda5a14e522b56cfc87b986dab6467d2a6efd6a5
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION

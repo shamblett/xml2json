@@ -1,3 +1,6 @@
+## 6.2.8
+- [Issue 76](https://github.com/shamblett/xml2json/issues/76)
+
 ## 6.2.7
 - [Issue 73](https://github.com/shamblett/xml2json/issues/73)
 

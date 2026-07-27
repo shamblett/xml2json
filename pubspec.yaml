@@ -1,5 +1,5 @@
 name: xml2json
-version: 6.2.7
+version: 6.2.8
 description: An XML to JSON conversion package. Supports Badgerfish, GData, OpenRally and Parker conversions.
 repository: https://github.com/shamblett/xml2json
 homepage: https://github.com/shamblett/xml2json
@@ -11,15 +11,15 @@ environment:
   sdk: '>=3.7.0 <4.0.0'
 
 dependencies:
-  xml: '^6.5.0'
+  xml: '^7.0.1'
 
 dev_dependencies:
   test: '^1.25.14'
-  lints: '^5.1.1'
-  build_runner: '^2.4.14'
-  build_test: '^2.2.3'
-  build_web_compilers: '^4.1.0'
-  dart_code_metrics_presets: '^2.21.0'
+  lints: '^6.1.0'
+  build_runner: '^2.15.2'
+  build_test: '^3.5.17'
+  build_web_compilers: '^4.8.0'
+  dart_code_metrics_presets: '^2.32.0'
 
 topics:
   - conversion
