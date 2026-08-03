@@ -5,18 +5,18 @@ DocumentName: xml2json
 DocumentNamespace: https://pub.dev/packages/xml2json
 LicenseListVersion: 3.8
 Creator: Tool: https://pub.dev/packages/sbom
-Created: 2026-07-27T10:56:38Z
+Created: 2026-08-03T14:30:15Z
 
 
 PackageName: xml2json
 SPDXID: SPDXRef-Package-xml2json
-PackageVersion: 6.2.8
+PackageVersion: 6.2.9
 PackageFileName: xml2json
 PackageSupplier: NOASSERTION
 PackageOriginator: NOASSERTION
 PackageDownloadLocation: https://pub.dev/packages/xml2json
 FilesAnalyzed: true
-PackageVerificationCode: 69d9eb39f96410b59740fee7d0cfa33ca6d9dc9b
+PackageVerificationCode: da8a2a065a45ce64255be81bb3709a7127075f98
 PackageHomePage: https://pub.dev/packages/xml2json
 PackageLicenseConcluded: MIT
 PackageLicenseInfoFromFiles: NOASSERTION
@@ -37,7 +37,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/xml2json_badgerfish.dart
 SPDXID: SPDXRef-xml2json-badgerfish-1
 FileType: SOURCE
-FileChecksum: SHA1: 8a3cbd24a3c5de5e8c74420f7c1c8f008c36e3ac
+FileChecksum: SHA1: 95aff45b5daf55c2120402a9aa44f1384cb0dc34
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -46,7 +46,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/xml2json_exception.dart
 SPDXID: SPDXRef-xml2json-exception-2
 FileType: SOURCE
-FileChecksum: SHA1: 95aff45b5daf55c2120402a9aa44f1384cb0dc34
+FileChecksum: SHA1: 26a872e12e1f36feb84ca8cd755329bf21d4ac4f
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -55,7 +55,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/xml2json_gdata.dart
 SPDXID: SPDXRef-xml2json-gdata-3
 FileType: SOURCE
-FileChecksum: SHA1: 26a872e12e1f36feb84ca8cd755329bf21d4ac4f
+FileChecksum: SHA1: 531c56f75f51111d06f0dc81eb76255484b69754
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -64,7 +64,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/xml2json_open_rally.dart
 SPDXID: SPDXRef-xml2json-open-rally-4
 FileType: SOURCE
-FileChecksum: SHA1: 90a015b064af3a6d6a015779f5ca2ebe11f11c80
+FileChecksum: SHA1: 5df880ab973c5511f56bd5d85697ac7dbaefaf1a
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -73,7 +73,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/xml2json_parker.dart
 SPDXID: SPDXRef-xml2json-parker-5
 FileType: SOURCE
-FileChecksum: SHA1: 531c56f75f51111d06f0dc81eb76255484b69754
+FileChecksum: SHA1: 4026e73b3f1387ac2c52921890298c0fbd2f8e20
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -82,7 +82,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/xml2json_parker_with_attrs.dart
 SPDXID: SPDXRef-xml2json-parker-with-attrs-6
 FileType: SOURCE
-FileChecksum: SHA1: 5df880ab973c5511f56bd5d85697ac7dbaefaf1a
+FileChecksum: SHA1: 5d9290b9d714f8dd44e2802637483c06793657d4
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -91,7 +91,7 @@ FileCopyrightText: NOASSERTION
 FileName: lib/src/xml2json_utils.dart
 SPDXID: SPDXRef-xml2json-utils-7
 FileType: SOURCE
-FileChecksum: SHA1: 4026e73b3f1387ac2c52921890298c0fbd2f8e20
+FileChecksum: SHA1: d65decad89038228a5af6e838b452e6be2a7ea58
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
@@ -109,7 +109,7 @@ FileCopyrightText: NOASSERTION
 FileName: pubspec.yaml
 SPDXID: SPDXRef-pubspec-9
 FileType: TEXT
-FileChecksum: SHA1: cda5a14e522b56cfc87b986dab6467d2a6efd6a5
+FileChecksum: SHA1: 9640fd404c9ce2d7873d155987bc3e438d4a9839
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
